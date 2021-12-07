@@ -22,26 +22,23 @@
                 </ul>
             </div>
             <div class="user-info">
-                <div class="add-address">
-                    <a href="#">+ Thêm địa chỉ</a>
-                </div>
-                <div class="list-address">
-                    <div class="address">
-                        <div class="info">
-                            <ul>
-                                <li>NGUYỄN PHAN MINH THƯ</li>
-                                <li>Địa chỉ: Quảng Nam, Việt Nam</li>
-                                <li>Số điện thoại: 0987654321</li>
-                            </ul>
-                        </div>
-                        <div class="info">
-                            <p class="mac-dinh">Địa chỉ mặc định</p>
-                        </div>
-                        <div class="info">
-                            <a href="#">Chỉnh sửa</a>
-                        </div>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label class="text-inf">Mật khẩu cũ:</label><br>
+                        <input type="password" name="name" id="name" class="form-control">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label class="text-inf">Mật khẩu mới:</label><br>
+                        <input type="password" name="username" id="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-inf">Xác nhận mật khẩu mới:</label><br>
+                        <input type="password" name="email" id="mail" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input style="margin-top: 20px;" type="submit" name="submit" class="btn btn-danger btn-md" value="CHỈNH SỬA">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="header">
    	<div class="logo">
    		<a href="#">
-            <img src="../../../assets/images/commons/logo.png"/>
+            <img src="assets/images/commons/logo.png"/>
         </a>
    	</div>
     <div class="slogan">
@@ -17,25 +17,20 @@
         </div>
    	</div>
     <div class="login-cart">
-		<a href="../pages/login.php">
+		<a href="index.php?controller=user&action=login">
 			<span class="far fa-user"></span>
 			<?php
-				// Khởi tạo session PHP nếu chưa khởi tạo
-				if (session_id() === '')
-				session_start();
-
-				if( isset( $_SESSION['user'] ) ) {
+				if(isset( $_SESSION['user'] ) ) {
 			?>
 				<div class="dropdown ">
 					<a data-toggle="dropdown" href="#">
-						Tên người dùng
+					<?php
+						echo($_SESSION['user']);
+					?>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
-						<li><a class="dropdown-item" href="#">Thay đổi mật khẩu</a></li>
-						<li><a class="dropdown-item" href="#">Đơn hàng đã đặt</a></li>
-						<li><a class="dropdown-item" href="#">Sổ địa chỉ</a></li>
-						<li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+						<li><a class="dropdown-item" href="index.php?controller=user&action=info">Thông tin tài khoản</a></li>
+						<li><a class="dropdown-item" href="index.php?controller=user&action=logout">Đăng xuất</a></li>
 					</ul>
 				</div>
 			<?php
@@ -48,7 +43,7 @@
 		</a>
    	</div>
    	<div class="login-cart">
-   		<a href="showCart">
+   		<a href="index.php?controller=cart&action=list">
 			<span class="fas fa-shopping-cart"></span>
 			<t id="text-gio-hang">Giỏ hàng</t>
 		</a>

@@ -21,7 +21,8 @@
     </div>
     <div class="khoi">
         <h4>HỖ TRỢ KHÁCH HÀNG</h4>
-        <p><a href="#">Giới thiệu</a></p>
+        <p><a href="index.php?controller=page&action=intro">Giới thiệu</a></p>
+        <p><a href="index.php?controller=page&action=contact">Phản hồi</a></p>
         <p><a href="#">Chính sách đổi - trả - hoàn tiền</a></p>
         <p><a href="#">Phương thức vận chuyển</a></p>
         <p><a href="#">Phương thức thanh toán và xuất hóa đơn</a></p>
@@ -32,11 +33,10 @@
         <p>Đăng ký nhận tin về sản phẩm mới</p>
         <div class="find">
 		<div class="search-box">
-			<form action="#" method="POST" onsubmit="return check()">
+			<form action="#" method="POST">
            		<input id="searchText" type="text" placeholder="Email" name="searchText" value="">
            		<button type="submit">GỬI</button>
            	</form>
         </div>
    	</div>
-    </div>
 </div>

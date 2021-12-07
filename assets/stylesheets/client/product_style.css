@@ -43,7 +43,7 @@ li.active {
     margin-bottom: 30px;
 }
 .product-list-filter__label {
-    font-size: 28px;
+    font-size: 23px;
     line-height: 32px;
     color: var(--primary-color);
     padding-left: 23px;
@@ -148,7 +148,6 @@ a.select-input__link {
 }
 span.product-list__select-sort {
     margin: 0px 16px;
-    line-height: 6px;
     color: #121111;
     font-size: 20px;
     font-weight: 500;
@@ -385,7 +384,7 @@ a.pagination-item__link {
     margin: 0;
     line-height: 50px;
     text-align: center;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 550;
 }
 /* thông tin */
@@ -556,14 +555,13 @@ a.product-btn__add {
 }
 /* Sản phẩm tương tự */
 .product-similar{
-    display: flex;
     padding: 20px 12px;
    
 }
 .product-similar__list {
     margin-bottom: 16px;
     width: 270px;
-    height: 410px;
+    height: 400px;
 }
 .product-similar__lists {
     padding: 0 8px;
@@ -614,16 +612,9 @@ a.product-similar_link {
     -webkit-line-clamp: 2;
 }
 .product-similar-item__img {
-    width: 70%;
-    height: 40%;
+    width: 80%;
+    height: 50%;
     margin: auto;
-    padding-top: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 }
 .product-similar-item__price {
     display: flex;

@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<title><?php echo isset($title) ? $title : 'Trang chủ'; ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="stylesheet" type="text/css" href="../../../assets/lib/font-awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="../../../assets/lib/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/client_style.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/client/product_style.css"/>
-	<link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/client/pay_style.css"/>
-</head>
-
-<body>
-    <?php require('../layouts/header.php'); ?>
-	<?php require('../layouts/menu.php'); ?>
+<?php require('views/client/layouts/header.php'); ?>
+<?php require('views/client/layouts/menu.php'); ?>
 <div class="pay">
-    <div class="pay__title">
-            <h3 class="pay__heading" >THANH TOÁN</h3>
+    <div class="product-detail__title">
+        <h3 class="product-detail__heading" >THANH TOÁN</h3>
     </div>
 
     <div class="pay-generality">
@@ -116,16 +100,12 @@
             </div>
             
         </div>
-        <a href="#" class="pay-generality__btn">
-                     <button class="btn btn_pram">ĐẶT HÀNG</button>
-                </a>
+        <div class="count-right">
+					<a href="#">ĐẶT HÀNG</a>	
+				</div>
+				<div class="clr"></div>
     
 
     </div>
 </div>
-<?php require('../layouts/footer.php'); ?>
-
-	<script src="../../../assets/lib/jquery-3.3.1.min.js"></script>
-    <script src="../../../assets/lib/popper.min.js"></script>
-    <script src="../../../assets/lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
+<?php require('views/client/layouts/footer.php'); ?>

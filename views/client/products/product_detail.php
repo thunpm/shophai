@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<title><?php echo isset($title) ? $title : 'Trang chủ'; ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="stylesheet" type="text/css" href="../../../assets/lib/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../assets/lib/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/client_style.css"/>
-	<link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/client/product_style.css"/>
-	<link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/client/pay_style.css"/>
-</head>
-
-<body>
-    <?php require('../layouts/header.php'); ?>
-	<?php require('../layouts/menu.php'); ?>
+<?php require('views/client/layouts/header.php'); ?>
+<?php require('views/client/layouts/menu.php'); ?>
 <div class="product-detail">
     <ul class="breadcrum">
         <li class="active"><a href="#" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li> 
@@ -73,10 +57,10 @@
                 <button class="product-detail__number-minus"><i class="fas fa-plus"></i></button>
             </div>
             <div class="product-btn">
-                <a href="#" class="product-btn__add">
+                <a href="index.php?controller=cart&action=list" class="product-btn__add">
                      <button class="btn btn_pram"> THÊM GIỎ HÀNG</button>
                 </a>
-                <a href="#" class="product-btn__add">
+                <a href="index.php?controller=cart&action=pay" class="product-btn__add">
                     <button class="btn btn_pram product-btn__buying"> MUA NGAY</button>
                 </a>
             </div>
@@ -221,131 +205,217 @@
         </div>
         <div class="product-similar">
 
-            <a href="" class="product-similar_link">
-            <i class="product-similar__icon fas fa-angle-left"></i>
-            </a>
-
-            <div class="product-similar__lists">
-                <a href="#" class="product-similar-item">
-                    <div class="product-similar-item__img" style="background-image: url(https://cdn.nguyenkimmall.com/images/detailed/702/dien-thoai-iphone-12-pro-256gb-xanh-1.jpg);"> </div>
-                    <h4 class="product-similar-item__name">Điện thoại iphone 12 Pro Max 256 GB</h4>
-                    <div class="product-similar-item__price">
-                            <span class="product-item__price-current">35.560.000đ</span>
-                                <span class="product-similar-item__price-old">30.000.000đ</span>
-                        
-                            </div>
-                            <div class="product-item__action">
-                               
-                            <div class="product-item__ration">
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                                <span class="product-similar-item__sold">Đã bán 2.4k</span>
-                            </div>
-                            
-                   
-                    <div class="product-similar-item__sale-off">
-                        <span class="product-similar-item_sale-off-percent">10%</span>
-                        <span class="product-similar-item__sale-off-label">GIẢM</span>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-similar__lists">
-                <a href="#" class="product-similar-item">
-                    <div class="product-similar-item__img" style="background-image: url(https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/703/dien-thoai-iphone-12-pro-256gb-bac-1_kcvv-78.jpg);"> </div>
-                    <h4 class="product-similar-item__name">Điện thoại iphone 13 128GB Đỏ</h4>
-                    <div class="product-similar-item__price">
-                            <span class="product-item__price-current">40.560.000đ</span>
-                                <span class="product-similar-item__price-old">38.900.000đ</span>
-                        
-                            </div>
-                            <div class="product-item__action">
-                                
-                            <div class="product-item__ration">
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                            </div>
-                                <span class="product-similar-item__sold">Đã bán 1.4k</span>
-                            </div>
-                            
-                    <div class="product-similar-item__sale-off">
-                        <span class="product-similar-item_sale-off-percent">25%</span>
-                        <span class="product-similar-item__sale-off-label">GIẢM</span>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-similar__lists">
-                <a href="#" class="product-similar-item">
-                    <div class="product-similar-item__img" style="background-image: url(https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/756/dien-thoai-iphone-13-pro-max-128gb-xam-1.jpg);"> </div>
-                    <h4 class="product-similar-item__name">Điện thoại iphone 13 Pro Max 128 GB Xám</h4>
-                    <div class="product-similar-item__price">
-                            <span class="product-item__price-current">35.560.000đ</span>
-                                <span class="product-similar-item__price-old">31.999.000đ</span>
-                        
-                            </div>
-                            <div class="product-item__action">
-                               
-                            <div class="product-item__ration">
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                                <span class="product-similar-item__sold">Đã bán 500</span>
-                            </div>
-                            
-                    <div class="product-similar-item__sale-off">
-                        <span class="product-similar-item_sale-off-percent">5%</span>
-                        <span class="product-similar-item__sale-off-label">GIẢM</span>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-similar__lists">
-                <a href="#" class="product-similar-item">
-                    <div class="product-similar-item__img" style="background-image: url(https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/698/10047714-dien-thoai-iphone-12-pro-128gb-bac-1.jpg);"> </div>
-                    <h4 class="product-similar-item__name">Điện thoại iphone 12 128GB Bạc</h4>
-                    <div class="product-similar-item__price">
-                            <span class="product-item__price-current">28.980.00</span>
-                                <span class="product-similar-item__price-old">25.999.000đ</span>
-                        
-                            </div>
-                            <div class="product-item__action">
-                               
-                            <div class="product-item__ration">
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class="product-item__star fas fa-star"></i>
-                                <i class=" fas fa-star"></i>
-                            </div>
-                                <span class="product-similar-item__sold">Đã bán 2.0k</span>
-                            </div>
-                           
-                   
-                    <div class="product-similar-item__sale-off">
-                        <span class="product-similar-item_sale-off-percent">10%</span>
-                        <span class="product-similar-item__sale-off-label">GIẢM</span>
-                    </div>
-                </a>
-
-            </div>
-            
-
-             <a href="" class="product-similar_link">
-                <i class="product-similar__icon fas fa-angle-right"></i>
-            </a>
-
-       </div>
+                <div id="carouselP10" class="carousel slide" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="card-list">
+								<a href="index.php?controller=product&action=product_detail" class="card">
+									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">Iphone</h5>
+										<div class="card-text">
+											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+												A14 Bionic
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+												6.1"
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+												4GB
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+												64GB
+											</div>
+											<div class="gia">
+												<p class="gia-goc">21,999,000</p>
+												<p class="gia-km">19,999,000</p>
+											</div>
+											<div class="product-item__action">
+												<div class="product-item__ration">
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</div>
+												<span class="product-similar-item__sold">Đã bán 88</span>
+											</div>
+											<div class="product-similar-item__sale-off">
+												<span class="product-similar-item_sale-off-percent">10%</span>
+												<span class="product-similar-item__sale-off-label">GIẢM</span>
+											</div>
+										</div>
+									</div>
+								</a>
+								<div class="card">
+									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">Iphone</h5>
+										<div class="card-text">
+											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+												A14 Bionic
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+												6.1"
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+												4GB
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+												64GB
+											</div>
+											<div class="gia">
+												<p class="gia-goc">21,999,000</p>
+												<p class="gia-km">19,999,000</p>
+											</div>
+											<div class="product-item__action">
+												<div class="product-item__ration">
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</div>
+												<span class="product-similar-item__sold">Đã bán 88</span>
+											</div>
+											<div class="product-similar-item__sale-off">
+												<span class="product-similar-item_sale-off-percent">10%</span>
+												<span class="product-similar-item__sale-off-label">GIẢM</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">Iphone</h5>
+										<div class="card-text">
+											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+												A14 Bionic
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+												6.1"
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+												4GB
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+												64GB
+											</div>
+											<div class="gia">
+												<p class="gia-goc">21,999,000</p>
+												<p class="gia-km">19,999,000</p>
+											</div>
+											<div class="product-item__action">
+												<div class="product-item__ration">
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</div>
+												<span class="product-similar-item__sold">Đã bán 88</span>
+											</div>
+											<div class="product-similar-item__sale-off">
+												<span class="product-similar-item_sale-off-percent">10%</span>
+												<span class="product-similar-item__sale-off-label">GIẢM</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">Iphone</h5>
+										<div class="card-text">
+											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+												A14 Bionic
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+												6.1"
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+												4GB
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+												64GB
+											</div>
+											<div class="gia">
+												<p class="gia-goc">21,999,000</p>
+												<p class="gia-km">19,999,000</p>
+											</div>
+											<div class="product-item__action">
+												<div class="product-item__ration">
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</div>
+												<span class="product-similar-item__sold">Đã bán 88</span>
+											</div>
+											<div class="product-similar-item__sale-off">
+												<span class="product-similar-item_sale-off-percent">10%</span>
+												<span class="product-similar-item__sale-off-label">GIẢM</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="card-list">
+								<div class="card">
+									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">Iphone</h5>
+										<div class="card-text">
+											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+												A14 Bionic
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+												6.1"
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+												4GB
+											</div>
+											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+												64GB
+											</div>
+											<div class="gia">
+												<p class="gia-goc">21,999,000</p>
+												<p class="gia-km">19,999,000</p>
+											</div>
+											<div class="product-item__action">
+												<div class="product-item__ration">
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="product-item__star fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</div>
+												<span class="product-similar-item__sold">Đã bán 88</span>
+											</div>
+											<div class="product-similar-item__sale-off">
+												<span class="product-similar-item_sale-off-percent">10%</span>
+												<span class="product-similar-item__sale-off-label">GIẢM</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a class="carousel-control-prev" role="button" href="#carouselP10" data-slide="prev">
+						<span class="fas fa-angle-left" aria-hidden="true"></span>
+						<span class="sr-only"></span>
+					</a>	
+					<a class="carousel-control-next" role="button" href="#carouselP10" data-slide="next">
+						<span class="fas fa-angle-right" aria-hidden="true"></span>
+						<span class="sr-only"></span>
+					</a>
+                </div>
+        </div>
     </div>
     <!-- đánh giá sản phẩm -->
     <div class="product-detail__same">
@@ -368,8 +438,4 @@
     </div>
     </div>
 </div>
-<?php require('../layouts/footer.php'); ?>
-	<script src="../../../assets/lib/jquery-3.3.1.min.js"></script>
-    <script src="../../../assets/lib/popper.min.js"></script>
-    <script src="../../../assets/lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
+<?php require('views/client/layouts/footer.php'); ?>

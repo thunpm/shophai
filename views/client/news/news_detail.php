@@ -31,7 +31,7 @@
 
 			<p>Với mong muốn 'tăng sức nóng' cho mùa mau sắm cuối năm cũng như gửi lời cảm ơn đến tất cả các khách hàng, Hai Shop sẽ dành tặng bạn nhiều ưu đãi giá trị và thiết thực thông qua chương trình Khuyến mại đặc biệt khi thanh toán qua ví ZaloPay. </p>
 
-			<p><img src="../../../assets/images/news/tt.jpg" alt="" /></p>
+			<p><center><img src="assets/images/news/tt.jpg" alt="" /></center></p>
 
 			<p>Một số lưu ý nhỏ về chương trình ưu đãi này:</p>
 			<ul>

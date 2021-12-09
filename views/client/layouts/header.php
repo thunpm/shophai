@@ -1,13 +1,41 @@
 <div class="header">
-   	<div class="logo">
-   		<a href="#">
-            <img src="assets/images/commons/logo.png"/>
-        </a>
-   	</div>
-    <div class="slogan">
-   		<p style="font-family: cursive; text-align: center;">HAI SHOP</p>
-        <p>Hàng điện tử không bao giờ tử</p>
-   	</div>
+	<div class="logo-slogan">
+		<div class="logo">
+			<a href="#">
+				<img src="assets/images/commons/logo.png"/>
+			</a>
+		</div>
+		<div class="slogan">
+			<p style="font-family: cursive; text-align: center;">HAI SHOP</p>
+			<p>Hàng điện tử không bao giờ tử</p>
+		</div>
+		<div class="login-cart">
+			<div class="login">
+				<?php
+					if(isset( $_SESSION['user'] ) ) {
+				?>
+					<div class="dropdown dropleft">
+						<a data-toggle="dropdown" href="#"><span class="far fa-user"></span></a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="index.php?controller=user&action=info">Thông tin tài khoản</a></li>
+							<li><a class="dropdown-item" href="index.php?controller=user&action=logout">Đăng xuất</a></li>
+						</ul>
+					</div>
+				<?php
+					} else {	
+				?>
+					<a href="index.php?controller=user&action=login"><span class="far fa-user"></span></a>
+				<?php
+					}
+				?>
+			</div>
+			<div class="cart">
+				<a href="index.php?controller=cart&action=list">
+					<span class="fas fa-shopping-cart"></span>
+				</a>
+			</div>
+		</div>
+	</div>
    	<div class="find">
 		<div class="search-box">
 			<form action="#" method="POST" onsubmit="return check()">
@@ -17,13 +45,12 @@
         </div>
    	</div>
     <div class="login-cart">
-		<a href="index.php?controller=user&action=login">
-			<span class="far fa-user"></span>
+		<div class="login">
 			<?php
 				if(isset( $_SESSION['user'] ) ) {
 			?>
 				<div class="dropdown ">
-					<a data-toggle="dropdown" href="#">
+					<a data-toggle="dropdown" href="#"><span class="far fa-user"></span>
 					<?php
 						echo($_SESSION['user']);
 					?>
@@ -36,18 +63,18 @@
 			<?php
 				} else {	
 			?>
-				Đăng nhập
+				<a href="index.php?controller=user&action=login"><span class="far fa-user"></span>Đăng nhập</a>
 			<?php
 				}
 			?>
-		</a>
-   	</div>
-   	<div class="login-cart">
-   		<a href="index.php?controller=cart&action=list">
-			<span class="fas fa-shopping-cart"></span>
-			<t id="text-gio-hang">Giỏ hàng</t>
-		</a>
-   	</div>
+		</div>
+		<div class="cart">
+			<a href="index.php?controller=cart&action=list">
+				<span class="fas fa-shopping-cart"></span>
+				Giỏ hàng
+			</a>
+		</div>
+	</div>
    	
    	<script type="text/javascript">
    		function check() {

@@ -1,11 +1,11 @@
 <div class="footer">
 	<div class="khoi">
-        <h4>HAI SHOP</h4>
+        <p class="title">HAI SHOP</p>
         <p>Cửa hàng điện tử lớn nhất miền Trung, với sản phẩm đa dạng
          và chất lượng, hứa hẹn đem đến cho người dùng những trải nghiệm tốt nhất.</p>
     </div>
     <div class="khoi">
-        <h4>LIÊN HỆ</h4>
+        <p class="title">LIÊN HỆ</p>
         <p>
         	<i class="fas fa-map-marker-alt"></i>
         	459 Tôn Đức Thắng, Liên Chiểu, Đà Nẵng
@@ -20,7 +20,7 @@
         </p>
     </div>
     <div class="khoi">
-        <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+        <p class="title">HỖ TRỢ KHÁCH HÀNG</p>
         <p><a href="index.php?controller=page&action=intro">Giới thiệu</a></p>
         <p><a href="index.php?controller=page&action=contact">Phản hồi</a></p>
         <p><a href="#">Chính sách đổi - trả - hoàn tiền</a></p>
@@ -29,7 +29,7 @@
         <p><a href="#">Các câu hỏi thường gặp</a></p>
     </div>
     <div class="khoi">
-        <h4></h4>
+        <p class="title"></p>
         <p>Đăng ký nhận tin về sản phẩm mới</p>
         <div class="find">
 		<div class="search-box">

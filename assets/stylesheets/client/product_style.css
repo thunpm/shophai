@@ -155,6 +155,7 @@ span.product-list__select-sort {
 .product-item__action {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 0px 10px;
 }
 .product-item__ration {

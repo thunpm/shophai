@@ -29,6 +29,7 @@
 
 .main .title .title-left h3 {
 	color: #d21809;
+	margin-left:  10px;
 }
 
 .main .title .title-right {
@@ -66,7 +67,7 @@
 
 .main .content .list {
 	width: 800px;
-	margin-left: 100px;
+	margin-left: 250px;
 }
 
 .main .content .list li {
@@ -111,6 +112,7 @@
 	font-size: 16px;
 	line-height: 19px;
 	margin-bottom: 10px;
+	padding-left: 0px;
 }
 
 .main .menuu p{

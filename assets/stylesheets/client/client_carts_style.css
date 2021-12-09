@@ -27,6 +27,7 @@ body {
 
 .main .contain table {
 	margin-left: 25px;
+	margin-right: 25px;
 	height: 562px;
 	padding-top: 35px;
 	border-collapse:collapse;

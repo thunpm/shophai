@@ -25,7 +25,7 @@
 }
 
 .main .content .comment p {
-	background: url('../images/news/user.png');
+	background: url('../../images/news/user.png');
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: 20px 20px;
@@ -40,7 +40,7 @@
 .main .content .comment .cmt a{
 	text-decoration: none;
 	color: #ED5323;
-	background: url('../images/news/cmt.png');
+	background: url('../../images/news/cmt.png');
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 	padding-left: 10px;
@@ -91,7 +91,6 @@
 }
 
 .main .content .cont .cham {
-	width: 760px;
 	margin-bottom: 10px;
 	
 }
@@ -119,7 +118,7 @@
 	background-color: #ED5323;
 	padding: 5px 5px 5px 25px;;
 	border-radius: 5px;
-	background-image: url('../images/news/like.png');
+	background-image: url('../../images/news/like.png');
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 	background-position: left center;

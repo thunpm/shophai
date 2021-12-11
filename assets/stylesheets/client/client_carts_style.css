@@ -1,15 +1,14 @@
-
 body {
 	background-color: #dcdcdc;
 }
 
-.main {
+.mainn {
 	width: 90%;
 	margin: 50px auto;
 	padding: 5px;
 }
 
-.main .tittle h2 {
+.mainn .tittle h2 {
 	color: #ED5323;
 	font-weight: bold;
 	font-size: 30px;
@@ -18,30 +17,27 @@ body {
 	padding-top: 10px;
 }
 
-.main .contain {
+.mainn .contain {
 	background-color: white;
 	border-radius: 7px;
 	padding-bottom: 30px;
 	margin-top: 30px;
 }
 
-.main .contain table {
-	margin-left: 25px;
-	margin-right: 25px;
-	height: 562px;
+.mainn .contain table {
+	width: 95%;
 	padding-top: 35px;
 	border-collapse:collapse;
-	margin-bottom: 20px;
+	margin: 10px auto;
 }
 	
 
-.main .contain table tr {
-	width: 1200px;
+.mainn .contain table tr {
 	border-bottom: 1px solid #14274A;
 }
 
 
-.main .contain table tr th {
+.mainn .contain table tr th {
 	font-size: 20px;
 	color: #14274A;
 	padding-bottom: 10px;
@@ -49,39 +45,40 @@ body {
 	text-align: center;
 }
 
-.main .contain table tr td {
+.mainn .contain table tr td {
 	text-align: center;
 	padding: 10px;
 }
 
-.main .contain table tr td .cont-left {
-	width: 180px;
+.mainn .contain table tr td .cont-left {
+	width: 40%;
 	float: left;
+	margin-right: 5px;
 }
 
-.main .contain table tr td .cont-left a img{
+.mainn .contain table tr td .cont-left a img{
 	width: 150px;
 	height: 150px;
 }
 
-.main .contain table tr td .cont-right {
-	width: 220px;
+.mainn .contain table tr td .cont-right {
+	width: 50%;
 	float: right;
-	padding-right: 40px;
 }
 
-.main .contain table tr td .cont-right h4 {
+.mainn .contain table tr td .cont-right h4 {
 	margin-top: 30px;
 	margin-bottom: 15px;
+	width: 173px;
 }
 
-.main .contain table tr td .cont-right h4 a{
+.mainn .contain table tr td .cont-right h4 a{
 	text-decoration: none;
 	font-size: 18px;
 	color: #14274A;
 }
 
-.main .contain table tr td .cont-right p{
+.mainn .contain table tr td .cont-right p{
 	font-size: 16px;
 	line-height: 19px;
 	color: #5C6C78;
@@ -90,12 +87,12 @@ body {
 	padding-left: 4px;
 }
 
-.main .contain .count-left {
+.mainn .contain .count-left {
 	margin-bottom: 15px;
 }
 
-.main .contain .count-left p {
-	padding-left: 30px;
+.mainn .contain .count-left p {
+	padding-left: 80px;
 	font-style: italic;
 	font-size: 20px;
 	font-weight: bold;
@@ -120,20 +117,53 @@ body {
 }
 
 .tang {
-	padding: 5px 6px;;
+	padding: 5px 10px;;
 	border: 1px solid black;
 }
 
 .number {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
-	padding: 5px 15px;
-}
-
-.edit {
-	margin-right: 15px;
+	padding: 5px 20px;
 }
 
 .clr {
 	clear: both;
+}
+
+@media screen and (max-width: 990px) {
+.mainn {width: 100%;padding:  0px;}
+.mainn .contain table tr th {font-size: 17px;}
+.mainn .contain table tr td .cont-right p{font-size: 14px;}
+.mainn .contain table tr td .cont-right h4 a{font-size: 15px;}
+.price {font-size: 16px;}
+.mainn .contain .count-left p {padding-left: 30px;}
+.mainn .contain table tr td .cont-right h4 {width: 150px;}
+.edit {margin-right: 0px;}
+.count-right a {font-size: 18px;}
+.mainn .contain table tr td .cont-left a img{
+	width: 100%;
+}
+}
+
+@media screen and (max-width: 620px) {
+.mainn .contain table {width: 100%;margin-left: 0em;padding-top: 35px;border-collapse:collapse;margin-bottom: 20px;}
+table, thead, tbody, th, td, tr { display: block; }
+.mainn .contain table tr td .cont-left a img{
+	width: 50%;
+}
+.mainn .contain table tr td .cont-left {width: 100%;float: none;margin-right: 0px;padding-left: 3em;}
+.mainn .contain table tr td .cont-right {width: 100%;float: none;padding-left: 35%;}
+thead tr { position: absolute;top: -9999px;left: -9999px;}
+td { border: none;border-bottom: 1px solid #eee; position: relative;}
+td:before { position: absolute;top: 6px;left: 6px;width: 30%; font-size: 15px;font-weight: bold;white-space: nowrap;}
+.price {font-size: 17px;}
+.mainn .contain table tr {margin-bottom: 20px;}
+.count-right a {border-radius: 5px;font-size: 20px;background-color: #ED5323;color: white;float: right;margin-right: 55px;}
+.mainn .contain .count-left p {padding-left: 2em;}
+td:nth-of-type(1):before { content: "Tên sản phẩm"; }
+td:nth-of-type(2):before { content: "Giá"; }
+td:nth-of-type(3):before { content: "Số lượng"; }
+td:nth-of-type(4):before { content: "Thành tiền"; }
+td:nth-of-type(5):before { content: ""; }
 }

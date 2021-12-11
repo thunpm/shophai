@@ -78,6 +78,7 @@
 
 .main .content .cont p img{
 	width: 760px;
+	text-align: center;
 }
 
 .main .content .cont ul li {
@@ -139,4 +140,25 @@
 
 .clr {
 	clear: both;
+}
+
+@media screen and (max-width: 990px) {
+.main .tt {width: 100%;}
+.main .content .cont p img{	width: 100%;}
+.main .content .title h3 {font-size: 20px;}
+.main .content .cont p {font-size: 17px;}
+.main .content .cont .quangcao ul li a{font-size: 17px;}
+.main .content .cont ul li {font-size: 17px;}
+}
+
+@media screen and (max-width: 620px) {
+.main .tt {width: 100%;}
+.main .content .title {padding-left: 0px;margin-bottom: 10px;padding-top: 20px;padding-right: 20px}
+.main .content .cont p img{	width: 100%;}
+.main .content .cont .quangcao ul li{padding-left: 4px;margin-left: 1em;padding-right: 20px;}
+.main .content .cont .quangcao ul li a{font-size: 15px;text-align: justify;}
+.main .content .cont p {font-size: 15px;text-align: justify;}
+.main .content .cont ul li {font-size: 15px;text-align: justify;}
+.main .content .title h3 {font-size: 20px;}
+.main .content .comment .cmt a{font-size: 15px;}
 }

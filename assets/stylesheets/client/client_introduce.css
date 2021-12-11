@@ -55,3 +55,12 @@
 .intro .content ul li .kk ul li p .tt {
 	font-weight: bold;
 }
+
+
+@media screen and (max-width: 620px) {
+.intro .title h2 {font-size: 30px;}
+.intro .title p {font-size: 15px;}
+.intro .content ul li h4 {font-size: 17px;}
+.intro .content ul li p {font-size: 15px;padding:  0px 1em;}
+.intro .content ul li {margin-bottom: 40px;}
+}

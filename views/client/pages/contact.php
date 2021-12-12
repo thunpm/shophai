@@ -98,8 +98,7 @@
                         </td>
                     </tr>
                     <tr >
-                        <td class="contact-infor__from-td" style="width:150px;">
-                        &nbsp 
+                        <td class="contact-infor__right-from-td" style="width:150px;">
                             <span class="contact-infor__right-from-red">(*)</span>
                                 Nội dung:</td>
                             <td class="contact-infor__right-from-td">

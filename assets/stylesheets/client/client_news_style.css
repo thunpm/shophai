@@ -1,6 +1,6 @@
 .main {
 	width: 90%;
-	margin: 50px auto;
+	margin: 20px auto;
 	padding: 5px;
 }
 
@@ -46,6 +46,10 @@
 	padding:  5px 15px;
 }
 
+.main .title .title-right a:hover {
+	background-color: #ED5323;
+}
+
 .main .content {
 	background-color: white;
 	border-radius: 7px;
@@ -79,6 +83,10 @@
 
 .main .content .list li .cont {
 	display: block;
+}
+
+.main .content .list li .cont:hover {
+	transform: scale(1.02);
 }
 
 .main .content .list li .cont:hover {

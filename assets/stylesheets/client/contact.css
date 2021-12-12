@@ -82,3 +82,39 @@ td.contact-infor__left-from-td {
     text-align: center;
 
 }
+/* responsive */
+@media screen and (max-width: 990px){
+    .contact {
+        padding: 20px 0;
+    }
+    .contact-infor {
+        padding: 40px 11px;
+    }
+    iframe {
+        width: -webkit-fill-available;
+    }
+    .contact-content {
+        display: initial;
+    }
+    .contact-content__left {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    p.contact-infor__right-title {
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 990px){
+    iframe {
+        width: -webkit-fill-available;
+    }
+    .contact-content__left {
+        
+        width: 110%;
+    }
+   
+
+}

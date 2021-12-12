@@ -16,10 +16,10 @@
             <img src="https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/702/dien-thoai-iphone-12-pro-256gb-xanh-1.jpg" alt="Mô tả" class="product-detail__img-big">
        
             <div class="product-detail__infor-img--item">
-                <img src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/xanh_lljz-g0_o830-z3.jpg" alt="" class="product-detail__img-small">
+                <img src="assets/images/products/minhhoa.jpg" alt="" class="product-detail__img-small">
                 <img src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/bac.jpg" alt="" class="product-detail__img-small">
                 <img src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/44/iphone-13-pro-xanh_1ikv-b2.jpg" alt="" class="product-detail__img-small">
-                <img src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/38/vang_t5fi-6x_hs28-q4_fouh-bc_49ku-va.jpg" alt="" class="product-detail__img-small">
+                <img src="https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/702/dien-thoai-iphone-12-pro-256gb-xanh-1.jpg" alt="" class="product-detail__img-small">
             
             </div>
         </div>

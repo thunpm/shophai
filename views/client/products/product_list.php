@@ -9,31 +9,63 @@
         <li class="active"> Điện thoại</li>
     </ul> 
     <div class="product-list">
-        <div class="product-list-filter">
-            <div>
-            <span class="product-list-filter__label">Điện thoại</span>
-            <span class="product-list-filter__quantity">(301 sản phẩm)</span>
+    <div class="product-list-filter">
+                <div>
+                <span class="product-list-filter__label">Điện thoại</span>
+                <span class="product-list-filter__quantity">(301 sản phẩm)</span>
+                </div>
+                <div class="product-moble">
+                    <div class="product-moble__icon">
+                        <i class="fas fa-chevron-circle-down product-list-moble__icon "></i>
+                    </div>
+                    <div class="product-list-moble">
+                        
+                        <div class="product-list-moble__filter"> 
+                            <button class="filter__btn ">iPhone</button>
+                        </div> 
+                        <div class="product-list-moble__filter"> 
+                            <button class="filter__btn">Samsung</button>
+                            </div> 
+                        <div class="product-list-moble__filter"> 
+                            <button class="filter__btn ">ASUS</button>
+                            </div> 
+                        <div class="product-list-moble__filter"> 
+                            <button class="filter__btn ">Xiaomi</button>
+                        </div> 
+                    </div>
+                </div>
+                
+                
             </div>
-            <div>
-                <button class="filter__btn ">iPhone</button>
-                <button class="filter__btn">Samsung</button>
-                <button class="filter__btn ">ASUS</button>
-                <button class="filter__btn ">Xiaomi</button>
-            </div> 
-        </div>
     </div>
     <div class="product-list">
         <div class="product-list-filter">
-            <div>
-                <span class="product-list-filter__label">Chọn mức giá</span>
-                </div>
-                <div>
-                    <button class="filter__btn ">Dưới 2 triệu</button>
-                    <button class="filter__btn">Từ 2 triệu đến 6 triệu</button>
-                    <button class="filter__btn ">Từ 6 triệu đến 10 triệu</button>
-                    <button class="filter__btn ">Trên 10 triệu</button>
-                </div>
-            </div>
+                        <div>
+                            <span class="product-list-filter__label">Chọn mức giá</span>
+                        
+                            </div>
+                        <div class="product-moble">
+                        <div class="product-moble__icon">
+                        <i class="fas fa-chevron-circle-down product-list-moble__icon "></i>
+                    </div>
+                            <div class="product-list-moble">
+                        
+                            <div class="product-list-moble__filter"> 
+                                <button class="filter__btn ">Dưới 2 triệu</button>
+                            </div> 
+                            <div class="product-list-moble__filter"> 
+                                <button class="filter__btn">Từ 2 triệu đến 6 triệu</button>
+                            </div> 
+                            <div class="product-list-moble__filter"> 
+                                <button class="filter__btn ">Từ 6 triệu đến 10 triệu</button>
+                            </div> 
+                            <div class="product-list-moble__filter"> 
+                                <button class="filter__btn ">Trên 10 triệu</button>
+                            </div> 
+
+                        </div>
+                    </div>
+         
         </div>
         <div class="product-detail__same">
             <div class="product-list__title">
@@ -61,11 +93,7 @@
                     <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://cdn.nguyenkimmall.com/images/detailed/702/dien-thoai-iphone-12-pro-256gb-xanh-1.jpg">
                         <h4 class="product-similar-item__name">Điện thoại iphone 12 Pro Max 256 GB</h4>
-                            <div class="product-similar-item__price">
-                            <span class="product-item__price-current">35.560.000đ</span>
-                                <span class="product-similar-item__price-old">30.000.000đ</span>
-                        
-                            </div>
+                                                       
                             <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
                                 A14 Bionic
                             </div>
@@ -77,6 +105,11 @@
                             </div>
                             <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
                                 64GB
+                            </div>
+                            <div class="product-similar-item__price">
+                            <span class="product-item__price-current">35.560.000đ</span>
+                                <span class="product-similar-item__price-old">30.000.000đ</span>
+                        
                             </div>
                             <div class="product-item__action">
                                 <div class="product-item__ration">
@@ -343,7 +376,7 @@
                 </div>
                 <div class="product-similar__list">
                     <a href="#" class="product-similar-item">
-                        <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/39/vang_e4cs-q6.jpg">
+                        <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg">
                         <h4 class="product-similar-item__name">IPhone 12 Pro Max 128GB Chính Hãng - Trôi Bảo Hành</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
                                 A14 Bionic
@@ -358,6 +391,7 @@
                                 64GB
                             </div>
                             <div class="product-similar-item__price">
+                            <span class="product-item__price-current">28.500.000đ</span>
                                 <span class="product-similar-item__price-old">26.699.000đ</span>
                         
                             </div>

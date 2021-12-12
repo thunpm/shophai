@@ -25,4 +25,20 @@
 		<ul>
 	</div>
 </nav>
+
+<script>
+	jQuery(document).ready(function($) {
+		pos = $('.menu').position();
+		
+		$(window).scroll(function() {
+			var posScroll = $(document).scrollTop();
+			if (parseInt(posScroll) > parseInt(pos.top)) {
+				$('.menu').addClass('fixed');
+			} else {
+				$('.menu').removeClass('fixed');
+			}
+		});
+	}); 
+
+</script>
         

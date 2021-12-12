@@ -77,11 +77,13 @@ p {
 
 .header .login-cart li a {
 	color: black;
+	margin: 0px;
 }
 
 .header .login-cart a span {
 	margin: auto;
 	margin-bottom: 8px;
+	font-size: 16px;
 }
 
 .header .login-cart a:hover {
@@ -95,6 +97,12 @@ p {
 	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+.fixed {
+	z-index: 1;
+	position: fixed;
+  	top: 0;
 }
 
 .menu i {
@@ -175,12 +183,13 @@ p {
 
 .main-block {
 	background-color: gainsboro;
-	padding: 40px 0px 40px 0px;
 }
 
 .main-block .content {
 	width: 90%;
 	margin: auto;
+	margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .main-block .content .banner img {
@@ -219,6 +228,7 @@ p {
 .main-block .content .product-block .product .title-block .kind {
 	width: 40%;
 	display: flex;
+  	white-space: nowrap;
 	align-items: center;
 	justify-content: space-around;
 }
@@ -226,6 +236,7 @@ p {
 .main-block .content .product-block .product .title-block .kind a {
 	color: #d21809;
 	margin-right: 3%;
+	display: inline-block;
 }
 
 .main-block .content .product-block .product .title-block .kind a:hover {
@@ -444,8 +455,9 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 	.main-block .content {width: 100%;}
 	.footer .khoi {width: 80%; margin: 10px;}
 	.footer .khoi .title {margin-bottom: 10px; font-size: 16px;}
-	.card-list .card {width: 45%; margin-right: 0px; height: 300px;}
+	.card-list .card {width: max(45%, 200px); margin-right: 0px; height: 300px;}
 	.card-list .card .gia {margin: 0px;}
 	.header .find .search-box input {width: 300px; font-size: 14px;}
 }
+
 

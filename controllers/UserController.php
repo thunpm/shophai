@@ -38,7 +38,6 @@
             //     $this->render('login', $data);
             // }
             $_SESSION['user'] = new Customer("Thu", "123");
-            $data = array('title' => 'Đăng nhập');  
             header('Location: index.php?controller=page&action=home');
         }
         
@@ -54,12 +53,12 @@
 
         public function address_list() {
             $data = array('title' => 'Sổ địa chỉ của tôi');  
-            $this->render('address_list');
+            $this->render('address_list', $data);
         }
 
         public function password() {
             $data = array('title' => 'Đổi mật khẩu');  
-            $this->render('password');
+            $this->render('password', $data);
         }
 
         public function logout() {

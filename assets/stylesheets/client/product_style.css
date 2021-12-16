@@ -64,13 +64,17 @@ li.active {
     font-weight: 500;
     border-radius: 5px;
     padding: 0 8px;
+    color: #d21809;
   
 }
 .filter__btn:hover {
     transform: scale(1.01);
-    box-shadow: rgb(210 24 9) 4px 2px 4px;
+    cursor: pointer;
+    color: white;
+    background-color: #d21809;
     cursor: pointer;
 }
+
 .product-list__title-heading {
     height: 30px;
     font-size: 20px;
@@ -421,7 +425,7 @@ img.product-detail__img-small {
     margin: 54px;
 }
 h4.product-detail__infor--name {
-    font-size: 22px;
+    font-size: 30px;
 }
 .product-detail__infor--par {
     font-size: 16px;

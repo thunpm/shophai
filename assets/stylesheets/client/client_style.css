@@ -226,7 +226,7 @@ p {
 }
 
 .main-block .content .product-block .product .title-block .kind {
-	width: 40%;
+	width: 47%;
 	display: flex;
   	white-space: nowrap;
 	align-items: center;
@@ -235,14 +235,15 @@ p {
 
 .main-block .content .product-block .product .title-block .kind a {
 	color: #d21809;
-	margin-right: 3%;
-	display: inline-block;
+    margin-right: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-block .content .product-block .product .title-block .kind a:hover {
-	transform: scale(1.1);
 	text-decoration: none;
-	font-weight: 500px;
+	color: white;
 }
 
 .card-list {

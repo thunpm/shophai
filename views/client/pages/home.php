@@ -37,10 +37,18 @@
 				<div class="title-block">
 					<div class="title">Điện thoại bán chạy</div>
 					<div class="kind">
-						<a href="index.php?controller=product&action=product_list">iPhone</a>
-						<a href="index.php?controller=product&action=product_list">Samsung</a>
-						<a href="index.php?controller=product&action=product_list">ASUS</a>
-						<a href="index.php?controller=product&action=product_list">Xiaomi</a>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">iPhone</a>
+                        </div> 
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Samsung</a>
+						</div> 
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">ASUS</a>
+						</div> 
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Xiaomi</a>
+						</div> 
 					</div>
 				</div>
 				<div id="carouselP1" class="carousel slide border" data-ride="carousel" data-interval="false">
@@ -258,7 +266,9 @@
 				<div class="title-block">
 					<div class="title">Tablet bán chạy</div>
 					<div class="kind">
-						<a href="#">iPad</a>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="#">iPad</a>
+						</div>
 					</div>
 				</div>
 				<div id="carouselP2" class="carousel slide border" data-ride="carousel" data-interval="false">
@@ -461,10 +471,18 @@
 				<div class="title-block">
 					<div class="title">Laptop bán chạy</div>
 					<div class="kind">
-						<a href="index.php?controller=product&action=product_list">hp</a>
-						<a href="index.php?controller=product&action=product_list">Samsung</a>
-						<a href="index.php?controller=product&action=product_list">ASUS</a>
-						<a href="index.php?controller=product&action=product_list">DELL</a>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">hp</a>
+						</div>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Samsung</a>
+						</div>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">ASUS</a>
+						</div>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">DELL</a>
+						</div>
 					</div>
 				</div>
 				<div id="carouselP3" class="carousel slide border" data-ride="carousel" data-interval="false">
@@ -682,10 +700,18 @@
 				<div class="title-block">
 					<div class="title">Phụ kiện bán chạy</div>
 					<div class="kind">
-						<a href="index.php?controller=product&action=product_list">Apple Watch</a>
-						<a href="index.php?controller=product&action=product_list">Tai nghe</a>
-						<a href="index.php?controller=product&action=product_list">Loa</a>
-						<a href="index.php?controller=product&action=product_list">Sạc</a>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Apple Watch</a>
+						</div>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Tai nghe</a>
+						</div>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Loa</a>
+						</div>
+						<div class="product-list-moble__filter"> 
+							<a class="filter__btn" href="index.php?controller=product&action=product_list">Sạc</a>
+						</div>
 					</div>
 				</div>
 				<div id="carouselP4" class="carousel slide border" data-ride="carousel" data-interval="false">

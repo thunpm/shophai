@@ -5,7 +5,7 @@
 <!-- Trang sản phâm -->
 <div class="product-detail">
     <ul class="breadcrum">
-        <li class="active"><a href="#" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li>                
+        <li class="active"><a href="index.php?controller=page&action=home" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li>                
         <li class="active"> Điện thoại</li>
     </ul> 
     <div class="product-list">
@@ -131,7 +131,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/36/xanh_s2uq-2u.jpg">
                         <h4 class="product-similar-item__name">iPhone 12 Mini 128GB Chính Hãng VN/A</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
@@ -171,7 +171,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/bac.jpg">
                         <h4 class="product-similar-item__name">IPhone 12 Pro 512GB Chính Hãng VN/A</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
@@ -211,7 +211,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/xanh-la_e4eu-h7_8owt-fk_kyzy-oo.jpg">
                         <h4 class="product-similar-item__name">iPhone 12 256GB (Chưa Active)</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
@@ -252,7 +252,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/xanh.jpg"> 
                         <h4 class="product-similar-item__name">IPhone 12 Pro 256GB Chính Hãng VN/A (Like New)</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
@@ -293,7 +293,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/xanh.jpg"> 
                         <h4 class="product-similar-item__name">IPhone 12 Pro 128GB Chính Hãng VN/A</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
@@ -334,7 +334,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/44/iphone-13-pro-xanh_ypwp-f7.jpg">
                         <h4 class="product-similar-item__name">IPhone 13 Pro 128GB Chính Hãng VN/A</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
@@ -375,7 +375,7 @@
                     </a>
                 </div>
                 <div class="product-similar__list">
-                    <a href="#" class="product-similar-item">
+                    <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                         <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg">
                         <h4 class="product-similar-item__name">IPhone 12 Pro Max 128GB Chính Hãng - Trôi Bảo Hành</h4>
                         <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">

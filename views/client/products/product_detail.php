@@ -2,8 +2,8 @@
 <?php require('views/client/layouts/menu.php'); ?>
 <div class="product-detail">
     <ul class="breadcrum">
-        <li class="active"><a href="#" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li> 
-        <li class="active"><a href="#" class="breadcrum__active">Điện Thoại</a> <span class="active">/&nbsp</span></li>               
+        <li class="active"><a href="index.php?controller=page&action=home" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li> 
+        <li class="active"><a href="index.php?controller=product&action=product_list" class="breadcrum__active">Điện Thoại</a> <span class="active">/&nbsp</span></li>               
         <li class="active"> Chi tiết sản phẩm</li>
     </ul> 
     <!-- tiêu đề -->
@@ -247,162 +247,162 @@
 										</div>
 									</div>
 								</a>
-								<div class="card">
-									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Iphone</h5>
-										<div class="card-text">
-											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-												A14 Bionic
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-												6.1"
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-												4GB
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-												64GB
-											</div>
-											<div class="gia">
-												<p class="gia-goc">21,999,000</p>
-												<p class="gia-km">19,999,000</p>
-											</div>
-											<div class="product-item__action">
-												<div class="product-item__ration">
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<span class="product-similar-item__sold">Đã bán 88</span>
-											</div>
-											<div class="product-similar-item__sale-off">
-												<span class="product-similar-item_sale-off-percent">10%</span>
-												<span class="product-similar-item__sale-off-label">GIẢM</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card">
-									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Iphone</h5>
-										<div class="card-text">
-											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-												A14 Bionic
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-												6.1"
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-												4GB
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-												64GB
-											</div>
-											<div class="gia">
-												<p class="gia-goc">21,999,000</p>
-												<p class="gia-km">19,999,000</p>
-											</div>
-											<div class="product-item__action">
-												<div class="product-item__ration">
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<span class="product-similar-item__sold">Đã bán 88</span>
-											</div>
-											<div class="product-similar-item__sale-off">
-												<span class="product-similar-item_sale-off-percent">10%</span>
-												<span class="product-similar-item__sale-off-label">GIẢM</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card">
-									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Iphone</h5>
-										<div class="card-text">
-											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-												A14 Bionic
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-												6.1"
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-												4GB
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-												64GB
-											</div>
-											<div class="gia">
-												<p class="gia-goc">21,999,000</p>
-												<p class="gia-km">19,999,000</p>
-											</div>
-											<div class="product-item__action">
-												<div class="product-item__ration">
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<span class="product-similar-item__sold">Đã bán 88</span>
-											</div>
-											<div class="product-similar-item__sale-off">
-												<span class="product-similar-item_sale-off-percent">10%</span>
-												<span class="product-similar-item__sale-off-label">GIẢM</span>
-											</div>
-										</div>
-									</div>
-								</div>
+								<a href="index.php?controller=product&action=product_detail" class="card">
+                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Iphone</h5>
+                                        <div class="card-text">
+                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+                                                A14 Bionic
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+                                                6.1"
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+                                                4GB
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+                                                64GB
+                                            </div>
+                                            <div class="gia">
+                                                <p class="gia-goc">21,999,000</p>
+                                                <p class="gia-km">19,999,000</p>
+                                            </div>
+                                            <div class="product-item__action">
+                                                <div class="product-item__ration">
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="product-similar-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="product-similar-item__sale-off">
+                                                <span class="product-similar-item_sale-off-percent">10%</span>
+                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
+                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Iphone</h5>
+                                        <div class="card-text">
+                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+                                                A14 Bionic
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+                                                6.1"
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+                                                4GB
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+                                                64GB
+                                            </div>
+                                            <div class="gia">
+                                                <p class="gia-goc">21,999,000</p>
+                                                <p class="gia-km">19,999,000</p>
+                                            </div>
+                                            <div class="product-item__action">
+                                                <div class="product-item__ration">
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="product-similar-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="product-similar-item__sale-off">
+                                                <span class="product-similar-item_sale-off-percent">10%</span>
+                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
+                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Iphone</h5>
+                                        <div class="card-text">
+                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+                                                A14 Bionic
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+                                                6.1"
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+                                                4GB
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+                                                64GB
+                                            </div>
+                                            <div class="gia">
+                                                <p class="gia-goc">21,999,000</p>
+                                                <p class="gia-km">19,999,000</p>
+                                            </div>
+                                            <div class="product-item__action">
+                                                <div class="product-item__ration">
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="product-similar-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="product-similar-item__sale-off">
+                                                <span class="product-similar-item_sale-off-percent">10%</span>
+                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
 							</div>
 						</div>
 						<div class="carousel-item">
 							<div class="card-list">
-								<div class="card">
-									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Iphone</h5>
-										<div class="card-text">
-											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-												A14 Bionic
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-												6.1"
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-												4GB
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-												64GB
-											</div>
-											<div class="gia">
-												<p class="gia-goc">21,999,000</p>
-												<p class="gia-km">19,999,000</p>
-											</div>
-											<div class="product-item__action">
-												<div class="product-item__ration">
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<span class="product-similar-item__sold">Đã bán 88</span>
-											</div>
-											<div class="product-similar-item__sale-off">
-												<span class="product-similar-item_sale-off-percent">10%</span>
-												<span class="product-similar-item__sale-off-label">GIẢM</span>
-											</div>
-										</div>
-									</div>
-								</div>
+								<a href="index.php?controller=product&action=product_detail" class="card">
+                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Iphone</h5>
+                                        <div class="card-text">
+                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
+                                                A14 Bionic
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
+                                                6.1"
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
+                                                4GB
+                                            </div>
+                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
+                                                64GB
+                                            </div>
+                                            <div class="gia">
+                                                <p class="gia-goc">21,999,000</p>
+                                                <p class="gia-km">19,999,000</p>
+                                            </div>
+                                            <div class="product-item__action">
+                                                <div class="product-item__ration">
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="product-item__star fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="product-similar-item__sold">Đã bán 88</span>
+                                            </div>
+                                            <div class="product-similar-item__sale-off">
+                                                <span class="product-similar-item_sale-off-percent">10%</span>
+                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
 							</div>
 						</div>
 					</div>

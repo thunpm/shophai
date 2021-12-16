@@ -37,10 +37,10 @@
 				<div class="title-block">
 					<div class="title">Điện thoại bán chạy</div>
 					<div class="kind">
-						<a href="#">iPhone</a>
-						<a href="#">Samsung</a>
-						<a href="#">ASUS</a>
-						<a href="#">Xiaomi</a>
+						<a href="index.php?controller=product&action=product_list">iPhone</a>
+						<a href="index.php?controller=product&action=product_list">Samsung</a>
+						<a href="index.php?controller=product&action=product_list">ASUS</a>
+						<a href="index.php?controller=product&action=product_list">Xiaomi</a>
 					</div>
 				</div>
 				<div id="carouselP1" class="carousel slide border" data-ride="carousel" data-interval="false">
@@ -85,7 +85,7 @@
 										</div>
 									</div>
 								</a>
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Iphone</h5>
@@ -122,8 +122,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Iphone</h5>
@@ -160,8 +160,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Iphone</h5>
@@ -198,12 +198,12 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 						<div class="carousel-item">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Iphone</h5>
@@ -240,7 +240,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -265,7 +265,7 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa2.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">iPad</h5>
@@ -299,8 +299,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa2.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">iPad</h5>
@@ -334,8 +334,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa2.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">iPad</h5>
@@ -369,8 +369,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa2.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">iPad</h5>
@@ -404,12 +404,12 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 						<div class="carousel-item">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa2.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">iPad</h5>
@@ -443,7 +443,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -461,17 +461,17 @@
 				<div class="title-block">
 					<div class="title">Laptop bán chạy</div>
 					<div class="kind">
-						<a href="#">hp</a>
-						<a href="#">Samsung</a>
-						<a href="#">ASUS</a>
-						<a href="#">DELL</a>
+						<a href="index.php?controller=product&action=product_list">hp</a>
+						<a href="index.php?controller=product&action=product_list">Samsung</a>
+						<a href="index.php?controller=product&action=product_list">ASUS</a>
+						<a href="index.php?controller=product&action=product_list">DELL</a>
 					</div>
 				</div>
 				<div id="carouselP3" class="carousel slide border" data-ride="carousel" data-interval="false">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa3.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">ASUS</h5>
@@ -508,8 +508,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa3.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">ASUS</h5>
@@ -546,8 +546,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa3.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">ASUS</h5>
@@ -584,8 +584,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa3.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">ASUS</h5>
@@ -622,12 +622,12 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 						<div class="carousel-item">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa3.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">ASUS</h5>
@@ -664,7 +664,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -682,17 +682,17 @@
 				<div class="title-block">
 					<div class="title">Phụ kiện bán chạy</div>
 					<div class="kind">
-						<a href="#">Apple Watch</a>
-						<a href="#">Tai nghe</a>
-						<a href="#">Loa</a>
-						<a href="#">Sạc</a>
+						<a href="index.php?controller=product&action=product_list">Apple Watch</a>
+						<a href="index.php?controller=product&action=product_list">Tai nghe</a>
+						<a href="index.php?controller=product&action=product_list">Loa</a>
+						<a href="index.php?controller=product&action=product_list">Sạc</a>
 					</div>
 				</div>
 				<div id="carouselP4" class="carousel slide border" data-ride="carousel" data-interval="false">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa4.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">AirPods</h5>
@@ -720,8 +720,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa4.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">AirPods</h5>
@@ -749,8 +749,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa4.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">AirPods</h5>
@@ -778,8 +778,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="card">
+								</a>
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa4.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">AirPods</h5>
@@ -807,12 +807,12 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 						<div class="carousel-item">
 							<div class="card-list">
-								<div class="card">
+								<a href="index.php?controller=product&action=product_detail" class="card">
 									<img class="product-similar-item__img" src="assets/images/products/minhhoa4.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">AirPods</h5>
@@ -840,7 +840,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 						<a class="carousel-control-prev" role="button" href="#carouselP4" data-slide="prev">

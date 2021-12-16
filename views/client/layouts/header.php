@@ -1,3 +1,10 @@
+<?php
+	require_once('models/Customer.php'); 
+	if(isset($_SESSION['user'])) {
+		$_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+	}
+?>
+
 <div class="header">
 	<div class="logo-slogan">
 		<div class="logo">
@@ -12,7 +19,7 @@
 		<div class="login-cart">
 			<div class="login">
 				<?php
-					if(isset( $_SESSION['user'] ) ) {
+					if(isset($_SESSION['user'])) {
 				?>
 					<div class="dropdown dropleft">
 						<a data-toggle="dropdown" href="#"><span class="far fa-user"></span></a>
@@ -47,12 +54,13 @@
     <div class="login-cart">
 		<div class="login">
 			<?php
-				if(isset( $_SESSION['user'] ) ) {
+				if(isset($_SESSION['user'])) {
 			?>
 				<div class="dropdown ">
 					<a data-toggle="dropdown" href="#"><span class="far fa-user"></span>
 					<?php
-						echo($_SESSION['user']);
+						$user = $_SESSION['user'];
+						echo $user->username;
 					?>
 					</a>
 					<ul class="dropdown-menu">

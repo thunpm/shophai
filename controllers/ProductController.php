@@ -8,12 +8,12 @@
 
         public function product_list() { 
             $data = array('title' => 'Sản phẩm'); 
-            $this->render('product_list');
+            $this->render('product_list', $data);
         }
 
         public function product_detail() {
             $data = array('title' => 'Chi tiết sản phẩm');  
-            $this->render('product_detail');
+            $this->render('product_detail', $data);
         }
     }
 ?>

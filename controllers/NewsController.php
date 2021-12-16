@@ -8,12 +8,12 @@
 
         public function news_list() { 
             $data = array('title' => 'Tin tức'); 
-            $this->render('news_list');
+            $this->render('news_list', $data);
         }
 
         public function news_detail() {
             $data = array('title' => 'Chi tiết tin tức');  
-            $this->render('news_detail');
+            $this->render('news_detail', $data);
         }
     }
 ?>

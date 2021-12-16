@@ -1,5 +1,6 @@
 <?php 
     require_once('controllers/BaseController.php'); 
+    require_once('models/Customer.php'); 
 
     class UserController extends BaseController  { 
         function __construct() { 
@@ -8,12 +9,12 @@
 
         public function login() { 
             $data = array('title' => 'Đăng nhập'); 
-            $this->render('login');
+            $this->render('login', $data);
         }
 
         public function register() {
             $data = array('title' => 'Đăng ký');  
-            $this->render('register');
+            $this->render('register', $data);
         }
 
         public function check_register() {
@@ -22,19 +23,33 @@
         }
 
         public function check_login() {
-            // check
-            session_start();
-            $_SESSION["user"] = "Thư";
-            header('Location: index.php?controller=page&action=home'); 
+            // lấy thông tin đăng nhập
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            // if (Customer::isValidAccount($username, $password) == true) {
+            //     session_start();
+            //     $user = new Customer($username, $password);
+            //     $_SESSION['user'] = $user;
+            //     header('Location: index.php?controller=page&action=home'); 
+            // } else {
+            //     $data = array('title' => 'Đăng nhập', 'message' => 'Tên đăng nhập hoặc mật khẩu sai!',
+            //                 'username' => $username, 'password' => $password);  
+            //     $this->render('login', $data);
+            // }
+            $_SESSION['user'] = new Customer("Thu", "123");
+            $data = array('title' => 'Đăng nhập');  
+            header('Location: index.php?controller=page&action=home');
         }
+        
         public function order() {
             $data = array('title' => 'Đơn hàng của tôi');  
-            $this->render('order');
+            $this->render('order', $data);
         }
 
         public function info() {
             $data = array('title' => 'Thông tin của tôi');  
-            $this->render('info');
+            $this->render('info', $data);
         }
 
         public function address_list() {

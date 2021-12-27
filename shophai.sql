@@ -505,18 +505,142 @@ values
 	('AD001', 'admin', '123', 'Nguyễn Phan Minh Thư');
 
 -- 1. Tạo các khung nhìn hiển thị các sản phẩm thuộc mỗi danh mục.
+create view View_DienThoai
+as
+	select sanpham.* from sanpham
+    inner join theloai on theloai.MaTL = sanpham.MaTL
+    inner join danhmuc on danhmuc.MaDM = theloai.MaDM
+    where TenDM = 'Điện thoại';
+    
+create view View_MayTinhBang
+as
+	select sanpham.* from sanpham
+    inner join theloai on theloai.MaTL = sanpham.MaTL
+    inner join danhmuc on danhmuc.MaDM = theloai.MaDM
+    where TenDM = 'Máy tính bảng';
+
+create view View_Laptop
+as
+	select sanpham.* from sanpham
+    inner join theloai on theloai.MaTL = sanpham.MaTL
+    inner join danhmuc on danhmuc.MaDM = theloai.MaDM
+    where TenDM = 'Laptop';
+    
+create view View_PhuKien
+as
+	select sanpham.* from sanpham
+    inner join theloai on theloai.MaTL = sanpham.MaTL
+    inner join danhmuc on danhmuc.MaDM = theloai.MaDM
+    where TenDM = 'Phụ kiện';
+    
 -- 2. Tạo thủ tục xóa khách hàng, sao cho thông tin về sổ địa chỉ của khách hàng đó cũng bị xóa theo.
+
+-- Sử dụng DELIMITER để cho phép sử dụng dấu chấm phẩy.
+DELIMITER //
+drop procedure if exists Delete_KhachHang //
+
+create procedure Delete_KhachHang(Id varchar(10))
+begin
+	delete from diachi
+    where MaKH = Id;
+    
+	delete from khachhang
+    where MaKH = Id;
+end //
+DELIMITER ;
+
+call Delete_KhachHang('KH001');
+
 -- 3. Tạo thủ tục hiển thị tất cả sản phẩm theo thứ tự n. Với n là tham số đầu vào, nhận các giá trị "moi nhat",
 -- "cu nhat", "gia cao", "gia thap".
--- 4. Tạo thủ tục hiển thị sản phẩm không bán được trong x tháng vừa qua. Với x là số nguyên tham số đầu vào.
--- 5. Tạo hàm trả về bảng kết quả gồm MaSP, TenSP, SoLuongDaBan, TongTienThu của tháng x trong năm hiện tại. 
--- Với x là tham số đầu vào, nhận các giá trị từ 1 đến 12.
--- 6. Tạo hàm trả về bảng tất cả sản phẩm thuộc loại x và có mức giá trong khoảng [a, b]. Với x, a và b là tham số đầu vào của hàm.
--- 7. Tạo hàm trả về doanh thu trong khoảng thời gian x và y. Với x và y là tham số đầu vào.
--- 8. Tạo trigger kiểm tra việc thêm mới khách hàng, với điều kiện tên đăng nhập và số điện thoại không được trùng lại.
--- 9. Tạo trigger kiểm tra việc xóa hóa đơn, với điều kiện chỉ cho xóa các hóa đơn có trạng thái "da huy".
 
+DELIMITER //
+drop procedure if exists SapXepSanPham //
 
+create procedure SapXepSanPham(ThuTu varchar(50))
+begin
+	if ThuTu = 'moi nhat' then
+		select * from sanpham
+        order by Id desc;
+	elseif ThuTu = 'cu nhat' then
+		select * from sanpham
+		order by Id asc;
+	elseif ThuTu = 'gia cao' then
+		select * from sanpham
+        order by Gia desc;
+	elseif ThuTu = 'gia thap' then
+		select * from sanpham
+        order by Gia asc;
+	else
+		select * from sanpham;
+	end if;
+end //
+
+DELIMITER ;
+
+-- 4. Tạo thủ tục hiển thị sản phẩm không bán được trong x tháng qua. Với x là tham số đầu vào, x <= 12.
+
+DELIMITER //
+drop procedure if exists SanPhamTonKho //
+
+create procedure SanPhamTonKho(KhoangTG int)
+begin
+	declare ThangHienTai, NamHienTai, ThangBatDau, NamBatDau int;
+    set ThangHienTai = month(curdate()),  NamHienTai = year(curdate()), ThangBatDau = ThangHienTai - KhoangTG + 1, NamBatDau = NamHienTai;
+    
+    if (ThangBatDau < 0) then
+		begin
+			set ThangBatDau = 12 - (KhoangTG - ThangHienTai);
+			set NamBatDau = NamHienTai - 1;
+		end;
+    end if;
+
+	select * from sanpham
+    where MaSP not in 
+		(select MaSP from hoadon
+        where (month(NgayLap) between ThangBatDau and ThangHienTai) and (year(NgayLap) between NamBatDau and NamHienTai));
+        
+end //
+
+DELIMITER ;
+
+-- 5. Tạo hàm trả về doanh thu của tháng x trong năm hiện tại. 
+
+DELIMITER //
+drop function if exists DoanhThuThang //
+
+create function DoanhThuThang(Thang int)
+returns int
+DETERMINISTIC
+begin
+	declare tong int;
+    set tong = 0;
+    
+	select sum(Gia - KhuyenMai) into tong from chitiethoadon cthd
+ 	inner join hoadon hd on hd.MaHD = cthd.MaHD
+ 	where month(NgayLap) = Thang
+ 	group by MaSP;
+    
+    return tong;
+end //
+
+DELIMITER ;
+
+-- 6. Tạo trigger cập nhật số lượng hàng hóa khi có khách đặt hàng.
+
+DELIMITER //
+drop trigger if exists Trigger_DatHang //
+
+create trigger Trigger_DatHang
+before insert on chitiethoadon
+for each row
+begin
+	update sanpham
+    set SoLuongCo = SoLuongCo - new.SoLuong, SoLuongBan = SoLuongBan + new.SoLuong
+    where sanpham.MaSP = new.MaSP;
+end //
+
+DELIMITER ;
 
 
     

@@ -332,7 +332,7 @@ values
     ('HA069', 'SP053', 'Asus-Vivobook-X515EP-BQ189Ti5-1135G7.png'),
     ('HA070', 'SP054', 'Asus-Vivobook-M513UA-L1230TR5-5500U.png'),
     ('HA071', 'SP055', 'Asus-Vivobook-A515EA-L11970Ti5-1135G7.png'),
-    ('HA072', 'SP056', 'Asus Flip-BR11100FKA-BP0531TN4500.png');
+    ('HA072', 'SP056', 'Asus-Flip-BR11100FKA-BP0531TN4500.png');
     
 -- insert DacTinhSanPham
 insert DacTinhSanPham (MaDT, MaSP, TenDT, ChiTietDT)

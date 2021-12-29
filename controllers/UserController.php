@@ -27,18 +27,16 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            // if (Customer::isValidAccount($username, $password) == true) {
-            //     session_start();
-            //     $user = new Customer($username, $password);
-            //     $_SESSION['user'] = $user;
-            //     header('Location: index.php?controller=page&action=home'); 
-            // } else {
-            //     $data = array('title' => 'Đăng nhập', 'message' => 'Tên đăng nhập hoặc mật khẩu sai!',
-            //                 'username' => $username, 'password' => $password);  
-            //     $this->render('login', $data);
-            // }
-            $_SESSION['user'] = new Customer("Thu", "123");
-            header('Location: index.php?controller=page&action=home');
+            if (Customer::isValidAccount($username, $password) == true) {
+                session_start();
+                $user = new Customer($username, $password);
+                $_SESSION['user'] = $user;
+                header('Location: index.php?controller=page&action=home'); 
+            } else {
+                $data = array('title' => 'Đăng nhập', 'message' => 'Tên đăng nhập hoặc mật khẩu sai!',
+                            'username' => $username, 'password' => $password);  
+                $this->render('login', $data);
+            }
         }
         
         public function order() {

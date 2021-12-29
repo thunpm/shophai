@@ -35,7 +35,6 @@ li.active {
 }
 .product-list-filter {
     padding: 12px;
-    height: 60px;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -55,9 +54,9 @@ li.active {
     font-style: italic;
 }
 .filter__btn {
+    margin-bottom: 10px;
     height: 37px;
-    margin-right: 25px;
-    min-width: 108px;
+    min-width: 90px;
     border: 1px solid var(--primary-color);
     background-color: #fff;
     font-size: 16px;
@@ -69,7 +68,6 @@ li.active {
 }
 .filter__btn:hover {
     transform: scale(1.01);
-    cursor: pointer;
     color: white;
     background-color: #d21809;
     cursor: pointer;
@@ -581,7 +579,8 @@ a.product-btn__add {
 }
 a.product-similar-item {
     text-decoration: none;
-    padding-bottom: 14px;
+    padding: 14px;
+    min-height: 416px;
 }
 .product-similar-item:hover{
     transform: scale(1.01);
@@ -600,25 +599,21 @@ a.product-similar_link {
     min-width: 40px;
 }
 .product-similar-item__name {
-    font-size: 16px;
-    font-weight: 400;
-    color: #000;
-    line-height: 22px;
-    height: 44px;
-    margin: 29px 10px 6px;
-    overflow: hidden;
-    display: block;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 8px;
+	color: #545b62;
 }
 .product-similar-item__img {
+    min-height: 192px;
+    max-height: 210px;
     width: 80%;
     height: 50%;
+    display: block;
     margin: auto;
 }
+
 .product-similar-item__price {
-    height: 45px;
     margin: 10px 10px;
     text-align: center;
     display: grid;
@@ -676,11 +671,11 @@ span.product-similar-item_sale-off-percent {
 }
 span.product-similar-item__sale-off-label {
     color: var(--white-color);
-    font-size: 10px;
+    font-size: 12px;
     line-height: 10px;
     position: relative;
-    top: -1px;
-    font-weight: 600;
+    top: 7px;
+    font-weight: bold;
 }
 .product-detail__no-evaluate-img {
     padding: 26px 0 14px;
@@ -707,20 +702,13 @@ span.product-similar-item__sale-off-label {
 /* sửa */
 .product-list-moble {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
 }
 
 .product-moble__icon {
     display: none;
 }
-.product-moble {
-    display: flex;
-    flex: 1;
-    justify-content: end;
-}
-
-
-
-
 
 /* responsive */
 

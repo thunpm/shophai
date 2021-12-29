@@ -7,20 +7,19 @@
 			<li class="nav-item menu-item">
 					<a class="nav-link" href="index.php">TRANG CHỦ</a>
 			</li>
+			<?php
+			if($listDM != null) {
+				foreach ($listDM as $danhMuc) {
+			?>
 				<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=dien_thoai">ĐIỆN THOẠI</a>
-			</li>
-				<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=dien_thoai">MÁY TÍNH BẢNG</a>
-			</li>
-				<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=dien_thoai">LAPTOP</a>
-			</li>
-				<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=dien_thoai">PHỤ KIỆN</a>
-			</li>
-				<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php?controller=news&action=news_list">TIN TỨC</a>
+					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=<?= $danhMuc->maDM ?>"><?= $danhMuc->tenDM ?></a>
+				</li>
+			<?php	
+				}
+			}
+			?>	
+			<li class="nav-item menu-item">
+				<a class="nav-link" href="index.php?controller=news&action=news_list">TIN TỨC</a>
 			</li>
 		<ul>
 	</div>

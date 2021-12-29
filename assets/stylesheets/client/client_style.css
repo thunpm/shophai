@@ -117,6 +117,7 @@ p {
 .menu div a {
 	text-decoration: none;
 	color: white;
+	text-transform: uppercase;
 }
 
 .menu .dropdown-menu.show {
@@ -218,7 +219,7 @@ p {
 
 .main-block .content .product-block .product .title-block .title {
 	padding-bottom: 2%;
-	width: 42%;
+	width: 30%;
 	margin-right: 9%;
 	font-weight: bold;
 	color: #d21809;
@@ -226,11 +227,17 @@ p {
 }
 
 .main-block .content .product-block .product .title-block .kind {
-	width: 47%;
+	padding-bottom: 3px;
+	width: 60%;
+	overflow-x: auto;
 	display: flex;
   	white-space: nowrap;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: start;
+}
+
+.product-list-moble__filter {
+	margin-right: 15px;
 }
 
 .main-block .content .product-block .product .title-block .kind a {
@@ -269,6 +276,7 @@ p {
 .card-list .card .card-title {
 	text-align: center;
     margin-top: 5px;
+	color: #545b62;
 }
 
 .card-list .card:hover {
@@ -314,7 +322,7 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 .card-list .card .gia-goc {
     top: 10px;
     left: 55%;
-    color: #d21809;
+    color: #545b62;
     text-decoration: line-through;
 	font-weight: bold;
 }
@@ -325,7 +333,7 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 	font-weight: 700;
 	background-color: #d21809;
     color: white;
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .login-block {
@@ -433,6 +441,17 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 
 .navbar-collapse {
 	flex-grow: unset;
+}
+
+.kind::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #747473;
+}
+
+.kind::-webkit-scrollbar {
+    height: 6px;
+    border-radius: 5px;
+    background-color: #ccc;
 }
 
 @media screen and (max-width: 990px) {

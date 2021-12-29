@@ -2,9 +2,10 @@
     require_once('connection.php');
     
     // Khởi tạo session PHP nếu chưa khởi tạo
-    if (session_id() === '')
-    session_start();
-    
+    if (session_id() === '') {
+        session_start();
+    }
+
     // require_once('connection.php'); 
     if (isset($_GET['controller'])) { 
 	    $controller = $_GET['controller']; 

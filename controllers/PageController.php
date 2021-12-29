@@ -1,5 +1,7 @@
 <?php 
-    require_once('controllers/BaseController.php'); 
+    require_once('controllers/BaseController.php');
+    require_once('models/Customer.php');
+    require_once('models/Product.php');
 
     class PageController extends BaseController  { 
         function __construct() { 
@@ -7,6 +9,7 @@
         } 
 
         public function home() { 
+            // $list[] = Product::listByDanhMuc();
             $data = array('title' => 'Trang chủ'); 
             $this->render('home', $data);
         }

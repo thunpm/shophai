@@ -1,5 +1,7 @@
 <?php 
     require_once('controllers/BaseController.php'); 
+    require_once('models/Product.php'); 
+    require_once('models/Category.php'); 
 
     class ProductController extends BaseController  { 
         function __construct() { 
@@ -7,7 +9,8 @@
         } 
 
         public function product_list() { 
-            $data = array('title' => 'Sản phẩm'); 
+            $maDanhMuc = $_GET['danhmuc'];
+            $data = array('title' => 'Sản phẩm', 'maDanhMuc' => $maDanhMuc); 
             $this->render('product_list', $data);
         }
 

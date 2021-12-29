@@ -43,14 +43,10 @@
 	text-align: justify;
 }
 
-.intro .content ul li .kk {}
-
 .intro .content ul li .kk ul li {
 	margin-bottom: 20px;
 	list-style-type: circle;
 }
-
-.intro .content ul li .kk ul li p {}
 
 .intro .content ul li .kk ul li p .tt {
 	font-weight: bold;

@@ -580,7 +580,7 @@ a.product-btn__add {
 a.product-similar-item {
     text-decoration: none;
     padding: 14px;
-    min-height: 416px;
+    height: 416px;
 }
 .product-similar-item:hover{
     transform: scale(1.01);
@@ -606,7 +606,7 @@ a.product-similar_link {
 }
 .product-similar-item__img {
     min-height: 192px;
-    max-height: 210px;
+    max-height: 205px;
     width: 80%;
     height: 50%;
     display: block;

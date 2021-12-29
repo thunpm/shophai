@@ -94,12 +94,12 @@
                     <div class="product-similar__list">  
                         <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
                             <img class="product-similar-item__img" src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>">
-                            <h5 class="product-similar-item__name">Điện thoại iphone 12 Pro Max 256 GB</h5>                         
+                            <h5 class="product-similar-item__name"><?= $sanPham->tenSP ?></h5>                         
                             <?php
                             $dem = 0;
                             foreach ($sanPham->listDacTinh as $dacTinh) {
                                 $dem += 1;
-                                if ($dem <= 4) {
+                                if (($danhMuc->maDM == 'DM04' && $dem <= 1) || ($danhMuc->maDM != 'DM04' && $dem <= 4)) {
                             ?>
                                 <div data-toggle="tooltip" data-placement="top" title="<?= $dacTinh->tenDT ?>" class="dac-tinh">
                                     <?= $dacTinh->chiTietDT ?>

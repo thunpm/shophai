@@ -4,14 +4,18 @@
 <div class="main">
 
 	<ul class="breadcrum">
-        <li class="active"><a href="#" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li>         
-		<li class="active"><a href="#" class="breadcrum__active">Tin tức</a> <span class="active">/&nbsp</span></li>                
-        <li class="active">Khuyến mãi</li>
+        <li class="active"><a href="index.php?controller=page&action=home" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li>         
+		<li class="active"><a href="index.php?controller=news&action=news_list" class="breadcrum__active">Tin tức</a> <span class="active">/&nbsp</span></li> 
+	<?php
+		if($tintuc != '') {    
+	?>         
+        <li class="active"><a href="index.php?controller=news&action=news_list&id=<?=$tintuc->danhmuctin->maDM?>" class="breadcrum__active"><?=$tintuc->danhmuctin->tenDM?></a></li>
+    
     </ul> 
 
 	<div class="content">
 		<div class="title">
-			<h3>HAI SHOP GIẢM 500.000Đ CHO KHÁCH HÀNG MUA IPHONE 13 THANH TOÁN QUA ZALOPAY</h3>
+			<h3><?=$tintuc->tieuDe?></h3>
 		</div>
 
 		<div class="comment">
@@ -19,7 +23,7 @@
 		</div>
 
 		<div class="cont">
-			<p style="font-weight: bold;">Từ ngày 01 - 31/12/2021, chọn mua sản phẩm Iphone tại Hai Shop, bạn không chỉ giảm đến 5 triệu đồng, trả góp 0% lãi suất mà còn có cơ hội trúng bộ quà tặng đẳng cấp trị giá 60 triệu đồng.</p>
+			<p><?=$tintuc->noiDung?></p>
 
 			<div class="quangcao">
 				<ul>
@@ -51,6 +55,6 @@
 			<div class="clr"></div>
 		</div>
 	</div>
-	
+<?php }?>	
 </div>
 <?php require('views/client/layouts/footer.php'); ?>

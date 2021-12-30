@@ -136,18 +136,26 @@ create table Admin (
     primary key (MaAD)
 );
 
+-- danh mục tin tức
+create table DanhMucTin(
+	MaDMT VARCHAR(10) PRIMARY KEY,
+	TenDM NVARCHAR(500) NOT NULL
+);
+
 -- tin tức
 CREATE TABLE TinTuc (
 	MaTT varchar(10) not null,
 	TieuDe nvarchar(500),
 	TomTat nvarchar(500),
-	NgayDang datetime,
+	NgayDang date,
 	MaAD varchar(10) not null, -- id admin đăng bài
 	NoiDung text,
-    LoaiTin nvarchar(500),
+    MaDMT VARCHAR(10) not null,
+	Anh varchar(100),
 	TrangThai bit default(1), -- hiển thị hay ẩn
 
 	primary key (MaTT),
+	foreign key (MaDMT) references DanhMucTin (MaDMT),
 	foreign key (MaAD) references Admin (MaAD)
 );
 
@@ -1075,17 +1083,42 @@ values
 insert Admin (MaAD, TenDangNhap, MatKhau, HoTen)
 values
 	('AD001', 'admin', '123', 'Nguyễn Phan Minh Thư');
-    
-insert TinTuc(MaTT, TieuDe, TomTat, NgayDang, MaAD, NoiDung, LoaiTin)
+	
+insert DanhMucTin (MaDMT, TenDM)
 values
-	('TT001', 'Đây là 5 lý do bạn nên mua chiếc vivo Y33s ngay trong dịp cuối năm này', 'Phân khúc tầm trung luôn nhộn nhịp bởi các nhà sản xuất khá tập trung và mong muốn mang đến cho người dùng Việt Nam những trải nghiệm tốt nhất. Những ngày vừa qua, vivo Y33s đã tạo ra cơn sốt và hứa hẹn sẽ chiếm trọn niềm tin người dùng.', '2021-12-27', 'AD001', '<b>1. Thiết kế mỏng nhẹ, khung viền phẳng 2.5D đẳng cấp<b></br>
-    vivo luôn mang đến ngôn ngữ thiết kế mỏng nhẹ thời thượng cho smartphone của họ tại thị trường Việt Nam ở hầu như mọi phân khúc. vivo Y33s có độ dày chỉ 8mm và nặng 182g dù cho thiết kế màn hình lớn cùng viên pin dung lượng cao. Bên cạnh đó, khung viền phẳng 2.5D cũng sẽ giúp cho máy được cân bằng, tạo cảm giác cao cấp và thoải mái khi sử dụng.
-    <b>2. Viên pin lớn, sạc siêu tốc tiết kiệm thời gian</b></br>
-	vivo Y33s trang bị dung lượng pin 5000mAh giúp bạn có thể thoải mái sử dụng cả ngày mà không cần phải lo lắng vấn đề hết pin. Ngoài ra, Y33s còn được trang bị công nghệ Sạc Siêu Tốc 18W (9V-2A) và công nghệ vivo Energy Guardian (VEG) giúp sạc nhanh, giảm mức tiêu thụ năng lượng và quản lý năng lượng hiệu quả. Và đừng quên chức năng sạc ngược trên Y33s sẽ biến chiếc điện thoại của bạn thành một thiết bị sạc dự phòng tiện lợi.
-    </br><b>3. Cụm 3 camera sau siêu sắc nét</b></br>
-	vivo Y33s trang bị camera chính với độ phân giải cao lên đến 50MP, giúp bạn dễ dàng ghi lại những khoảnh khắc đẹp nhất của cuộc sống với độ rõ nét. Thuật toán xóa phông độc quyền của vivo ở camera xóa phông 2MP được nâng cấp để làm cho hậu cảnh trông tự nhiên hơn và bạn dễ dàng khám phá thế giới nhỏ bé và thú vị ngay trước mắt bạn với khoảng cách lấy nét chỉ 4cm đến từ camera siêu cận. 
-	<b>4. Hiệu năng vượt trội, đa nhiệm mượt mà</b></br>
-	Nói về hiệu năng, smartphone nhà vivo cũng không thua kém các đối thủ khác dù ở phân khúc giá như thế nào. Với vivo Y33s, máy được cung cấp sức mạnh bởi Helio G80, một con chip tầm trung được sản xuất tập trung vào việc chơi game, mang đến những trải nghiệm tốt nhất dù bạn sử dụng với tác vụ nào. ', 'Tin Công Nghệ');
+	('DM001', 'Tin công nghệ'),
+	('DM002', 'Review sản phẩm'),
+	('DM003', 'Khuyến mãi');
+    
+insert TinTuc(MaTT, TieuDe, TomTat, NgayDang, MaAD, NoiDung, MaDMT, Anh)
+values
+	('TT001', 'Đây là 5 lý do bạn nên mua chiếc vivo Y33s ngay trong dịp cuối năm này', 'Phân khúc tầm trung luôn nhộn nhịp bởi các nhà sản xuất khá tập trung và mong muốn mang đến cho người dùng Việt Nam những trải nghiệm tốt nhất. Những ngày vừa qua, vivo Y33s đã tạo ra cơn sốt và hứa hẹn sẽ chiếm trọn niềm tin người dùng.', '2021-12-27', 'AD001', '<strong>1. Thiết kế mỏng nhẹ, khung viền phẳng 2.5D đẳng cấp</strong></br>Vivo luôn mang đến ngôn ngữ thiết kế mỏng nhẹ thời thượng cho smartphone của họ tại thị trường Việt Nam ở hầu như mọi phân khúc. vivo Y33s có độ dày chỉ 8mm và nặng 182g dù cho thiết kế màn hình lớn cùng viên pin dung lượng cao. Bên cạnh đó, khung viền phẳng 2.5D cũng sẽ giúp cho máy được cân bằng, tạo cảm giác cao cấp và thoải mái khi sử dụng.
+    <br /><strong>2. Viên pin lớn, sạc siêu tốc tiết kiệm thời gian</strong></br>Vivo Y33s trang bị dung lượng pin 5000mAh giúp bạn có thể thoải mái sử dụng cả ngày mà không cần phải lo lắng vấn đề hết pin. Ngoài ra, Y33s còn được trang bị công nghệ Sạc Siêu Tốc 18W (9V-2A) và công nghệ vivo Energy Guardian (VEG) giúp sạc nhanh, giảm mức tiêu thụ năng lượng và quản lý năng lượng hiệu quả. Và đừng quên chức năng sạc ngược trên Y33s sẽ biến chiếc điện thoại của bạn thành một thiết bị sạc dự phòng tiện lợi.</br><strong>3. Cụm 3 camera sau siêu sắc nét</strong></br>
+	Vivo Y33s trang bị camera chính với độ phân giải cao lên đến 50MP, giúp bạn dễ dàng ghi lại những khoảnh khắc đẹp nhất của cuộc sống với độ rõ nét. Thuật toán xóa phông độc quyền của vivo ở camera xóa phông 2MP được nâng cấp để làm cho hậu cảnh trông tự nhiên hơn và bạn dễ dàng khám phá thế giới nhỏ bé và thú vị ngay trước mắt bạn với khoảng cách lấy nét chỉ 4cm đến từ camera siêu cận. 
+	<br/><strong>4. Hiệu năng vượt trội, đa nhiệm mượt mà</strong></br>
+	Nói về hiệu năng, smartphone nhà vivo cũng không thua kém các đối thủ khác dù ở phân khúc giá như thế nào. Với vivo Y33s, máy được cung cấp sức mạnh bởi Helio G80, một con chip tầm trung được sản xuất tập trung vào việc chơi game, mang đến những trải nghiệm tốt nhất dù bạn sử dụng với tác vụ nào. ', 'DM002', 'tin1.jpg'),
+	('TT002', 'Khám phá tuyệt tác xoay gập HP Spectre x360', 
+	'Nếu bạn đang tìm một chiếc laptop vừa có vẻ ngoài đẹp mắt vừa có hiệu năng mạnh mẽ để nâng tầm phong cách thì Laptop HP Spectre X360 13-aw2101TU thuộc dòng laptop cao cấp này sẽ là sự lựa chọn lý tưởng dành cho bạn.', 	'2021-12-26', 	'AD001', 	'<strong>1. Thiết kế sắc sảo tựa như đá quý thu hút mọi ánh nhìn</strong></br>
+    Mệnh danh là laptop đẹp nhất của HP, Laptop HP Spectre X360 13-aw2101TU 2K0B8PA được thiết kế theo phong cách hiện đại với các đường cắt CNC độc đáo. Bộ khung của máy được làm từ hợp kim nhôm nguyên khối với độ chính xác cao và chắc chắn, đồng thời bật lên đẳng cấp nhờ bản lề kép mạ chrome tỏa sáng từ mọi góc cạnh. Màu sắc xanh đen được cả người dùng nam và nữ yêu thích vì nó thể hiện sự tinh tế và tự tin đậm tính cá nhân dành cho người dùng.
+    <br/><strong>2. Nhỏ gọn hơn cho hiệu quả tuyệt đỉnh</strong></br>
+	Máy bên ngoài cầm tay khá chắc chắn với trọng lượng chỉ 1,2kg cùng kích thước 30,67 x 19,45 x 1,69 cm vô cùng nhỏ gọn. Chiếc laptop HP này sẽ là một người bạn đồng hành cùng bạn đến mọi nơi. Đây là máy tính đa chế độ nhỏ nhất thế giới với tỷ lệ màn hình trên thân máy đạt 90%.
+    <br/><strong>3. Màn hình lộng lẫy cho trải nghiệm xem xuất sắc chưa từng thấy</strong></br>
+	Chiếc máy nhỏ gọn này sở hữu màn hình OLED 4K hỗ trợ dải động cao HDR với sắc đen trung thực. Màn hình chống phản chiếu và tăng cường độ tương phản để nội dung hiển thị được rõ ràng và thoải mái ở mọi không gian sử dụng. Đây được xem là màn hình đẹp nhất trong nhiều năm trở lại đây.
+	<br/><strong>4.Hiệu suất đỉnh cao, luôn bắt kịp nhịp sống hối hả</strong></br>
+	Bộ vi xử lý Intel Core i7-1165G7 đem đến tốc độ xử lý cực nhanh và trơn tru với mọi tác vụ. Đây là dòng CPU Core i7 thuộc CPU Intel Core thế hệ thứ 11 với 4 nhân 8 luồng, bộ nhớ đệm 12MB và xung nhịp tối đa lên đến 4.7GHz. Cùng card đồ họa tích hợp Intel Iris Xe Graphics, bạn có thể chỉnh sửa ảnh và video mượt mà và trơn tru hơn nhờ hiệu suất và tốc độ đỉnh cao.','DM002', 'tin2.jpg'),
+	('TT003','Tìm hiểu công nghệ Overstroke trên laptop ASUS','Hiện nay các dòng laptop gaming đang phổ biến với các game thủ. Ngoài cấu hình khủng, thiết kế đẹp, người dùng còn quan tâm đến bàn phím. Và khi nói về bàn phím không thể không nhắc tới ASUS Overstroke - công nghệ đã thay đổi cách nhìn của người dùng về laptop gaming, cho khả năng điều khiển nhanh và chính xác.','2021-12-28','AD001','<strong>1.Công nghệ ASUS Overstroke là gì?</strong></br>Công nghệ ASUS Overstroke là công nghệ độc quyền của ASUS. Công nghệ này cung cấp cho mỗi phím một hành trình phím rộng 1,8mm và tăng điểm truyền động cao hơn trong quy định để cải thiện khả năng phản hồi nhanh. Mỗi phím chỉ cần một lực tối đa cân bằng hoàn hảo là 62 gram (lực cần thiết để nhấn hoàn toàn phím xuống) để giữ cho mỗi hành trình dễ dàng. Công nghệ Overstroke tăng độ chính xác và tốc độ đầu vào với phản hồi nhanh, giúp người dùng một trải nghiệm hoàn hảo để chơi game FPS.
+    <br/><strong>2.Công nghệ Overstroke hoạt động như thế nào?</strong></br>
+    Các mẫu sản phẩm có công nghệ Overstroke (hình bên trái), các điểm kích hoạt của các phím sau khi được nhấn xuống 1/2 từ trên xuống để cho phép tốc độ truyền tín hiệu cao hơn. Trong khi đó, phím thông thường yêu cầu được nhấn xuống thêm 3/4 từ trên xuống để kích hoạt, điều này mang lại phản hồi chậm hơn.
+    <br/><strong>3.Các kiểu máy nào được hỗ trợ công nghệ này?</strong></br>Hiện nay, có khá nhiều dòng laptop được trang bị công nghệ này. Các mẫu FX504 , FX505 và GL504 đều được trang bị giúp người dùng có trải nghiệm tốt hơn khi chơi game.','DM001', 'tin3.jpg'),
+	('TT004','Giảm ngay 20% khi chọn mua balo – túi xách – túi chống sốc tại Hai Shop','Từ nay đến 31/12, khi chọn mua balo, túi xách, túi chống sốc của các thương hiệu Tucano, Simtop, Zadez và Targus tại Hai Shop, bạn sẽ được hưởng ưu đãi với mức giá rẻ hơn 20% so với giá bán trước đây.','2021-12-28','AD001','Theo đó, từ nay đến ngày 31/12, khách hàng sẽ được giảm ngay 20% khi chọn mua các loại balo túi xách, túi đeo chéo, túi chống sốc đến từ các thương hiệu nổi tiếng như Tucano, Simtop, Zadez và Targus tại Hai Shop, với mức giá ưu đãi chỉ từ 261.000 đồng là khách hàng đã có thể sở hữu những sản phẩm chất lượng, bền đẹp và tiết kiệm được chi phí.<br/>
+	Với nhiều người, balo luôn là vật “bất khả ly thân” mỗi khi ra đường, thích hợp kể cả khi đi học, đi làm hoặc đi chơi rất tiện dụng mà vẫn lịch sự, hợp thời trang. Nếu bạn có ý định trang bị cho mình chiếc balo với chất lượng vượt trội cùng mức giá hợp lý thì không thể bỏ qua mẫu balo Tunaco Loop 15.6 inch của Hai Shop, hiện đang được ưu đãi giảm 20% giá chỉ còn 810.000 đồng.<br/>
+	Ngoài balo, túi chống sốc cũng là một sản phẩm cần chuẩn bị để bảo vệ máy tính mỗi khi ra ngoài. Tại Hai Shop hiện đang có rất nhiều sản phẩm túi chống sốc hợp thời trang, chất lượng tốt, có mức giá ưu đãi chỉ từ 261.000 đồng đến từ các thương hiệu nổi tiếng như Simtop, Zadez và Targus để bạn lựa chọn. Bên cạnh những sản phẩm dành cho laptop từ 11-15 inch, tại FPT Shop còn có sẵn những mẫu túi chống sốc dành riêng cho từng dòng Macbook, vừa vặn đến từng milimet.<br/>
+	Trong chương trình ưu đãi tháng 12, túi xách, túi đeo chéo cũng là một trong những sản phẩm được ưu đãi giảm 20% và rất được quan tâm dành cho những tín đồ yêu thích sự tiện lợi. Đơn cử như túi đeo chéo Tucano 11” được thiết kế từ chất liệu siệu nhẹ, bền, chống thấm nước nên bảo vệ tốt cho notebook và tablet cũng như khó bám bẩn, hiện đang được ưu đãi giảm 20%, chỉ còn 632.000 đồng khi mua tại Hai Shop.<br/>','DM003', 'tin4.jpg'),
+	('TT005','Mua laptop, Hai Shop bảo hành đến 3 năm và lì xì đến 4 triệu','Từ ngày 01 - 31/01/2022, FPT Shop dành tặng thêm nhiều ưu đãi đặc biệt đến các bạn học sinh - sinh viên khi chọn mua laptop tại hệ thống: bảo hành đến 3 năm, lì xì đến 4 triệu đồng, trả góp 0% lãi suất...','2021-12-28','AD001','Chào đón năm 2022, Hai Shop dành tặng những ưu đãi hấp dẫn nhất đến tất cả các bạn học sinh, tân sinh viên, sinh viên khi chọn mua laptop từ ngày 01 - 31/01/2022. Cụ thể, Hai Shop tặng ngay đặc quyền bảo hành đến 3 năm. Đồng thời, khách hàng còn được giảm giá đến 4.000.000 đồng khi trả thẳng, được hưởng lãi suất 0% khi trả góp cũng như nhận thêm nhiều quà tặng thiết thực khác.<br/>
+	Trong đó, bảo hành đến 3 năm là ưu đãi độc quyền chỉ có tại Hai Shop, cũng là một trong những ưu đãi hấp dẫn nhất từ trước đến nay. Ngoài thời gian bảo hành chính hãng từ 1 - 2 năm, Hai Shop sẽ tặng thêm 1 năm bảo hành nữa, nâng tổng thời gian bảo hành của máy lên đến 3 năm. 1 năm bảo hành tặng thêm có giá trị tương đương gần 10% giá máy, hỗ trợ rất nhiều nếu máy phát sinh lỗi trong thời gian hết hạn bảo hành của hãng, giúp khách hàng tiết kiệm tối đa chi phí, yên tâm sử dụng dài lâu.<br/>
+	Ngoài ra, Hai Shop còn mạnh tay giảm giá cho toàn bộ laptop tại hệ thống: giảm đến 4.000.000 đồng cho laptop AVITA, Acer, Lenovo, Microsoft Surface, Gygabyte, Asus, Dell, HP, MSI, LG, Masstel, Chuwi, MacBook... áp dụng cho hình thức trả thẳng (tức thanh toán 100% giá máy).<br/>','DM003', 'tin5.jpg');
+	
+
 
 -- SELECT tl.* FROM TheLoai tl INNER JOIN DanhMuc dm on dm.MaDM = tl.MaDM WHERE tl.MaDM ='DM01';
 

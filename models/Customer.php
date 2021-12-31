@@ -27,7 +27,7 @@ class Customer {
 
 	static function isValidAccount($username, $password) { 
 		$db = DB::getInstance(); 
-		$sql = "SELECT * FROM Customer WHERE Username='".$username."' AND Password='".$password."'"; 
+		$sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$username."' AND MatKhau='".$password."'"; 
 		$req = $db->query($sql);
 
         foreach ($req->fetchAll() as $item) { 

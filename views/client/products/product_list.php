@@ -92,7 +92,7 @@
                     foreach ($danhMuc->listSP as $sanPham) {
                     ?>
                     <div class="product-similar__list">  
-                        <a href="index.php?controller=product&action=product_detail" class="product-similar-item">
+                        <a href="index.php?controller=product&action=product_detail&masp=<?= $sanPham->maSP?>&madanhmuc=<?=$danhMuc->maDM?>" class="product-similar-item">
                             <img class="product-similar-item__img" src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>">
                             <h5 class="product-similar-item__name"><?= $sanPham->tenSP ?></h5>                         
                             <?php

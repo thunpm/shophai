@@ -3,7 +3,7 @@
 <div class="product-detail">
     <ul class="breadcrum">
         <li class="active"><a href="index.php?controller=page&action=home" class="breadcrum__active">Trang chủ</a> <span class="active">/&nbsp</span></li> 
-        <li class="active"><a href="index.php?controller=product&action=product_list" class="breadcrum__active">Điện Thoại</a> <span class="active">/&nbsp</span></li>               
+        <li class="active"><a href="index.php?controller=product&action=product_list&danhmuc=<?php if($maDM != null) echo $maDM;?>" class="breadcrum__active"><?php if($tenDM != null) echo $tenDM;?></a> <span class="active">/&nbsp</span></li>               
         <li class="active"> Chi tiết sản phẩm</li>
     </ul> 
     <!-- tiêu đề -->
@@ -13,24 +13,31 @@
     <!-- thông tin  -->
     <div class="product-detail__infor">
         <div class="product-detail__infor-img">
-            <img src="https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/702/dien-thoai-iphone-12-pro-256gb-xanh-1.jpg" alt="Mô tả" class="product-detail__img-big">
-       
-            <div class="product-detail__infor-img--item">
-                <img src="assets/images/products/minhhoa.jpg" alt="" class="product-detail__img-small">
-                <img src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/37/bac.jpg" alt="" class="product-detail__img-small">
-                <img src="https://www.duchuymobile.com/images/thumbnails/180/180/detailed/44/iphone-13-pro-xanh_1ikv-b2.jpg" alt="" class="product-detail__img-small">
-                <img src="https://cdn.nguyenkimmall.com/images/thumbnails/180/180/detailed/702/dien-thoai-iphone-12-pro-256gb-xanh-1.jpg" alt="" class="product-detail__img-small">
+            <?php 
+                if($sanPham != null) {
+            ?>
+
+            <img src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>" alt="Mô tả" class="product-detail__img-big">
             
-            </div>
+            <br/>
+            <?= $sanPham->moTa?>
         </div>
         <div class="product-detail__infor--parameter">
 
-            <h4 class="product-detail__infor--name">Điện Thoại Iphone 12</h4>
+            <h4 class="product-detail__infor--name"><?=$sanPham->tenSP?></h4>
 
                 <div class="product-detail__infor--par">
-                    <span class="product-detail__infor--price">24.500.000đ</span>
-                    <span class="product-detail__infor--eva">Chưa có đánh giá</span>
-                    <span class="product-detail__infor--sall">0 Đã bán</span>
+                    <span class="product-detail__infor--price"><?=number_format($sanPham->gia)?></span>
+                    <span class="product-detail__infor--eva">
+                        <?php 
+                            if($nhanXet != null && count($nhanXet) > 0) {
+                               echo count($nhanXet).' lượt đánh giá';
+                            } else {
+                                echo '0 lượt đánh giá';
+                            }
+                        ?>
+                    </span>
+                    <span class="product-detail__infor--sall"><?=$sanPham->soLuongBan?> Đã bán</span>
                 </div>
 
             <h5 class="product-detail__infor-color">Có 4 màu sắc</h5>
@@ -106,10 +113,7 @@
             <ul>
                 <li class="product-detail__list">Thương hiệu</li>
                 <li class="product-detail__list">Hạng bảo hành</li>
-                <li class="product-detail__list">Dung lượng pin</li>
                 <li class="product-detail__list">Loại bảo hành</li>
-                <li class="product-detail__list">Ram</li>
-                <li class="product-detail__list">Dung lượng lưu trữ</li>
                 <li class="product-detail__list">Sản phẩm còn lại</li>
             </ul>
             <ul >
@@ -117,19 +121,13 @@
                 <li class="product-detail__dots">: </li>
                 <li class="product-detail__dots">: </li>
                 <li class="product-detail__dots">:</li>
-                <li class="product-detail__dots">: </li>
-                <li class="product-detail__dots">: </li>
-                <li class="product-detail__dots">: </li>
             </ul>
             <ul >
                 <li class="product-detail__list">
-                    <span style="color: blue;">Apple</span> </li>
-                <li class="product-detail__list">12 tháng</li>
-                <li class="product-detail__list">3697mAh</li>
+                    <span style="color: blue;"><?= $tenTheLoai?></span> </li>
+                <li class="product-detail__list">24 tháng</li>
                 <li class="product-detail__list">Bảo hành nhà sản xuất</li>
-                <li class="product-detail__list">6GB</li>
-                <li class="product-detail__list">256 GB</li>
-                <li class="product-detail__list">300</li>
+                <li class="product-detail__list"><?=($sanPham->soLuongCo) - ($sanPham->soLuongBan)?></li>
             </ul>
         </div>
 
@@ -141,63 +139,34 @@
         </div>
         <div class="product-detail__parameter">
             <div class="product-detail__parameter-list">
-                <ul>
-                        <li class="product-detail__list">Series</li>
-                        <li class="product-detail__list">Thời gian bảo hành</li>
-                        <li class="product-detail__list">Xuất sứ</li>
-                        <li class="product-detail__list">Height(mm)</li>
-                        <li class="product-detail__list">Chất liệu</li>
-                        <li class="product-detail__list">Trọng lượng</li>
-                        <li class="product-detail__list">CPU 2 X Fiestorm</li>
-                        <li class="product-detail__list">Số nhân</li>
-                        <li class="product-detail__list">Tốc độ tối đa</li>
-                        <li class="product-detail__list">Loại SIM</li>
-                        <li class="product-detail__list">Công nghệ màn hình</li>
-                        <li class="product-detail__list">Kích thước</li>
-                        <li class="product-detail__list">Chuẩn màn hình</li>
-                        <li class="product-detail__list">Độ phân giải</li>
-                        <li class="product-detail__list">Phụ kiện trong hộp</li>
-                    </ul>
-                    <ul >
-                        <li class="product-detail__dots">:  </li>                   
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">:</li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">:  </li>                   
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">:</li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">: </li>
-                        <li class="product-detail__dots">: </li>
-                    </ul>
-                    <ul >
-                        <li class="product-detail__list">IPhone 12Pro Max </li>
-                        <li class="product-detail__list">12 tháng</li>
-                        <li class="product-detail__list">Mỹ</li>
-                        <li class="product-detail__list">160.8</li>
-                        <li class="product-detail__list">Viên thép, mặt bóng mờ</li>
-                        <li class="product-detail__list">228g</li>
-                        <li class="product-detail__list">3.1GHz + 4x Icestorm 1.8GB</li>
-                        <li class="product-detail__list">6</li>
-                        <li class="product-detail__list">3.10GHz</li>
-                        <li class="product-detail__list">1 eSIM, 1 Nano SIM</li>
-                        <li class="product-detail__list">OLED</li>
-                        <li class="product-detail__list">6.7"</li>
-                        <li class="product-detail__list">Super Retina XDR</li>
-                        <li class="product-detail__list">2778 x 1284 Pixel</li>
+                    <ul>
+                    <?php
+                        foreach ($sanPham->listDacTinh as $dacTinh) {
+                    ?>
+                        <li class="product-detail__list"><?=$dacTinh->tenDT?></li>
+                    <?php }?>  
                     </ul>
 
-            </div>
-            <div class="product-detail__parameter-img">
-                <img style="height: 380px;" src="https://cdn.nguyenkimmall.com/images/thumbnails/696/522/companies/_1/TSKT/vien-thong/2020/dien-thoai-iphone-12-pro-256gb-xanh.jpg" alt="Thông số">
+                    <ul >
+                    <?php
+                        foreach ($sanPham->listDacTinh as $dacTinh) {
+                    ?>
+                        <li class="product-detail__dots">:  </li>  
+                    <?php }?>                
+                    </ul>
+
+                    <ul >
+                    <?php
+                        foreach ($sanPham->listDacTinh as $dacTinh) {
+                    ?>
+                         <li class="product-detail__list"><?= $dacTinh->chiTietDT ?></li>
+                    <?php }?>  
+                    </ul>
             </div>
         </div>
         
     </div>
+    <?php } ?>
     <!-- sản phẩm tương tự -->
     <div class="product-detail__same">
         <div class="product-detail__shared-heading">
@@ -209,211 +178,146 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="card-list">
-								<a href="index.php?controller=product&action=product_detail" class="card">
-									<img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-									<div class="card-body">
-										<h5 class="card-title">Iphone</h5>
-										<div class="card-text">
-											<div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-												A14 Bionic
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-												6.1"
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-												4GB
-											</div>
-											<div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-												64GB
-											</div>
-											<div class="gia">
-												<p class="gia-goc">21,999,000</p>
-												<p class="gia-km">19,999,000</p>
-											</div>
-											<div class="product-item__action">
-												<div class="product-item__ration">
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="product-item__star fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<span class="product-similar-item__sold">Đã bán 88</span>
-											</div>
-											<div class="product-similar-item__sale-off">
-												<span class="product-similar-item_sale-off-percent">10%</span>
-												<span class="product-similar-item__sale-off-label">GIẢM</span>
-											</div>
-										</div>
-									</div>
-								</a>
-								<a href="index.php?controller=product&action=product_detail" class="card">
-                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Iphone</h5>
-                                        <div class="card-text">
-                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-                                                A14 Bionic
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-                                                6.1"
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-                                                4GB
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-                                                64GB
-                                            </div>
-                                            <div class="gia">
-                                                <p class="gia-goc">21,999,000</p>
-                                                <p class="gia-km">19,999,000</p>
-                                            </div>
-                                            <div class="product-item__action">
-                                                <div class="product-item__ration">
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+								<?php
+                                $demSanPham = 0;
+                                foreach ($spLienQuan as $sanPham) {
+                                    $demSanPham += 1;
+                                    if ($demSanPham <= 4) {
+                                ?>
+                                    <a href="index.php?controller=product&action=product_detail&masp=<?=$sanPham->maSP?>" class="card">
+                                        <img class="product-similar-item__img" src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $sanPham->tenSP ?></h5>
+                                            <div class="card-text">
+                                                <?php
+                                                $dem = 0;
+                                                foreach ($sanPham->listDacTinh as $dacTinh) {
+                                                    $dem += 1;
+                                                    if ($dem <= 4) {
+                                                ?>
+                                                    <div data-toggle="tooltip" data-placement="top" title="<?= $dacTinh->tenDT ?>" class="dac-tinh">
+                                                        <?= $dacTinh->chiTietDT ?>
+                                                    </div>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <div class="gia">
+                                                    <?php
+                                                    if ($sanPham->khuyenMai > 0) {
+                                                    ?>
+                                                        <p class="gia-goc"><?= number_format($sanPham->gia) ?> đ</p>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <p class="gia-km"><?= number_format($sanPham->gia-$sanPham->khuyenMai) ?> đ</p>
                                                 </div>
-                                                <span class="product-similar-item__sold">Đã bán 88</span>
-                                            </div>
-                                            <div class="product-similar-item__sale-off">
-                                                <span class="product-similar-item_sale-off-percent">10%</span>
-                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                                <div class="product-item__action">
+                                                    <!-- <div class="product-item__ration">
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div> -->
+                                                    <span class="product-similar-item__sold">Đã bán <?= $sanPham->soLuongBan ?> </span>
+                                                </div>
+                                                <?php
+                                                if ($sanPham->khuyenMai > 0) {
+                                                ?>
+                                                    <div class="product-similar-item__sale-off">
+                                                        <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
-								<a href="index.php?controller=product&action=product_detail" class="card">
-                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Iphone</h5>
-                                        <div class="card-text">
-                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-                                                A14 Bionic
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-                                                6.1"
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-                                                4GB
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-                                                64GB
-                                            </div>
-                                            <div class="gia">
-                                                <p class="gia-goc">21,999,000</p>
-                                                <p class="gia-km">19,999,000</p>
-                                            </div>
-                                            <div class="product-item__action">
-                                                <div class="product-item__ration">
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <span class="product-similar-item__sold">Đã bán 88</span>
-                                            </div>
-                                            <div class="product-similar-item__sale-off">
-                                                <span class="product-similar-item_sale-off-percent">10%</span>
-                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-								<a href="index.php?controller=product&action=product_detail" class="card">
-                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Iphone</h5>
-                                        <div class="card-text">
-                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-                                                A14 Bionic
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-                                                6.1"
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-                                                4GB
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-                                                64GB
-                                            </div>
-                                            <div class="gia">
-                                                <p class="gia-goc">21,999,000</p>
-                                                <p class="gia-km">19,999,000</p>
-                                            </div>
-                                            <div class="product-item__action">
-                                                <div class="product-item__ration">
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <span class="product-similar-item__sold">Đã bán 88</span>
-                                            </div>
-                                            <div class="product-similar-item__sale-off">
-                                                <span class="product-similar-item_sale-off-percent">10%</span>
-                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                <?php
+                                    }
+                                }
+                                ?>
 							</div>
 						</div>
-						<div class="carousel-item">
-							<div class="card-list">
-								<a href="index.php?controller=product&action=product_detail" class="card">
-                                    <img class="product-similar-item__img" src="assets/images/products/minhhoa.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Iphone</h5>
-                                        <div class="card-text">
-                                            <div data-toggle="tooltip" data-placement="top" title="CPU" class="dac-tinh">
-                                                A14 Bionic
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Màn hình" class="dac-tinh">
-                                                6.1"
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="RAM" class="dac-tinh">
-                                                4GB
-                                            </div>
-                                            <div data-toggle="tooltip" data-placement="top" title="Bộ nhớ trong" class="dac-tinh">
-                                                64GB
-                                            </div>
-                                            <div class="gia">
-                                                <p class="gia-goc">21,999,000</p>
-                                                <p class="gia-km">19,999,000</p>
-                                            </div>
-                                            <div class="product-item__action">
-                                                <div class="product-item__ration">
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="product-item__star fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+						<?php
+                        if (count($spLienQuan) > 4) {
+                        ?>
+                        <div class="carousel-item">
+                            <div class="card-list">
+                                <?php
+                                $demSanPham = 0;
+                                foreach ($spLienQuan as $sanPham) {
+                                    $demSanPham += 1;
+                                    if ($demSanPham >= 5 && $demSanPham <= 8) {
+                                ?>
+                                    <a href="index.php?controller=product&action=product_detail&masp=<?=$sanPham->maSP?>" class="card">
+                                        <img class="product-similar-item__img" src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $sanPham->tenSP ?></h5>
+                                            <div class="card-text">
+                                                <?php
+                                                $dem = 0;
+                                                foreach ($sanPham->listDacTinh as $dacTinh) {
+                                                    $dem += 1;
+                                                    if ($dem <= 4) {
+                                                ?>
+                                                    <div data-toggle="tooltip" data-placement="top" title="<?= $dacTinh->tenDT ?>" class="dac-tinh">
+                                                        <?= $dacTinh->chiTietDT ?>
+                                                    </div>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <div class="gia">
+                                                    <?php
+                                                    if ($sanPham->khuyenMai > 0) {
+                                                    ?>
+                                                        <p class="gia-goc"><?= number_format($sanPham->gia) ?> đ</p>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <p class="gia-km"><?= number_format($sanPham->gia-$sanPham->khuyenMai) ?> đ</p>
                                                 </div>
-                                                <span class="product-similar-item__sold">Đã bán 88</span>
-                                            </div>
-                                            <div class="product-similar-item__sale-off">
-                                                <span class="product-similar-item_sale-off-percent">10%</span>
-                                                <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                                <div class="product-item__action">
+                                                    <!-- <div class="product-item__ration">
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="product-item__star fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div> -->
+                                                    <span class="product-similar-item__sold">Đã bán <?= $sanPham->soLuongBan ?> </span>
+                                                </div>
+                                                <?php
+                                                if ($sanPham->khuyenMai > 0) {
+                                                ?>
+                                                    <div class="product-similar-item__sale-off">
+                                                        <span class="product-similar-item__sale-off-label">GIẢM</span>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
-							</div>
-						</div>
-					</div>
-					<a class="carousel-control-prev" role="button" href="#carouselP10" data-slide="prev">
-						<span class="fas fa-angle-left" aria-hidden="true"></span>
-						<span class="sr-only"></span>
-					</a>	
-					<a class="carousel-control-next" role="button" href="#carouselP10" data-slide="next">
-						<span class="fas fa-angle-right" aria-hidden="true"></span>
-						<span class="sr-only"></span>
-					</a>
+                                    </a>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <a class="carousel-control-prev" role="button" href="#carouselP10" data-slide="prev">
+                        <span class="fas fa-angle-left" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                    </a>    
+                    <a class="carousel-control-next" role="button" href="#carouselP10" data-slide="next">
+                        <span class="fas fa-angle-right" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                    </a>
+                        <?php
+                        }
+                        ?>
                 </div>
         </div>
     </div>
@@ -432,9 +336,20 @@
                                             <i class="product-item__star--gold fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-         <span class="product-detail__no-evaluate-msg">
-                Chưa có đánh giá
+            <span class="product-detail__no-evaluate-msg">
+                <?php 
+                    if($nhanXet == null) {
+                        echo 'Chưa có đánh giá nào!';
+                    }
+                ?>  
            </span>
+            <?php 
+                    if($nhanXet != null && count($nhanXet) > 0) {
+                        foreach($nhanXet as $nx) {
+                        echo '<p style="margin-left: 35em;font-style: italic;">'.$nx->nhanXet.'</p><br/>';
+                    }
+                    }
+                ?>
     </div>
     </div>
 </div>

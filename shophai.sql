@@ -1066,7 +1066,7 @@ values
 insert DanhGia (MaDG, MaSP, MaKH, DanhGia, NhanXet)
 values
 	('DG001', 'SP001', 'KH001', 5, 'Chất lượng sản phẩm tuyệt vời! Tôi rất hài lòng!'),
-    ('DG002', 'SP001', 'KH004', 4, ''),
+    ('DG002', 'SP001', 'KH004', 4, 'Sản phẩm bền lắm ạ!'),
     ('DG003', 'SP001', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
     ('DG004', 'SP002', 'KH003', 3, 'Sản phẩm đẹp!'),
     ('DG005', 'SP002', 'KH001', 4, ''),

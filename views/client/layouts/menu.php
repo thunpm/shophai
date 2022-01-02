@@ -12,7 +12,7 @@
 				foreach ($listDM as $danhMuc) {
 			?>
 				<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=<?= $danhMuc->maDM ?>"><?= $danhMuc->tenDM ?></a>
+					<a class="nav-link" href="index.php?controller=product&action=product_list&danhmuc=<?= $danhMuc->maDM ?>&page=1"><?= $danhMuc->tenDM ?></a>
 				</li>
 			<?php	
 				}

@@ -146,8 +146,12 @@ p {
 	justify-content: space-around;
 }
 
+.footer p {
+	line-height: 23px;
+}
+
 .footer .khoi {
-	width: 25%;
+	width: 30%;
 	margin: 30px;
 	color: white;
 }
@@ -267,6 +271,7 @@ p {
 	margin-right: 10px;
 	margin-bottom: 10px;
 	color: black;
+	min-height: 440px;
 }
 
 .card-list div:nth-child(4) {
@@ -454,6 +459,16 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
     background-color: #ccc;
 }
 
+.card-list {
+	animation: slide-down .9s ease-out;
+	-moz-animation: slide-down .9s ease-out;
+}
+
+@keyframes slide-down {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
 @media screen and (max-width: 990px) {
 	.footer .khoi {width: 40%;}
 	.main-block .content {width: 100%;}
@@ -475,9 +490,10 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 	.main-block .content {width: 100%;}
 	.footer .khoi {width: 80%; margin: 10px;}
 	.footer .khoi .title {margin-bottom: 10px; font-size: 16px;}
-	.card-list .card {width: max(45%, 200px); margin-right: 0px; height: 300px;}
+	.card-list .card {width: max(45%, 176px); margin-right: 0px; min-height: 240px;}
 	.card-list .card .gia {margin: 0px;}
 	.header .find .search-box input {width: 300px; font-size: 14px;}
+	.dac-tinh {display: none;}
 }
 
 

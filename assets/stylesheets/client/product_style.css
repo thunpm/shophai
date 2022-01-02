@@ -62,15 +62,19 @@ li.active {
     font-size: 16px;
     font-weight: 500;
     border-radius: 5px;
-    padding: 0 8px;
+    padding: 8px 8px;
+    text-align: center;
     color: #d21809;
+    display: block;
   
 }
+
 .filter__btn:hover {
     transform: scale(1.01);
     color: white;
     background-color: #d21809;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .product-list__title-heading {
@@ -204,7 +208,7 @@ a.pagination-item__link:hover {
 }
 
 .pagination-item--active .pagination-item__link {
-    background-color: var(--primary-color);
+    background-color: #0062cc;
     color: var(--white-color);
 }
 .pagination-item {
@@ -802,7 +806,6 @@ span.product-similar-item__sale-off-label {
     button.filter__btn {
         margin: 0 12px 9px 0;
         z-index: 1;
-        min-width: 172px;
     }
     .product-list__select-sort {
         
@@ -874,6 +877,7 @@ span.product-similar-item__sale-off-label {
     a.product-similar-item {
         text-decoration: none;
         padding-bottom: 18px;
+        height: 360px;
     }
     .pagination-item__link{
         font-size: 14px;
@@ -918,11 +922,6 @@ span.product-similar-item__sale-off-label {
     .product-detail__parameter-img img {
         padding-top: 15px;
         width: 347px;
-    }
-    .card-list .card {
-        width: 45%;
-        margin-right: 11px;
-        height: 300px;
     }
 
     .product-moble__icon

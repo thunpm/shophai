@@ -20,9 +20,9 @@ function isValidAccount($TenDangNhap, $MatKhau) {
 		return false;
     }
 
-    function SeclecPass($TenDangNhap,$matkhaucu) { 
+    function SeclecPass($matkhaucu) { 
 		$db = DB::getInstance(); 
-		$sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$TenDangNhap."' and MatKhau='".$matkhaucu."'";
+		$sql = "SELECT * FROM khachhang WHERE  MatKhau='".$matkhaucu."'";
 		$req = $db->query($sql);
 		foreach ($req->fetchAll() as $item) { 
        

@@ -60,11 +60,9 @@ public function info() {
             $HoTen=$_POST['HoTen'];
            $SoDienThoai=$_POST['SoDienThoai'];
             $Email=$_POST['Email'];
-            $TenDangNhap = $_POST['TenDangNhap'];
-            $MatKhau = $_POST['MatKhau'];
-            UpdateAccount($MaKH,$TenDangNhap, $MatKhau,$HoTen,$SoDienThoai,$Email);
-            session_start();
-                 $_SESSION['user']=isValidAccount($TenDangNhap, $MatKhau);
+           
+            UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email);
+
             echo '<script type="text/javascript">
             alert("Cập nhập thành công!"); 
             history.go(-1)

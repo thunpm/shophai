@@ -10,9 +10,9 @@ function isValidAccount($TenDangNhap, $MatKhau) {
        return $item;
     } 
 }
-    function UpdateAccount($MaKH,$TenDangNhap, $MatKhau,$HoTen,$SoDienThoai,$Email) { 
+    function UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email) { 
         $db = DB::getInstance(); 
-        $sql = "UPDATE khachhang set TenDangNhap='".$TenDangNhap."',MatKhau='".$MatKhau."',HoTen='".$HoTen."',SoDienThoai='".$SoDienThoai."',Email='".$Email."' where MaKH='".$MaKH."'"; 
+        $sql = "UPDATE khachhang set HoTen='".$HoTen."',SoDienThoai='".$SoDienThoai."',Email='".$Email."' where MaKH='".$MaKH."'"; 
         $req = $db->query($sql);
         foreach ($req->fetchAll() as $item) { 
 			return true;

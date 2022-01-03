@@ -85,8 +85,7 @@ public function info() {
                 $matkhaucu = $_POST['matkhaucu'];
                 $matkhaumoi_1 = $_POST['matkhaumoi_1'];
                 $matkhaumoi_2 = $_POST['matkhaumoi_2'];
-                $TenDangNhap = $_POST['TenDangNhap'];
-                $count = SeclecPass($TenDangNhap,$matkhaucu);
+               $count = SeclecPass($matkhaucu);
                 if($count >0){
                     UpdatePass($matkhaumoi_1);
                    echo '<script type="text/javascript">

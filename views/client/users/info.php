@@ -10,7 +10,7 @@
 <div class="main-block">
     <div class="content">
         <div class="contact__title">
-            <h3 class="contact__heading" >LIÊN HỆ</h3>
+            <h3 class="contact__heading" >THÔNG TIN TÀI KHOẢN</h3>
         </div>
         <div class="user-info-block">
             <div class="list-user-info">

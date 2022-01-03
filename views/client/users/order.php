@@ -1,9 +1,15 @@
+<?php
+	if (isset($_SESSION['user'])==false) {
+        header("location:index.php?controller=user&action=check_login");
+        exit();
+    } 
+?>
 <?php require('views/client/layouts/header.php'); ?>
 <?php require('views/client/layouts/menu.php'); ?>
 <div class="main-block">
     <div class="content">
         <div class="contact__title">
-            <h3 class="contact__heading" >LIÊN HỆ</h3>
+            <h3 class="contact__heading" >THÔNG TIN TÀI KHOẢN</h3>
         </div>
         <div class="user-info-block">
             <div class="list-user-info">
@@ -12,7 +18,7 @@
                         <i class="far fa-user-circle"></i>
                         <div>
                             <p>Tài khoản</p>
-                            <p>Thư</p>
+                            <p>	<?php	echo $TenDangNhap 	?></p>
                         </div>
                     </li>
                     <li><a href="index.php?controller=user&action=info"><i class="fas fa-user-edit"></i>    Thông tin tài khoản</a></li>

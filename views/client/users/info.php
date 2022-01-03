@@ -1,3 +1,10 @@
+<?php
+	if (isset($_SESSION['user'])==false) {
+        header("location:index.php?controller=user&action=check_login");
+        exit();
+    } 
+
+?>
 <?php require('views/client/layouts/header.php'); ?>
 <?php require('views/client/layouts/menu.php'); ?>
 <div class="main-block">
@@ -12,7 +19,7 @@
                         <i class="far fa-user-circle"></i>
                         <div>
                             <p>Tài khoản</p>
-                            <p>Thư</p>
+                                <p><?php echo $TenDangNhap;?></p>
                         </div>
                     </li>
                     <li><a href="index.php?controller=user&action=info"><i class="fas fa-user-edit"></i>    Thông tin tài khoản</a></li>
@@ -22,19 +29,34 @@
                 </ul>
             </div>
             <div class="user-info">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label class="text-inf">Họ và tên:</label><br>
-                        <input type="text" name="name" id="name" class="form-control">
+                <?php
+               
+                    
+                    if(isset($_SESSION['user'])&& (is_array($_SESSION['user']))){
+                            extract($_SESSION['user']);
+                    }
+          
+          ?>
+                <form action="index.php?controller=user&action=info" method="post">
+               
+                <div class="form-group">
+                       
                     </div>
                     <div class="form-group">
-                        <label  class="text-inf">Số điện thoại:</label><br>
-                        <input type="text" name="username" id="username" class="form-control">
+                        <label for="HoTen" class="text-inf">Họ và tên:</label><br>
+                        <input type="text" name="HoTen" id="HoTen" class="form-control" value="<?php echo $HoTen?>">
+					
                     </div>
                     <div class="form-group">
-                        <label class="text-inf">Email:</label><br>
-                        <input type="text" name="email" id="mail" class="form-control">
+                        <label  for="SoDienThoai" class="text-inf">Số điện thoại:</label><br>
+                       <input type="text" name="SoDienThoai" id="username" class="form-control" value="<?php echo $SoDienThoai?>"> 
                     </div>
+                    <div class="form-group">
+                        <label for="Email" class="text-inf">Email:</label><br>
+                        <input type="text" name="Email" id="mail" class="form-control" value="<?php echo $Email?>"> 
+                    </div>
+                
+                    
                     <div class="form-group">
                         <label class="text-inf">Giới tính:</label><br>
                         <div class="form-check">
@@ -52,10 +74,13 @@
                             </div>
                         </div>
                     </div>
+                   
                     <div class="form-group">
+                    <input type="hidden" name="MaKH" id="MaKH" class="form-control"  value="<?php echo $MaKH?>">
                         <input style="margin-top: 20px;" type="submit" name="submit" class="btn btn-danger btn-md" value="CHỈNH SỬA">
                     </div>
                 </form>
+         
             </div>
         </div>
     </div>

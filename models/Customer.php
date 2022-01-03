@@ -1,38 +1,45 @@
 <?php 
-class Customer { 
-    public $idCustomer;
-    public $username;
-    public $password;
-    public $fullname;
-    public $phoneNumber;
-    public $email;
-    public $gender;
-    public $birthday;
 
-	// function __construct($idCustomer, $username, $password, $fullname, $phoneNumber, $email, $gender, $birthday) { 
-	// 	$this->idCustomer = $idCustomer;
-    //     $this->username = $username;
-    //     $this->password = $password;
-    //     $this->fullname = $fullname;
-    //     $this->phoneNumber = $phoneNumber;
-    //     $this->email = $email;
-    //     $this->gender = $gender;
-    //     $this->birthday = $birthday;
-	// } 
+function isValidAccount($TenDangNhap, $MatKhau) { 
+    $db = DB::getInstance(); 
+    $sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$TenDangNhap."' AND MatKhau='".$MatKhau."'"; 
+    $req = $db->query($sql);
 
-    function __construct($username, $password) { 
-        $this->username = $username;
-        $this->password = $password;
-    }
-
-	static function isValidAccount($username, $password) { 
-		$db = DB::getInstance(); 
-		$sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$username."' AND MatKhau='".$password."'"; 
-		$req = $db->query($sql);
-
+    foreach ($req->fetchAll() as $item) { 
+       
+       return $item;
+    } 
+}
+    function UpdateAccount($MaKH,$TenDangNhap, $MatKhau,$HoTen,$SoDienThoai,$Email) { 
+        $db = DB::getInstance(); 
+        $sql = "UPDATE khachhang set TenDangNhap='".$TenDangNhap."',MatKhau='".$MatKhau."',HoTen='".$HoTen."',SoDienThoai='".$SoDienThoai."',Email='".$Email."' where MaKH='".$MaKH."'"; 
+        $req = $db->query($sql);
         foreach ($req->fetchAll() as $item) { 
 			return true;
 		} 
 		return false;
+    }
+
+    function SeclecPass($TenDangNhap,$matkhaucu) { 
+		$db = DB::getInstance(); 
+		$sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$TenDangNhap."' and MatKhau='".$matkhaucu."'";
+		$req = $db->query($sql);
+		foreach ($req->fetchAll() as $item) { 
+       
+            return $item;
+         } 
+	
 	}
-}
+    function UpdatePass($matkhaumoi_1) { 
+		$db = DB::getInstance(); 
+		$sql = "UPDATE khachhang SET MatKhau='".$matkhaumoi_1."'";
+
+		$req = $db->query($sql);
+		foreach ($req->fetchAll() as $item) { 
+			return true;
+		} 
+		return false;
+    }
+
+    
+?>

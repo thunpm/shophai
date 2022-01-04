@@ -64,7 +64,7 @@ public function info() {
             UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email);
 
             echo '<script type="text/javascript">
-            alert("Cập nhập thành công!"); 
+            alert("Cập nhập thành công. Vui lòng đăng nhập lại !"); 
             history.go(-1)
                 </script>';
             } 
@@ -93,14 +93,14 @@ public function info() {
 
                 }elseif($matkhaumoi_1 != $matkhaumoi_2) {
                     echo '<script type="text/javascript">
-                    alert("Mật khẩu nhập lại không khớp. Vui long nhập lại."); 
+                    alert("Mật khẩu nhập lại không khớp. Vui lòng nhập lại."); 
                     history.go(-1)
            </script>';
                }
                 
                 else{
                     echo '<script type="text/javascript">
-                    alert("Tài khoản hoặc Mật khẩu cũ không đúng. Vui long nhập lại."); 
+                    alert("Mật khẩu cũ không đúng. Vui lòng nhập lại."); 
                     history.go(-1)
            </script>';
                    

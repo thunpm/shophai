@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="MatKhau" class="text-inf">Mật khẩu:</label><br>
-                                <input type="text" name="MatKhau" id="MatKhau" class="form-control" value="<?php echo isset($MatKhau) ? $MatKhau : "" ?>">
+                                <input type="text" name="password" id="MatKhau" class="form-control" value="<?php echo isset($MatKhau) ? $MatKhau : "" ?>">
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-inf"><span>Ghi nhớ đăng nhập</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>

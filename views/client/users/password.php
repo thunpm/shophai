@@ -40,7 +40,7 @@
      ?>
                 <form action="index.php?controller=user&action=password" method="post">
                
-                <input type="hidden" name="MaKH" value="<?php echo $MaKH?>">
+             <input type="hidden" name="TenDangNhap" id="name" class="form-control" value="<?php echo $TenDangNhap?>">
                                <div class="form-group">
                         <label class="text-inf">Mật khẩu cũ:</label><br>
                         <input type="password" name="matkhaucu" id="name" class="form-control" >

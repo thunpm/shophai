@@ -1,9 +1,16 @@
+<?php
+	if (isset($_SESSION['user'])==false) {
+        header("location:index.php?controller=user&action=check_login");
+        exit();
+    } 
+
+?>
 <?php require('views/client/layouts/header.php'); ?>
 <?php require('views/client/layouts/menu.php'); ?>
 <div class="main-block">
     <div class="content">
         <div class="contact__title">
-            <h3 class="contact__heading" >LIÊN HỆ</h3>
+            <h3 class="contact__heading" >THÔNG TIN TÀI KHOẢN</h3>
         </div>
         <div class="user-info-block">
             <div class="list-user-info">
@@ -12,7 +19,7 @@
                         <i class="far fa-user-circle"></i>
                         <div>
                             <p>Tài khoản</p>
-                            <p>Thư</p>
+                           <p><?php echo $TenDangNhap;?></p>
                         </div>
                     </li>
                     <li><a href="index.php?controller=user&action=info"><i class="fas fa-user-edit"></i>    Thông tin tài khoản</a></li>
@@ -29,9 +36,9 @@
                     <div class="address">
                         <div class="info">
                             <ul>
-                                <li>NGUYỄN PHAN MINH THƯ</li>
-                                <li>Địa chỉ: Quảng Nam, Việt Nam</li>
-                                <li>Số điện thoại: 0987654321</li>
+                                <li>Tên:<?php echo $HoTen?></li>
+                                <li>Địa chỉ: <?php ?></li>
+                                <li>Số điện thoại:<?php echo $SoDienThoai?></li>
                             </ul>
                         </div>
                         <div class="info">

@@ -18,24 +18,57 @@
             ?>
 
             <img src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>" alt="Mô tả" class="product-detail__img-big">
-            
             <br/>
-            <?= $sanPham->moTa?>
+            <?php
+            if(count($sanPham->listHinh)> 1) {
+            ?>
+            <img src="assets/images/products/<?= $sanPham->listHinh[1]->tenHinh?>" alt="Mô tả" class="product-detail__img-small">
+            <?php }?>
         </div>
         <div class="product-detail__infor--parameter">
 
             <h4 class="product-detail__infor--name"><?=$sanPham->tenSP?></h4>
 
                 <div class="product-detail__infor--par">
-                    <span class="product-detail__infor--price"><?=number_format($sanPham->gia)?> đ</span>
+                    <?php
+                    if($sanPham->khuyenMai > 0) { 
+                    ?>
+                        <span class="product-detail__infor--price"><?=number_format($sanPham->gia - $sanPham->khuyenMai)?> đ</span>
+                        <span style="color: #d21809;text-decoration: line-through;font-weight: bold; padding-left: 5px;"><?= number_format($sanPham->gia) ?> đ</span>
+                    <?php } else {?>
+                        <span class="product-detail__infor--price"><?=number_format($sanPham->gia)?> đ</span>
+                    <?php }?>
+                    <br/><br/>
                     <span class="product-detail__infor--eva">
-                        <?php 
+                        <span class="product-item">
+                        <!--tính tb lượt đáng giá-->
+                        <?php
                             if($nhanXet != null && count($nhanXet) > 0) {
-                               echo count($nhanXet).' lượt đánh giá';
-                            } else {
-                                echo '0 lượt đánh giá';
-                            }
+                                $soLuongDG = count($nhanXet);
+                                $tongDG = 0;
+                                foreach($nhanXet as $i) {
+                                    $tongDG += $i->danhgia;
+                                }
+                                $tb = round($tongDG/$soLuongDG);
                         ?>
+                        <!--hiển thị số sao-->
+                        <?php
+                            for($i = 1; $i <=$tb; $i++) {
+                        ?>
+                            <i class="product-item__star fas fa-star"></i>
+                        <?php }?>
+                        <!--hiển thị phần sao còn lại-->
+                        <?php
+                            for($i = $tb+1; $i <=5; $i++) {
+                        ?>
+                            <i class="fas fa-star"></i>
+                        <?php }
+                            echo $soLuongDG.' đánh giá';
+                        ?>
+                        <?php } else {
+                            echo '0 đánh giá';
+                        }?>
+                        </span>
                     </span>
                     <span class="product-detail__infor--sall"><?=$sanPham->soLuongBan?> Đã bán</span>
                 </div>
@@ -122,28 +155,35 @@
         <div class="product-detail__shared-heading">
             CHI TIẾT SẢN PHẨM
         </div>
-        <div class="product-detail__description">
-            <ul>
-                <li class="product-detail__list">Thương hiệu</li>
-                <li class="product-detail__list">Hạng bảo hành</li>
-                <li class="product-detail__list">Loại bảo hành</li>
-                <li class="product-detail__list">Sản phẩm còn lại</li>
-            </ul>
-            <ul >
-                <li class="product-detail__dots">:  </li>                   
-                <li class="product-detail__dots">: </li>
-                <li class="product-detail__dots">: </li>
-                <li class="product-detail__dots">:</li>
-            </ul>
-            <ul >
-                <li class="product-detail__list">
-                    <span style="color: blue;"><?= $tenTheLoai?></span> </li>
-                <li class="product-detail__list">24 tháng</li>
-                <li class="product-detail__list">Bảo hành nhà sản xuất</li>
-                <li class="product-detail__list"><?=($sanPham->soLuongCo)?></li>
-            </ul>
+        <!--giới thiệu sản phẩm-->
+        <div style="display: flex;">
+            <div style="width: 50%; border-right: 2px solid gainsboro;">
+                <div class="product-detail__description">
+                    <?= $sanPham->moTa?>
+                </div>
+            </div>
+            <div class="product-detail__description">
+                <ul>
+                    <li class="product-detail__list">Thương hiệu</li>
+                    <li class="product-detail__list">Hạng bảo hành</li>
+                    <li class="product-detail__list">Loại bảo hành</li>
+                    <li class="product-detail__list">Sản phẩm còn lại</li>
+                </ul>
+                <ul >
+                    <li class="product-detail__dots">:  </li>                   
+                    <li class="product-detail__dots">: </li>
+                    <li class="product-detail__dots">: </li>
+                    <li class="product-detail__dots">:</li>
+                </ul>
+                <ul >
+                    <li class="product-detail__list">
+                        <span style="color: blue;"><?= $tenTheLoai?></span> </li>
+                    <li class="product-detail__list">24 tháng</li>
+                    <li class="product-detail__list">Bảo hành nhà sản xuất</li>
+                    <li class="product-detail__list"><?=($sanPham->soLuongCo)?></li>
+                </ul>
+            </div>
         </div>
-
     </div>
     <!-- thông số kỹ thuật -->
     <div class="product-detail__same">
@@ -226,13 +266,13 @@
                                                     <p class="gia-km"><?= number_format($sanPham->gia-$sanPham->khuyenMai) ?> đ</p>
                                                 </div>
                                                 <div class="product-item__action">
-                                                    <!-- <div class="product-item__ration">
+                                                    <!--<div class="product-item__ration">
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
-                                                    </div> -->
+                                                    </div>-->
                                                     <span class="product-similar-item__sold">Đã bán <?= $sanPham->soLuongBan ?> </span>
                                                 </div>
                                                 <?php
@@ -293,13 +333,13 @@
                                                     <p class="gia-km"><?= number_format($sanPham->gia-$sanPham->khuyenMai) ?> đ</p>
                                                 </div>
                                                 <div class="product-item__action">
-                                                    <!-- <div class="product-item__ration">
+                                                    <!--<div class="product-item__ration">
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="product-item__star fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
-                                                    </div> -->
+                                                    </div>-->
                                                     <span class="product-similar-item__sold">Đã bán <?= $sanPham->soLuongBan ?> </span>
                                                 </div>
                                                 <?php
@@ -334,38 +374,88 @@
                 </div>
         </div>
     </div>
+    </div>
     <!-- đánh giá sản phẩm -->
     <div class="product-detail__same">
         <div class="product-detail__shared-heading">
             ĐÁNH GIÁ SẢN PHẨM
         </div>
-    <div class="product-detail__evaluate">
-        
-        <img src="https://icon-library.com/images/smile-icon-png/smile-icon-png-0.jpg" alt="" class="product-detail__no-evaluate-img">
-        <div class="product-item__rating">
-                                            <i class="product-item__star--gold fas fa-star"></i>
-                                            <i class="product-item__star--gold fas fa-star"></i>
-                                            <i class="product-item__star--gold fas fa-star"></i>
-                                            <i class="product-item__star--gold fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
+        <div class="product-detail__evaluate">
             <span class="product-detail__no-evaluate-msg">
-                <?php 
-                    if($nhanXet == null) {
-                        echo 'Chưa có đánh giá nào!';
-                    }
-                ?>  
-           </span>
             <?php 
-                    if($nhanXet != null && count($nhanXet) > 0) {
-                        foreach($nhanXet as $nx) {
-                        echo '<p style="margin-left: 35em;font-style: italic;">'.$nx->nhanXet.'</p><br/>';
-                    }
-                    }
+            if($nhanXet == null) {
+                for($i = 1; $i <=5; $i++) {
+            ?>
+                    <i class="fas fa-star"></i>
+            <?php 
+            }
+            echo '<img src="https://icon-library.com/images/smile-icon-png/smile-icon-png-0.jpg" alt="" class="product-detail__no-evaluate-img">"';
+            echo '<div style="margin-left: 10px;">Chưa có đánh giá nào !</div>';} 
+            ?>  
+            <!--tính tb lượt đáng giá-->
+            <?php 
+            if($nhanXet != null && count($nhanXet) > 0) {
+                $soLuongDG = count($nhanXet);
+                $tongDG = 0;
+                foreach($nhanXet as $i) {
+                $tongDG += $i->danhgia;
+                }
+                $trungBinh = round($tongDG/$soLuongDG, 1);
+                $tb = round($tongDG/$soLuongDG);
+            ?>
+                <!--hiển thị số sao-->
+                <?php
+                    for($i = 1; $i <= $tb; $i++) {
                 ?>
-    </div>
+                    <i class="product-item__star fas fa-star"></i>
+                <?php 
+                }
+                ?>
+                <!--hiển thị phần sao còn lại-->
+                <?php
+                    for($i = $tb+1; $i <=5; $i++) {
+                ?>
+                    <i class="fas fa-star"></i>
+
+                <?php 
+                }
+                echo '</span>';
+                echo '<span style="font-size: 24px; font-weight: bold; display: flex; justify-content: center;">'.$trungBinh.'/5 
+                        <span style="font-size: 18px; color: #747473; line-height: normal; font-weight: normal; margin-left: 7px;">('.$soLuongDG.' đánh giá)</span>
+                    </span>';
+                ?>
+                <!--hiển thị đánh giá-->
+                <div style="padding: 35px 0px 10px 0px;">
+                    <table class="table" style="width: 100%;">
+                        <?php
+                        foreach($nhanXet as $nx) {
+                        ?>
+                        <tr style="margin-bottom: 10px;">
+                            <td style="width: 300px; float: left; padding-right: 100px; border-top: none;">
+                                <strong><?=$nx->maKH?></strong>
+                            </td>
+                            <td style="float: left; border-top: none;">
+                                <?php
+                                for($i = 1; $i <= $nx->danhgia; $i++) {
+                                    echo '<i class="product-item__star fas fa-star"></i>';
+                                }
+                                ?>
+                                <br/>
+                                <p style="margin-top: 10px;"><?= $nx->nhanXet ?></p>
+                            </td>
+                        </tr>
+                        <?php 
+                        }
+                        ?>
+                    </table>
+                </div>
+            <?php    
+            }
+            ?>
+        </div>
     </div>
 </div>
+
 <?php require('views/client/layouts/footer.php'); ?>
 
 <script>

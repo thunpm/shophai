@@ -15,7 +15,11 @@
 		<div class="title-right">
 		<?php
 			foreach ($danhMucTin as $dm) {
+				if($dm->tenDM != $ten_danhmuc) {
 				echo '<a href="index.php?controller=news&action=news_list&id='.$dm->maDM.'">'.$dm->tenDM.'</a>';
+				} else {
+				echo '<a style="background-color: #ED5323;" href="index.php?controller=news&action=news_list&id='.$dm->maDM.'">'.$dm->tenDM.'</a>';	
+				}
 			}
 		?>
 		</div>
@@ -56,6 +60,7 @@
 		</ul>
 		
 		<!-- phân trang -->
+		<!--
 		<ul class="pagination product__pagination">
 		<li class="pagination-item">
 			<a href="" class="pagination-item__link">
@@ -89,7 +94,7 @@
 			</a>
 		</li>
 		</ul>
-
+		-->
 	</div>
 </div>
 

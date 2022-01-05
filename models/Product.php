@@ -27,6 +27,7 @@
             $this->listDacTinh = $listDacTinh;
         }
 
+        // lấy list sản phẩm theo mã danh mục
         static function listByDanhMuc($MaDanhMuc) { 
             $db = DB::getInstance(); 
             $sql = "SELECT sp.*, tl.* FROM SanPham sp 
@@ -43,6 +44,44 @@
             } 
 
             return $list; 
+        }
+
+        // lấy các sản phẩm liên quan đến 1 sản phẩm đã có
+        static function getListSPLienQuan($MaSP, $MaTL) { 
+            $db = DB::getInstance(); 
+            $sql = "SELECT sp.*, tl.* FROM SanPham sp 
+                    INNER JOIN TheLoai tl on sp.MaTL = tl.MaTL 
+                    INNER JOIN DanhMuc dm on dm.MaDM = tl.MaDM 
+                    WHERE sp.MaSP !='".$MaSP."' AND sp.MaTL = '".$MaTL."'"; 
+            $req = $db->query($sql);
+            $list = [];
+
+            foreach ($req->fetchAll() as $item) { 
+                $list[] = new Product($item['MaSP'], $item['TenSP'], $item['MoTa'], $item['SoLuongCo'], 
+                                    $item['SoLuongBan'], $item['Gia'], $item['KhuyenMai'], $item['MaTL'],
+                                    Picture::listBySanPham($item['MaSP']), Characteristic::listBySanPham($item['MaSP'])); 
+            } 
+
+            return $list; 
+        }
+
+        // lấy 1 sản phẩm từ mã sản phẩm
+        static function getSanPham($MaSanPham) { 
+            $db = DB::getInstance(); 
+            $sql = "SELECT sp.*, tl.* FROM SanPham sp 
+                    INNER JOIN TheLoai tl on sp.MaTL = tl.MaTL 
+                    INNER JOIN DanhMuc dm on dm.MaDM = tl.MaDM 
+                    WHERE sp.MaSP ='".$MaSanPham."'"; 
+            $req = $db->query($sql);
+            $list = [];
+
+            foreach ($req->fetchAll() as $item) { 
+                $list[] = new Product($item['MaSP'], $item['TenSP'], $item['MoTa'], $item['SoLuongCo'], 
+                                    $item['SoLuongBan'], $item['Gia'], $item['KhuyenMai'], $item['MaTL'],
+                                    Picture::listBySanPham($item['MaSP']), Characteristic::listBySanPham($item['MaSP'])); 
+            } 
+
+            return $list[0]; 
         }
     }
 ?>

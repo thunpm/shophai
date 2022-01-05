@@ -1,5 +1,5 @@
 <?php 
-    require_once('controllers/CategoryController.php'); 
+    require_once('controllers/CategoryController.php');
 
     class BaseController { 
 

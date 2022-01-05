@@ -21,7 +21,7 @@ body {
 	background-color: white;
 	border-radius: 7px;
 	padding-bottom: 30px;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 .mainn .contain table {
@@ -45,8 +45,14 @@ body {
 	text-align: center;
 }
 
-.mainn .contain table tr td {
+.mainn .contain table tr td a:hover {
+	text-decoration: none;
+	color: #14274A;
+}
+
+.mainn .contain table tr td, .mainn .contain table tr td a {
 	text-align: center;
+	color: black;
 	padding: 10px;
 }
 

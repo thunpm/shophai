@@ -22,5 +22,18 @@
 
             return $list; 
         }
+
+        static function getTheLoai($MaTheLoai) { 
+            $db = DB::getInstance(); 
+            $sql = "SELECT * FROM TheLoai WHERE MaTL ='".$MaTheLoai."'"; 
+            $req = $db->query($sql);
+            $list = [];
+
+            foreach ($req->fetchAll() as $item) { 
+                $list[] = new Type($item['MaTL'], $item['TenTL'], $item['MaDM']); 
+            } 
+
+            return $list[0]; 
+        }
     }
 ?>

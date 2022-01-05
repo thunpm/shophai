@@ -24,7 +24,7 @@
                         'user' => ['login', 'register', 'order', 'info', 'address_list', 'logout', 'password', 'check_register', 'check_login'],
                         'product' => ['product_detail', 'product_list'],
                         'news' => ['news_list', 'news_detail'],
-                        'cart' => ['list', 'pay']);
+                        'cart' => ['add', 'edit', 'list', 'pay']);
 
     if (! array_key_exists($controller, $controllers) || ! in_array($action, $controllers[$controller])) { 
 	    $controller = 'page'; 

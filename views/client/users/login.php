@@ -9,13 +9,13 @@
                         <p style="margin-top: 10pxl color: red;"><?php echo isset($message) ? $message : "" ?></p>
                         <form id="login-form" class="form" action="index.php?controller=user&action=check_login" method="post">
                             <h4 class="text-center text-inf">ĐĂNG NHẬP</h4>
-                            <div class="form-group">
-                                <label for="username" class="text-inf">Tên đăng nhập:</label><br>
-                                <input type="text" name="username" id="username" class="form-control" value="<?php echo isset($username) ? $username : "" ?>">
+                           <div class="form-group">
+                                <label for="TenDangNhap" class="text-inf">Tên đăng nhập:</label><br>
+                                <input type="text" name="TenDangNhap" id="TenDangNhap" class="form-control"  value="<?php echo isset($TenDangNhap) ? $TenDangNhap : "" ?>">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-inf">Mật khẩu:</label><br>
-                                <input type="text" name="password" id="password" class="form-control" value="<?php echo isset($password) ? $password : "" ?>">
+                                <label for="MatKhau" class="text-inf">Mật khẩu:</label><br>
+                                <input type="text" name="password" id="MatKhau" class="form-control" value="<?php echo isset($MatKhau) ? $MatKhau : "" ?>">
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-inf"><span>Ghi nhớ đăng nhập</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>

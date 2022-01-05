@@ -42,9 +42,9 @@ class Customer {
 		return false;
     }
 
-    function SeclecPass($matkhaucu) { 
+   function SeclecPass($TenDangNhap,$matkhaucu) { 
 		$db = DB::getInstance(); 
-		$sql = "SELECT * FROM khachhang WHERE  MatKhau='".$matkhaucu."'";
+		$sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$TenDangNhap."' AND MatKhau='".$matkhaucu."'";
 		$req = $db->query($sql);
 		foreach ($req->fetchAll() as $item) { 
        

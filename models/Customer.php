@@ -1,15 +1,37 @@
 <?php 
 
-function isValidAccount($TenDangNhap, $MatKhau) { 
-    $db = DB::getInstance(); 
-    $sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$TenDangNhap."' AND MatKhau='".$MatKhau."'"; 
-    $req = $db->query($sql);
+class Customer { 
+    public $idCustomer;
+    public $username;
+    public $password;
+    public $fullname;
+    public $phoneNumber;
+    public $email;
+    public $gender;
+    public $birthday;
 
-    foreach ($req->fetchAll() as $item) { 
-       
-       return $item;
+    function __construct($idCustomer, $username, $password, $fullname, $phoneNumber, $email, $gender, $birthday) { 
+        $this->idCustomer = $idCustomer;
+        $this->username = $username;
+        $this->password = $password;
+        $this->fullname = $fullname;
+        $this->phoneNumber = $phoneNumber;
+        $this->email = $email;
+        $this->gender = $gender;
+        $this->birthday = $birthday;
     } 
-}
+
+    function isValidAccount($TenDangNhap, $MatKhau) { 
+        $db = DB::getInstance(); 
+        $sql = "SELECT * FROM khachhang WHERE TenDangNhap='".$TenDangNhap."' AND MatKhau='".$MatKhau."'"; 
+        $req = $db->query($sql);
+
+        foreach ($req->fetchAll() as $item) { 
+           
+           return $item;
+        } 
+    }
+
     function UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email) { 
         $db = DB::getInstance(); 
         $sql = "UPDATE khachhang set HoTen='".$HoTen."',SoDienThoai='".$SoDienThoai."',Email='".$Email."' where MaKH='".$MaKH."'"; 
@@ -27,7 +49,7 @@ function isValidAccount($TenDangNhap, $MatKhau) {
 		foreach ($req->fetchAll() as $item) { 
        
             return $item;
-         } 
+        } 
 	
 	}
     function UpdatePass($matkhaumoi_1) { 
@@ -39,7 +61,6 @@ function isValidAccount($TenDangNhap, $MatKhau) {
 			return true;
 		} 
 		return false;
-<<<<<<< HEAD
 	}
 
     static function getName($idCustomer) {
@@ -53,10 +74,8 @@ function isValidAccount($TenDangNhap, $MatKhau) {
         }
         return $ten; 
     }
-}
-=======
+
     }
 
-    
 ?>
->>>>>>> 701a23f38fa33b7ba4af29648607698b3972e537
+

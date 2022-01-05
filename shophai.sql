@@ -1069,16 +1069,16 @@ values
     ('DG002', 'SP001', 'KH004', 4, 'Sản phẩm bền lắm ạ!'),
     ('DG003', 'SP001', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
     ('DG004', 'SP002', 'KH003', 3, 'Sản phẩm đẹp!'),
-    ('DG005', 'SP002', 'KH001', 4, ''),
+    ('DG005', 'SP002', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
     ('DG006', 'SP002', 'KH002', 4, 'Tốt!'),
-    ('DG007', 'SP005', 'KH001', 5, ''),
+    ('DG007', 'SP005', 'KH001', 5, 'Sản phẩm bền lắm ạ!'),
 	('DG020', 'SP059', 'KH001', 5, 'Chất lượng sản phẩm tuyệt vời! Tôi rất hài lòng!'),
-    ('DG021', 'SP060', 'KH004', 4, ''),
+    ('DG021', 'SP060', 'KH004', 4, 'Sản phẩm đẹp!'),
     ('DG022', 'SP060', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
     ('DG023', 'SP076', 'KH003', 3, 'Sản phẩm đẹp!'),
-    ('DG024', 'SP076', 'KH001', 4, ''),
+    ('DG024', 'SP076', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
     ('DG025', 'SP061', 'KH002', 4, 'Tốt!'),
-    ('DG026', 'SP061', 'KH001', 5, '');
+    ('DG026', 'SP061', 'KH001', 5, 'Sản phẩm đẹp!');
     
 insert Admin (MaAD, TenDangNhap, MatKhau, HoTen)
 values

@@ -35,4 +35,16 @@ class Customer {
 		} 
 		return false;
 	}
+
+    static function getName($idCustomer) {
+        $db = DB::getInstance(); 
+        $sql = "SELECT HoTen FROM khachhang WHERE MaKH='".$idCustomer."'"; 
+        $req = $db->query($sql);
+        $ten = "";
+
+        foreach ($req->fetchAll() as $item) { 
+            $ten = $item['HoTen'];
+        }
+        return $ten; 
+    }
 }

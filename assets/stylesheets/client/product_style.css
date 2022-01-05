@@ -409,9 +409,9 @@ img.product-detail__img-big {
     margin: auto;
 }
 img.product-detail__img-small {
-    width: 112px;
+    width: 200px;
     padding-left: 23px;
-    
+    margin-left:  50px;
 }
 .product-detail__infor-img--item {
     display: flex;
@@ -427,12 +427,13 @@ h4.product-detail__infor--name {
 }
 .product-detail__infor--par {
     font-size: 16px;
-    margin: 10px 0 20px;
+    margin: 30px 0 20px;
 }
 .product-detail__infor--price {
     color: var(--primary-color);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 26px;
+    margin-bottom: 20px;
 }
 .product-detail__infor--eva {
     color: #ACACB5;

@@ -25,8 +25,8 @@
          public function check_login() {
             if(isset($_POST['submit'])&&($_POST['submit'])){
                 $TenDangNhap = $_POST['TenDangNhap'];
-                 $MatKhau = $_POST['MatKhau'];
-                $user=isValidAccount($TenDangNhap, $MatKhau);
+                 $MatKhau = $_POST['password'];
+                $user=Customer::isValidAccount($TenDangNhap, $MatKhau);
                 if(is_array($user)){
                     session_start();
                     $_SESSION['user']=$user;
@@ -61,7 +61,7 @@ public function info() {
            $SoDienThoai=$_POST['SoDienThoai'];
             $Email=$_POST['Email'];
            
-            UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email);
+           Customer::UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email);
 
             echo '<script type="text/javascript">
             alert("Cập nhập thành công. Vui lòng đăng nhập lại !"); 
@@ -83,9 +83,10 @@ public function info() {
                 $matkhaucu = $_POST['matkhaucu'];
                 $matkhaumoi_1 = $_POST['matkhaumoi_1'];
                 $matkhaumoi_2 = $_POST['matkhaumoi_2'];
-               $count = SeclecPass($matkhaucu);
+                $TenDangNhap = $_POST['TenDangNhap'];
+               $count = Customer::SeclecPass($TenDangNhap,$matkhaucu);
                 if($count >0){
-                    UpdatePass($matkhaumoi_1);
+                    Customer::UpdatePass($matkhaumoi_1);
                    echo '<script type="text/javascript">
                    alert("Mật khẩu đã được thay đổi."); 
                    history.go(-1)

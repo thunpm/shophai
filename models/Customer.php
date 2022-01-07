@@ -75,7 +75,18 @@ class Customer {
         }
         return $ten; 
     }
+	
+static function listaddress() { 
+        $db = DB::getInstance(); 
+        $sql = "SELECT *  FROM diachi dc JOIN khachhang kh ON kh.MaKH = dc.MaKH"; 
+        $req = $db->query($sql);
+       
 
+        foreach ($req->fetchAll() as $item) { 
+            return $item; 
+        } 
+
+    }
     }
 
 ?>

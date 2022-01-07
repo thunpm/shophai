@@ -71,8 +71,15 @@
         }
 
         public function address_list() {
-            $data = array('title' => 'Sổ địa chỉ của tôi');  
-            $this->render('address_list', $data);
+            $user_add = Customer::listaddress();
+            if(is_array($user_add)) {
+                $_SESSION['user_add']=$user_add;
+            
+            }
+                $data = array('title' => 'Sổ địa chỉ của tôi');  
+                $this->render('address_list', $data);
+            
+            
         }
 
         public function password() {

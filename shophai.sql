@@ -170,6 +170,14 @@ values
     ('KH006', 'ngan', '123', N'Trần Thị Ngân', '0898154433'),
     ('KH007', 'duong', '123', N'Võ Thùy Dương', '0898154434');
 
+-- insert diachi
+INSERT INTO DiaChi( MaDC, MaKH,Tinh, Huyen,Xa,SoNha, GhiChu, MacDinh)
+VALUES
+(   'DC001', 'KH001', N'Quảng Nam',   N'Điện Bàn',  N'Xa1',   N'Số nhà 12', N'ghi chú 1',   NULL   ),
+(   'DC002', 'KH006', N'Quảng Nam',   N'Thăng Bình',  N'Xa2',   N'Số nhà 10', N'ghi chú 2',   NULL   ),
+(   'DC003', 'KH004', N'Đà nãng',   N'Liên Chiểu',  N'Hòa Khánh',   N'Số 124', N'ghi chú 3',   NULL   ),
+(   'DC004', 'KH002', N'Quảng Ngãi',   N'Đức Phổ',  N'Xa3',   N'Số 111', N'ghi chú 4',   NULL   );
+
 -- insert DanhMuc    
 insert DanhMuc (MaDM, TenDM)
 values

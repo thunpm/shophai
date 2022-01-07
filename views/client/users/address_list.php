@@ -32,12 +32,20 @@
                 <div class="add-address">
                     <a href="#">+ Thêm địa chỉ</a>
                 </div>
+		      <?php
+               
+                    
+               if(isset($_SESSION['user_add'])&& (is_array($_SESSION['user_add']))){
+                       extract($_SESSION['user_add']);
+               }
+     
+     ?>
                 <div class="list-address">
                     <div class="address">
                         <div class="info">
                             <ul>
                                 <li>Tên:<?php echo $HoTen?></li>
-                                <li>Địa chỉ: <?php ?></li>
+                                <li>Địa chỉ: <?php echo $Tinh  ?></li>
                                 <li>Số điện thoại:<?php echo $SoDienThoai?></li>
                             </ul>
                         </div>

@@ -27,10 +27,13 @@
                 $TenDangNhap = $_POST['TenDangNhap'];
                 $MatKhau = $_POST['password'];
 
-                $user = Customer::isValidAccount($TenDangNhap, $MatKhau);
-                if(is_array($user)) {
-                    session_start();
-                    $_SESSION['user']=$user;
+                $check = Customer::isValidAccount($TenDangNhap, $MatKhau);
+                if(is_array($check)) {
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
+                    $user = Customer::getByUsername($TenDangNhap);
+                    $_SESSION['user'] = $user;
                     header('Location: index.php?controller=page&action=home'); 
                 } else {
                     echo '<script type="text/javascript">
@@ -40,7 +43,7 @@
                 }
 
             }
-            $data = array('title' => 'Đăng nhập'   );  
+            $data = array('title' => 'Đăng nhập');  
             $this->render('login', $data);
          
         }

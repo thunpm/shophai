@@ -3,6 +3,8 @@
     require_once('models/Product.php'); 
     require_once('models/Cart.php'); 
     require_once('models/Items.php'); 
+    require_once('models/Address.php'); 
+    require_once('models/Customer.php'); 
 
     class CartController extends BaseController  { 
         function __construct() { 
@@ -10,10 +12,10 @@
         } 
 
         public function add() { 
-            $maSP = $_POST['id'];
             $message = "";
 
-            if ($maSP != null) {
+            if (isset($_POST['id']) != null) {
+                $maSP = $_POST['id'];
                 $soLuong = $_POST['soLuong'];
                 $ok = false;      
                 if(isset($_SESSION['cart'])) {
@@ -54,10 +56,11 @@
         }
 
         public function edit() {
-            $tt = $_GET['tt'];
-            $maSP = $_GET['id'];
             $message = "";
-            if ($maSP != null) {
+            if (isset($_GET['id']) != null) {
+                $tt = $_GET['tt'];
+                $maSP = $_GET['id'];
+
                 if(isset($_SESSION['cart'])) {
                     $_SESSION["cart"] = unserialize(serialize($_SESSION["cart"]));
                 }
@@ -125,8 +128,40 @@
         }
 
         public function pay() {
-            $data = array('title' => 'Thanh toán');  
-            $this->render('pay', $data);
+            if (isset($_SESSION['cart']))
+                if (isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                    
+                    $user = $_SESSION['user'];
+                    $diaChi = Address::getAddressByIdCustomer($user->idCustomer);
+                    $data = array('title' => 'Thanh toán', 'diaChi' => $diaChi, 'user' => $user);  
+
+                    $this->render('pay', $data);
+                } else {
+                    header('Location: index.php?controller=user&action=login'); 
+                }
+            else {
+                header('Location: index.php?controller=cart&action=list'); 
+            }
+            
+        }
+
+        public function order() {
+            if (isset($_SESSION['cart']) && isset($_SESSION['user'])) {
+                $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                $_SESSION["cart"] = unserialize(serialize($_SESSION["cart"]));
+                
+                $user = $_SESSION['user'];
+                $cart = $_SESSION['cart'];
+
+                Invoice::add($user, $cart);
+
+                header('Location: index.php?controller=user&action=order');
+            }
+            else {
+                header('Location: index.php?controller=cart&action=list'); 
+            }
+            
         }
     }
 ?>

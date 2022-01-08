@@ -54,14 +54,12 @@
     <div class="login-cart">
 		<div class="login">
 			<?php
-				if(isset($_SESSION['user'])&& (is_array($_SESSION['user']))){
-					extract($_SESSION['user']);
+				if(isset($_SESSION['user'])){
+					$user = $_SESSION['user'];
 			?>
 				<div class="dropdown ">
 					<a data-toggle="dropdown" href="#"><span class="far fa-user"></span>
-					<?php
-							echo $TenDangNhap;
-					?>
+						<?= $user->username ?>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="index.php?controller=user&action=info">Thông tin tài khoản</a></li>

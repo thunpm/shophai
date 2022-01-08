@@ -161,13 +161,30 @@ li.pay-generality__provisional-price {
 .pay-generality__information--list {
     padding: 33px 42px;
 }
-.pay-generality__information--list::after{
-position: absolute;
-content: "";
-border-bottom: 1px solid #ccc;
-top: 142px;
-left: 20px;
-right: 20px;
+
+
+li.styles__StyledMethod-sc-1u5r3pb-2.cHcpqx {
+    margin: 25px 0px 10px 0px;
+}
+
+label.styles__StyledRadio-sc-1y2j2ih-0.jsTqCl {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.styles__StyledMethodLabel-sc-1u5r3pb-1.gkKrcB {
+    display: flex;
+    align-items: center;
+}
+
+.method-content__name {
+    margin-left: 10px;
 }
 
 /* responsive */

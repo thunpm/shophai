@@ -32,6 +32,17 @@ class Customer {
         } 
     }
 
+    static function getByUsername($username) { 
+        $db = DB::getInstance(); 
+        $sql = "SELECT * FROM KhachHang WHERE TenDangNhap='".$username."'"; 
+        $req = $db->query($sql);
+
+        foreach ($req->fetchAll() as $item) { 
+           return new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
+                            $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
+        } 
+    }
+
     static function UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email) { 
         $db = DB::getInstance(); 
         $sql = "UPDATE khachhang set HoTen='".$HoTen."',SoDienThoai='".$SoDienThoai."',Email='".$Email."' where MaKH='".$MaKH."'"; 
@@ -76,7 +87,7 @@ class Customer {
         return $ten; 
     }
 
-    }
+}
 
 ?>
 

@@ -350,7 +350,7 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 }
 
 .login-block #login .container #login-row #login-column #login-box {
-	margin-top: 120px;
+	margin-top: 50px;
 	max-width: 600px;
 	height: auto;
 	padding-bottom: 30px;

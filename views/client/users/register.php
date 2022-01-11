@@ -8,10 +8,8 @@
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="index.php?controller=user&action=check_register" method="post">
                             <h4 class="text-center text-inf">ĐĂNG KÝ</h4>
-                            <!-- <div class="form-group">
-                                <label for="MaKH" class="text-inf">MaKH:</label><br>
-                                <input type="text" name="MaKH" id="MaKH" class="form-control">
-                            </div> -->
+                            <input type="hidden" name="MaKH" id="MaKH" class="form-control">
+                           
                             <div class="form-group">
                                 <label for="HoTen" class="text-inf">Họ và tên:</label><br>
                                 <input type="text" name="HoTen" id="HoTen" class="form-control">

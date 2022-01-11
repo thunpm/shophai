@@ -17,9 +17,9 @@
             $this->render('register', $data);
         }
 
-               public function check_register() {
+       public function check_register() {
             if(isset($_POST['dangky'])&&($_POST['dangky'])){
-            //    $MaKH   = $_POST['MaKH'];
+                $so   = $_POST['MaKH'];
                 $TenDangNhap      = $_POST['TenDangNhap'];
                 $MatKhau   = $_POST['MatKhau'];
                 $HoTen   = $_POST['HoTen'];
@@ -55,7 +55,7 @@
                     
                         else
                      {
-                        $query=Customer::isRegister($TenDangNhap,$MatKhau,$HoTen,$SoDienThoai);
+                        $query=Customer::isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai);
                         
                             if($query)
                             {
@@ -81,7 +81,6 @@
       $this->login();
 
     }
-
          public function check_login() {
             if(isset($_POST['submit'])&&($_POST['submit'])){
                 $TenDangNhap = $_POST['TenDangNhap'];

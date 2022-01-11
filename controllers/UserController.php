@@ -19,11 +19,70 @@
             $this->render('register', $data);
         }
 
-        public function check_register() {
-            // check
-            $this->login();
-        }
+       public function check_register() {
+            if(isset($_POST['dangky'])&&($_POST['dangky'])){
+                $so   = $_POST['MaKH'];
+                $TenDangNhap      = $_POST['TenDangNhap'];
+                $MatKhau   = $_POST['MatKhau'];
+                $HoTen   = $_POST['HoTen'];
+                $SoDienThoai   = $_POST['SoDienThoai'];
+                $XNMatKhau   = $_POST['XNMatKhau'];
 
+                if ($TenDangNhap == "" || $MatKhau == ""  ) {
+                    echo '<script type="text/javascript">
+                    alert("bạn vui lòng nhập đầy đủ thông tin!."); 
+                    history.go(-1)
+                    </script>';
+                   
+                    }else{
+                        $query = Customer::getregisterId($TenDangNhap);
+                        if ($query > 0)
+                        {
+                            echo '<script type="text/javascript">
+                            alert("User da ton tai.Vui lòng nhập lại!."); 
+                            history.go(-1)
+                            </script>';
+                       
+                        }
+                          else
+                        {
+                            if($MatKhau != $XNMatKhau)
+                                {
+                                    echo '<script type="text/javascript">
+                                    alert("Mật khẩu nhập lại không trùng.Vui lòng nhập lại!."); 
+                                    history.go(-1)
+                                    </script>';
+                                   
+                                }
+                    
+                        else
+                     {
+                        $query=Customer::isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai);
+                        
+                            if($query)
+                            {
+                                echo '<script type="text/javascript">
+                                    alert("Có lỗi xảy ra trong quá trình đăng ký.Vui lòng nhập lại!."); 
+                                    history.go(-1)
+                                    </script>';
+                                
+                           }
+                            else
+                            {
+                                echo '<script type="text/javascript">
+                                    alert("Tài khoản đã được tạo!."); 
+                                    history.go(-1)
+                                    </script>';
+                             }
+                        }
+                    }
+                 }
+            }
+            
+          
+      $this->login();
+
+    }
          public function check_login() {
             $message = "";
             if (isset($_POST['submit'])&&($_POST['submit'])) {

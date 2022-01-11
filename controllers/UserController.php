@@ -1,6 +1,8 @@
 <?php 
     require_once('controllers/BaseController.php'); 
     require_once('models/Customer.php'); 
+    require_once('models/Address.php'); 
+    require_once('models/Invoice.php'); 
 
     class UserController extends BaseController  { 
         function __construct() { 
@@ -23,12 +25,13 @@
         }
 
          public function check_login() {
-            if(isset($_POST['submit'])&&($_POST['submit'])){
+            $message = "";
+            if (isset($_POST['submit'])&&($_POST['submit'])) {
                 $TenDangNhap = $_POST['TenDangNhap'];
                 $MatKhau = $_POST['password'];
 
                 $check = Customer::isValidAccount($TenDangNhap, $MatKhau);
-                if(is_array($check)) {
+                if($check == true) {
                     if (session_status() == PHP_SESSION_NONE) {
                         session_start();
                     }
@@ -36,46 +39,75 @@
                     $_SESSION['user'] = $user;
                     header('Location: index.php?controller=page&action=home'); 
                 } else {
-                    echo '<script type="text/javascript">
-                        alert("Tài khoản hoặc mật khẩu sai. Vui lòng nhập lại!."); 
-                        history.go(-1)
-                        </script>';      
+                    $message = "Tên đăng nhập hoặc mật khẩu không đúng!";
                 }
-
+                
+                $data = array('title' => 'Đăng nhập', 'message' => $message, 'TenDangNhap' => $TenDangNhap, 'MatKhau' => $MatKhau);  
+            
+            } else {
+                $data = array('title' => 'Đăng nhập', 'message' => $message);  
+            
             }
-            $data = array('title' => 'Đăng nhập');  
             $this->render('login', $data);
          
         }
     
         public function order() {
-            $data = array('title' => 'Đơn hàng của tôi');  
-            $this->render('order', $data);
+            if (isset($_SESSION['user'])) {
+                if(isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                }
+                
+                $listOrder = Invoice::listByIdCustomer($_SESSION['user']->idCustomer);
+                $data = array('title' => 'Đơn hàng của tôi', 'info' => 'order', 'listOrder' => $listOrder);  
+                $this->render('order', $data);
+            }
         }
 
-        
         public function info() {
-            if(isset($_POST['submit'])&& ($_POST['submit'])){
-                    $MaKH = $_POST['MaKH'];
-                    $HoTen=$_POST['HoTen'];
-                $SoDienThoai=$_POST['SoDienThoai'];
-                    $Email=$_POST['Email'];
+            if(isset($_POST['submit'])&& ($_POST['submit'])) {
+                $MaKH = $_POST['MaKH'];
+                $HoTen = $_POST['HoTen'];
+                $SoDienThoai = $_POST['SoDienThoai'];
+                $Email = $_POST['Email'];
                 
-                Customer::UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email);
-
-                    echo '<script type="text/javascript">
-                    alert("Cập nhập thành công. Vui lòng đăng nhập lại !"); 
+                Customer::UpdateAccount($MaKH, $HoTen, $SoDienThoai, $Email);
+                echo '<script type="text/javascript">
+                    alert("Cập nhập thành công!"); 
                     history.go(-1)
-                        </script>';
-                    } 
-                $data = array('title' => 'Thông tin của tôi'); 
-            
-                $this->render('info', $data);
+                    </script>';
+            }
+
+            $data = array('title' => 'Thông tin của tôi', 'info' => 'info'); 
+            $this->render('info', $data);
         }
 
         public function address_list() {
-            $data = array('title' => 'Sổ địa chỉ của tôi');  
-            $this->render('address_list', $data);
+            if (isset($_SESSION['user'])) {
+                if(isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                }
+                $user_add = Address::listAddress($_SESSION['user']->idCustomer);
+                $data = array('title' => 'Sổ địa chỉ của tôi',  'info' => 'address', 'listAddress' => $user_add);  
+                $this->render('address_list', $data);
+            } else {
+                header('Location: index.php?controller=page&action=home'); 
+            }
+            
+        }
+
+        public function add_address() {
+            if (isset($_SESSION['user'])) {
+                if(isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                }
+                $user_add = Address::listAddress($_SESSION['user']->idCustomer);
+                $data = array('title' => 'Sổ địa chỉ của tôi',  'info' => 'address', 'listAddress' => $user_add);  
+                $this->render('address_list', $data);
+            } else {
+                header('Location: index.php?controller=page&action=home'); 
+            }
+            
         }
 
         public function password() {
@@ -84,28 +116,30 @@
                 $matkhaumoi_1 = $_POST['matkhaumoi_1'];
                 $matkhaumoi_2 = $_POST['matkhaumoi_2'];
                 $TenDangNhap = $_POST['TenDangNhap'];
-                $count = Customer::SeclecPass($TenDangNhap,$matkhaucu);
+                $count = Customer::SeclecPass($TenDangNhap, $matkhaucu);
 
-                if ($count >0) {
-                    Customer::UpdatePass($matkhaumoi_1);
-                   echo '<script type="text/javascript">
-                        alert("Mật khẩu đã được thay đổi."); 
-                        history.go(-1)
-                        </script>';
-
-                } elseif ($matkhaumoi_1 != $matkhaumoi_2) {
+                if ($count > 0) {
+                    if ($matkhaumoi_1 != $matkhaumoi_2 || $matkhaumoi_1 == "" || $matkhaumoi_2 == "") {
+                        echo '<script type="text/javascript">
+                            alert("Mật khẩu mới không hợp lệ!"); 
+                            history.go(-1)
+                            </script>';
+                    } else {
+                        Customer::UpdatePass($matkhaumoi_1);
+                        session_unset(); 
+                        echo '<script type="text/javascript">
+                            alert("Mật khẩu đã được thay đổi."); 
+                            location.href = "index.php?controller=user&action=login";
+                            </script>';
+                    }
+                } else {
                     echo '<script type="text/javascript">
-                        alert("Mật khẩu nhập lại không khớp. Vui lòng nhập lại."); 
-                        history.go(-1)
-                        </script>';
-               } else {
-                    echo '<script type="text/javascript">
-                        alert("Mật khẩu cũ không đúng. Vui lòng nhập lại."); 
+                        alert("Mật khẩu cũ không đúng!"); 
                         history.go(-1)
                         </script>';
                 }
             } 
-            $data = array('title' => 'Đổi mật khẩu');  
+            $data = array('title' => 'Đổi mật khẩu',  'info' => 'password');  
             $this->render('password', $data);
         }
 

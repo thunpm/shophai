@@ -392,7 +392,7 @@
 			var idTheLoai = $(type);
 
 			// idTheLoai.addClass('carousel-inner');
-			idTheLoai.css({'display': 'block'})
+			idTheLoai.css({'display': 'block'});
 		})
 	
 	});	

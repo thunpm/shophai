@@ -28,8 +28,10 @@ class Customer {
 
         foreach ($req->fetchAll() as $item) { 
            
-           return $item;
+           return true;
         } 
+
+        return false;
     }
 
     static function getByUsername($username) { 

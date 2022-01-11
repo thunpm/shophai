@@ -5,6 +5,7 @@
     require_once('models/Items.php'); 
     require_once('models/Address.php'); 
     require_once('models/Customer.php'); 
+    require_once('models/Invoice.php'); 
 
     class CartController extends BaseController  { 
         function __construct() { 
@@ -154,9 +155,14 @@
                 $user = $_SESSION['user'];
                 $cart = $_SESSION['cart'];
 
-                Invoice::add($user, $cart);
+                $ok = Invoice::add($user, $cart);
 
-                header('Location: index.php?controller=user&action=order');
+                if ($ok == true) {
+                    $_SESSION['cart'] = null;
+                    header('Location: index.php?controller=user&action=order');
+                } else {
+                    header('Location: index.php?controller=cart&action=list'); 
+                }
             }
             else {
                 header('Location: index.php?controller=cart&action=list'); 

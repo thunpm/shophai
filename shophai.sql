@@ -170,6 +170,15 @@ values
     ('KH006', 'ngan', '123', N'Trần Thị Ngân', '0898154433'),
     ('KH007', 'duong', '123', N'Võ Thùy Dương', '0898154434');
 
+-- insert diachi
+INSERT INTO DiaChi( MaDC, MaKH,Tinh, Huyen,Xa,SoNha, GhiChu, MacDinh)
+VALUES
+    ('DC001', 'KH001', N'Quảng Nam', N'Điện Bàn', N'Xa1', N'Số nhà 12', N'ghi chú 1', 1),
+    ('DC002', 'KH006', N'Quảng Nam', N'Thăng Bình',  N'Xa2', N'Số nhà 10', N'ghi chú 2', 1),
+    ('DC003', 'KH004', N'Đà nãng', N'Liên Chiểu', N'Hòa Khánh', N'Số 124', N'ghi chú 3', 1),
+    ('DC004', 'KH002', N'Quảng Ngãi', N'Đức Phổ',  N'Xa3', N'Số 111', N'ghi chú 4', 1),
+    ('DC005', 'KH001', N'Đà Nẵng', N'Cẩm Lệ', N'Xa4', N'Số nhà 11', N'ghi chú 5', 0);
+
 -- insert DanhMuc    
 insert DanhMuc (MaDM, TenDM)
 values
@@ -1117,4 +1126,3 @@ values
 	('TT005','Mua laptop, Hai Shop bảo hành đến 3 năm và lì xì đến 4 triệu','Từ ngày 01 - 31/01/2022, FPT Shop dành tặng thêm nhiều ưu đãi đặc biệt đến các bạn học sinh - sinh viên khi chọn mua laptop tại hệ thống: bảo hành đến 3 năm, lì xì đến 4 triệu đồng, trả góp 0% lãi suất...','2021-12-28','AD001','Chào đón năm 2022, Hai Shop dành tặng những ưu đãi hấp dẫn nhất đến tất cả các bạn học sinh, tân sinh viên, sinh viên khi chọn mua laptop từ ngày 01 - 31/01/2022. Cụ thể, Hai Shop tặng ngay đặc quyền bảo hành đến 3 năm. Đồng thời, khách hàng còn được giảm giá đến 4.000.000 đồng khi trả thẳng, được hưởng lãi suất 0% khi trả góp cũng như nhận thêm nhiều quà tặng thiết thực khác.<br/>
 	Trong đó, bảo hành đến 3 năm là ưu đãi độc quyền chỉ có tại Hai Shop, cũng là một trong những ưu đãi hấp dẫn nhất từ trước đến nay. Ngoài thời gian bảo hành chính hãng từ 1 - 2 năm, Hai Shop sẽ tặng thêm 1 năm bảo hành nữa, nâng tổng thời gian bảo hành của máy lên đến 3 năm. 1 năm bảo hành tặng thêm có giá trị tương đương gần 10% giá máy, hỗ trợ rất nhiều nếu máy phát sinh lỗi trong thời gian hết hạn bảo hành của hãng, giúp khách hàng tiết kiệm tối đa chi phí, yên tâm sử dụng dài lâu.<br/>
 	Ngoài ra, Hai Shop còn mạnh tay giảm giá cho toàn bộ laptop tại hệ thống: giảm đến 4.000.000 đồng cho laptop AVITA, Acer, Lenovo, Microsoft Surface, Gygabyte, Asus, Dell, HP, MSI, LG, Masstel, Chuwi, MacBook... áp dụng cho hình thức trả thẳng (tức thanh toán 100% giá máy).<br/>','DM003', 'tin5.jpg');
-	

@@ -23,15 +23,30 @@ class Address {
 
     static function getAddressByIdCustomer($maKH) { 
         $db = DB::getInstance(); 
-        $sql = "SELECT * FROM DiaChi WHERE MakH='".$maKH."' AND MacDinh=1"; 
+        $sql = "SELECT * FROM DiaChi WHERE MakH='".$maKH."'"; 
         $req = $db->query($sql);
+        $list = [];
 
         foreach ($req->fetchAll() as $item) { 
-            return new Address($item['MaDC'], $item['MaKH'], $item['Tinh'], $item['Huyen'], $item['Xa'], $item['SoNha'], 
+            $list[] = new Address($item['MaDC'], $item['MaKH'], $item['Tinh'], $item['Huyen'], $item['Xa'], $item['SoNha'], 
                         $item['GhiChu'], $item['MacDinh']); 
         } 
 
-        return 0;
+        return $list[0];
+    }
+
+    static function listAddress($maKH) { 
+        $db = DB::getInstance(); 
+        $sql = "SELECT * FROM DiaChi WHERE MakH='".$maKH."'"; 
+        $req = $db->query($sql);
+        $list = [];
+
+        foreach ($req->fetchAll() as $item) { 
+            $list[] = new Address($item['MaDC'], $item['MaKH'], $item['Tinh'], $item['Huyen'], $item['Xa'], $item['SoNha'], 
+                        $item['GhiChu'], $item['MacDinh']); 
+        } 
+
+        return $list;
     }
  
 }

@@ -152,14 +152,14 @@
                 <ul class="pay-generality__information">
                     <li class="pay-generality__information-item pay-generality__information-name"><?= $user->fullname ?></li>
                     <?php
-                    if (! (isset($diaChi) && $diaChi != 0)) {
+                    if (! (isset($diaChi) && $diaChi != null)) {
                         echo '<li class="pay-generality__information-item">
                             <a href="index.php?controller=user&action=addaddress">Thêm địa chỉ</a>
                             </li>';
                     } else {
-                        echo '<li class="pay-generality__information-item">' 
-                            + $diaChi->soNha + ', ' + $diaChi->xa + ', ' + $diaChi->huyen + ', ' + $diaChi->tinh + '</li>';
-                        echo '<li class="pay-generality__information-item"> +84' + $user->phoneNumber + '</li>';
+                        echo '<li class="pay-generality__information-item">'.
+                            $diaChi->soNha.', '.$diaChi->xa.', '.$diaChi->huyen.', '.$diaChi->tinh.'</li>';
+                        echo '<li class="pay-generality__information-item">'.$user->phoneNumber.'</li>';
                         echo '<a href="#" class="pay-generality__btn">
                                 <button class="btn btn_pram"> Thay đổi địa chỉ</button>
                             </a>';
@@ -191,18 +191,16 @@
                             </a>
                         </p>
                         <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
                             <?php
                             foreach ($cart->listItems as $item) {
                             ?>
-                                <div>
+                                <div class="card card-body">
                                     <p>x<?= $item->soLuong ?> <?= $item->sanPham->tenSP ?>    <?= number_format(($item->sanPham->gia - $item->sanPham->khuyenMai)*$item->soLuong) ?> đ</p>
                                 </div>
                             <?php
                             $tongTien = $tongTien + ($item->sanPham->gia - $item->sanPham->khuyenMai)*$item->soLuong;
                             }
                             ?>
-                            </div>
                         </div>
                     </li>
                 </ul>
@@ -237,8 +235,8 @@
             ?>
             </div>
         </div>
-        <div class="count-right">
-            <a href="index.php?controller=cart&action=order">ĐẶT HÀNG</a>	
+        <div>
+            <a class="btn btn_pram" href="index.php?controller=cart&action=order">ĐẶT HÀNG</a>	
         </div>
     </div>
 </div>

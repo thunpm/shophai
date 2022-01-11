@@ -21,14 +21,41 @@ class Customer {
         $this->birthday = $birthday;
     } 
 
-	 static function isRegister($TenDangNhap,$MatKhau,$HoTen,$SoDienThoai){
-        $db = DB::getInstance(); 
-        $sql = "INSERT INTO khachhang( TenDangNhap, MatKhau, HoTen, SoDienThoai)
-                            VALUE('$TenDangNhap','$MatKhau','$HoTen','$SoDienThoai')"; 
-        $req = $db->query($sql);
 
-       
-        
+
+    static function lastID() {
+        $db = DB::getInstance(); 
+        $sql = "SELECT MaKH FROM khachhang ORDER BY MaKH DESC LIMIT 1"; 
+        $req = $db->query($sql);
+        $last = null;
+
+        foreach ($req->fetchAll() as $item) { 
+            $last = $item['MaKH'];
+        } 
+
+        return $last;
+    }
+
+
+	 static function isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai){
+        $db = DB::getInstance(); 
+        $MaKH = Customer::lastID();
+        if ($MaKH == null) {
+            $MaKH = 'KH000';
+        }
+        $so = substr($MaKH, 2, 3) + 0;
+        $so = $so + 1;
+        for ($i = 0; $i <= 3 - strlen($so); $i++) {
+            $so = '0'.$so;
+        }
+        $so = 'KH'.$so;
+
+
+        $sql = "INSERT INTO `khachhang`(`MaKH`, `TenDangNhap`, `MatKhau`, `HoTen`, `SoDienThoai`)
+                           VALUE('$so','$TenDangNhap','$MatKhau','$HoTen','$SoDienThoai')"; 
+                             $req = $db->query($sql);
+    
+                           
     }
 
     static function getregisterId($TenDangNhap) { 

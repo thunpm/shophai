@@ -38,7 +38,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-a">
+          <a href="admin.php?controller=type&action=list" class="nav-a">
             <i class="fas fa-align-justify nav-a__icon"></i> Quản lý thể loại
           </a>
         </li>

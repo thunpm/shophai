@@ -37,7 +37,7 @@ class Customer {
     }
 
 
-	 static function isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai){
+	static function isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai){
         $db = DB::getInstance(); 
         $MaKH = Customer::lastID();
         if ($MaKH == null) {

@@ -5,7 +5,7 @@
 		<div class="row-fluid">
 			<div class="span12">                    
 				<div class="head">
-					<div class="isw-grid" style="color: red; margin-left: 20px ;">
+					<div class="isw-grid" style="color: red; margin-left: 15px ;">
                        <?php
                        if(isset($message)) echo $message;
                        ?>
@@ -17,14 +17,26 @@
 					<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
 						<thead>
 							<tr>
-                                <th width="20%">Mã Danh Mục</th>
-								<th width="60%">Tên Danh Mục</th>                               
+                                <th width="20%">Mã Thể loại</th>
+								<th width="40%">Tên Thể loại</th>
+								<th width="20%">Tên Danh mục</th>                                
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-                            <td><input type="text" class="span12" name="MaDM" value="<?php echo isset($maDM) ? $maDM : "" ?>"></td>
-							<td><input type="text" class="span12" name="TenDM" value="<?php echo isset($tenDM) ? $tenDM : "" ?>"></td>
+                            <td><input type="text" class="span12" name="MaTL" value="<?php echo isset($MaTL) ? $MaTL : "" ?>"></td>
+							<td><input type="text" class="span12" name="TenTL" value="<?php echo isset($TenTL) ? $TenTL : "" ?>"></td>
+							<td>
+								<select name="MaDM">
+									<option value="0">Chọn danh mục</option>
+									<?php
+										if(isset($listDM)) {
+											foreach($listDM as $item) {
+									?>
+									    <option <?php if(isset($MaDM) && ($MaDM == $item->maDM)) echo "selected";?> value="<?=$item->maDM?>"><?=$item->tenDM?></option>
+									<?php }}?>
+								</select>
+							</td>
 							</tr> 
 						</tbody>
 					</table>

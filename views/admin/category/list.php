@@ -49,7 +49,7 @@
 									</a>
 								</td> 
                                 <td>
-									<a href="admin.php?controller=category?action=delete&id=<?=$item->maDM ?>">
+									<a href="admin.php?controller=category&action=delete&id=<?=$item->maDM ?>" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');">
 										<i class="fas fa-trash-alt customer-icon"></i>
 									</a>
 								</td>

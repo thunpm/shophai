@@ -1,101 +1,100 @@
+
 <?php 
     require_once('controllers/admin/AdminBaseController.php');
     require_once('models/Category.php');
+    require_once('models/Type.php');
 
-    class AdminCategoryController extends AdminBaseController  { 
+    class AdminTypeController extends AdminBaseController  { 
         function __construct() { 
-            $this->folder = 'admin/category'; 
+            $this->folder = 'admin/type'; 
         } 
 
         public function list() { 
-            $listDM = Category::listDanhMuc();
-            $data = array('title' => 'Quản lý danh mục', 'listDM' => $listDM); 
+            $list = Type::list();
+            $data = array('title' => 'Quản lý thể loại', 'listTL' => $list); 
             $this->render('list', $data);
         }
 
-        public function edit() { 
-            //lấy dữ liệu 1 danh mục đưa ra màn hình
-            if (isset($_GET['id'])) {
-                $maDM = $_GET['id'];
-                $item = Category::getDanhMuc($maDM);
+        public function edit() {
+            $list = Category::listDanhMuc();
+            if(isset($_GET['id'])) {
+                $MaTL = $_GET['id'];
+                $theloai = Type::getTheLoai($MaTL);
 
-                if (isset($_POST['submit'])) {
+                if(isset($_POST['submit'])) {
                     $message = "";
-                    $MaDM = $maDM;
-                    $TenDM = $_POST['TenDM'];
+                    $TenTL = $_POST['TenTL'];
+                    $MaDM = $_POST['MaDM'];
 
-                    if($TenDM == "") {
-                        $message = "Giá trị nhập vào rỗng!";
-                        $item->setTenDM ("");
-                        $data = array('title' => 'Sửa danh mục', 'message' => $message, 'danhmuc' => $item); 
+                    if($TenTL == "") {
+                        $message = "Tên thể loại nhập vào rỗng!";
+                        $theloai->setTenTL("");
+                        $data = array('title' => 'Sửa thể loại', 'theloai' => $theloai, 'listDM' => $list, 'message' => $message); 
                         $this->render('edit', $data);
                         return;
+                    } else {
+                        $theloai->setTenTL($TenTL);
                     }
 
-                    $kq = Category::editDM($MaDM, $TenDM);
-                    //tên danh mục đã tồn tại
-                    if($kq == 2) {
-                        $message = "Tên danh mục đã tồn tại!";
-                        $item->setTenDM ($TenDM);
-                        $data = array('title' => 'Sửa danh mục', 'message' => $message, 'danhmuc' => $item); 
-                        $this->render('edit', $data);
-                        return;
+                    if($MaDM != 0 && $MaDM != $theloai->maDM) {
+                        $theloai->setMaDM($MaDM);
                     }
-                    //sửa thành công
-                    $message = "Sửa danh mục thành công!";
-                    $listDM = Category::listDanhMuc();
-                    $data = array('title' => 'Quản lý danh mục', 'message' => $message, 'listDM' => $listDM);  
+
+                    Type::editTheLoai($theloai);
+                    $message = "Sửa thể loại thành công";
+                    $list = Type::list();
+                    $data = array('title' => 'Quản lý thể loại', 'listTL' => $list, 'message' => $message); 
                     $this->render('list', $data);
                     return;
                 }
 
-                $data = array('title' => 'Sửa danh mục', 'danhmuc' => $item); 
+                $data = array('title' => 'Sửa thể loại', 'theloai' => $theloai, 'listDM' => $list); 
                 $this->render('edit', $data);
-            }
-        }
-
-        public function add() { 
-            if (isset($_POST['submit'])) {
-                $message = "";
-                $MaDM = $_POST['MaDM'];
-                $TenDM = $_POST['TenDM'];
-
-                if($MaDM == "" || $TenDM == "") {
-                    $message = "Giá trị nhập vào rỗng!";
-                    $data = array('title' => 'Thêm danh mục', 'message' => $message); 
-                    $this->render('add', $data);
-                    return;
-                }
-
-                $kq = Category::insertDM($MaDM, $TenDM);
-                //mã danh mục đã tồn tại
-                if($kq == 1) {
-                    $message = "Mã danh mục đã tồn tại!";
-                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => $MaDM, 'tenDM' => $TenDM); 
-                    $this->render('add', $data);
-                    return;
-                }
-                //tên danh mục đã tồn tại
-                if($kq == 2) {
-                    $message = "Tên danh mục đã tồn tại!";
-                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => $MaDM, 'tenDM' => $TenDM); 
-                    $this->render('add', $data);
-                    return;
-                }
-                //thêm thành công
-                $message = "Thêm danh mục thành công!";
-                $listDM = Category::listDanhMuc();
-                $data = array('title' => 'Quản lý danh mục', 'message' => $message, 'listDM' => $listDM);  
-                $this->render('list', $data);
                 return;
             }
-            $data = array('title' => 'Thêm danh mục'); 
-            $this->render('add', $data);
         }
 
-        public function delete() { 
-            $data = array('title' => 'Quản lý danh mục'); 
-            $this->render('list', $data);
+        public function add() {
+            if(isset($_POST['submit'])) {
+                $message = "";
+                $maTL = $_POST['MaTL'];
+                $tenTL = $_POST['TenTL'];
+                $maDM = $_POST['MaDM'];
+                
+                if($maTL == "" || $tenTL == "" || $maDM == 0) {
+                    $message = "Dữ liệu nhập vào rỗng!";
+                    $list = Category::listDanhMuc();
+                    $data = array('title' => 'Thêm thể loại', 'listDM' => $list, 'message' => $message, 'MaTL' => $maTL, 'TenTL' => $tenTL, 'MaDM' => $maDM); 
+                    $this->render('add', $data);
+                    return;
+                }
+
+                Type::insertTheLoai($maTL, $tenTL, $maDM);
+                $message = "Thêm thể loại thành công!";
+                $list = Type::list();
+                $data = array('title' => 'Quản lý thể loại', 'listTL' => $list, 'message' => $message); 
+                $this->render('list', $data);
+                return;
+            } else {
+                $list = Category::listDanhMuc();
+                $data = array('title' => 'Thêm thể loại', 'listDM' => $list); 
+                $this->render('add', $data);
+            }
+        }
+
+        public function delete() {
+            if(isset($_GET['id'])) {
+                $MaTL = $_GET['id'];
+                $message = "";
+                if(Type::deleteTheLoai($MaTL) == 1) {
+                    $message = "Xóa thể loại thành công!";
+                } else {
+                    $message = "Lỗi xóa!";
+                }
+                $list = Type::list();
+                $data = array('title' => 'Quản lý thể loại', 'message' => $message, 'listTL' => $list); 
+                $this->render('list', $data);
+            }
         }
 
     }

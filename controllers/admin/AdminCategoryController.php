@@ -1,3 +1,4 @@
+
 <?php 
     require_once('controllers/admin/AdminBaseController.php');
     require_once('models/Category.php');
@@ -68,13 +69,6 @@
                 }
 
                 $kq = Category::insertDM($MaDM, $TenDM);
-                //mã danh mục đã tồn tại
-                if($kq == 1) {
-                    $message = "Mã danh mục đã tồn tại!";
-                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => $MaDM, 'tenDM' => $TenDM); 
-                    $this->render('add', $data);
-                    return;
-                }
                 //tên danh mục đã tồn tại
                 if($kq == 2) {
                     $message = "Tên danh mục đã tồn tại!";
@@ -93,9 +87,24 @@
             $this->render('add', $data);
         }
 
-        public function delete() { 
-            $data = array('title' => 'Quản lý danh mục'); 
-            $this->render('list', $data);
+        public function delete() {
+            if (isset($_GET['id'])) {
+                $maDM = $_GET['id'];
+                $message = "";
+                if(Category::deleteDM($maDM) == 1) {
+                    $listDM = Category::listDanhMuc();
+                    $message = "Xóa danh mục thành công!";
+                    $data = array('title' => 'Quản lý danh mục', 'message' => $message, 'listDM' => $listDM); 
+                    $this->render('list', $data); 
+                    return; 
+                } else {
+                    $message = "Lỗi xóa!";
+                    $listDM = Category::listDanhMuc();
+                    $data = array('title' => 'Quản lý danh mục', 'message' => $message, 'listDM' => $listDM); 
+                    $this->render('list', $data); 
+                    return;
+                }
+            }
         }
 
     }

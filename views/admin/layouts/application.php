@@ -57,10 +57,12 @@
 </head>
 <body>
     <?php
+    if (! (isset($checklogin) && $checklogin == "login")) {
         if (isset($_SESSION['admin']) == false || $_SESSION['admin'] == null) {
             header("location:admin.php?controller=page&action=login");
             exit();
         } 
+    } 
     ?>
     <?= @$content ?> 
 </body> 

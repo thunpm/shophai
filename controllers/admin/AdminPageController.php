@@ -13,7 +13,7 @@
         }
 
         public function login() { 
-            $data = array('title' => 'Đăng nhập Admin'); 
+            $data = array('title' => 'Đăng nhập Admin', "checklogin" => "login"); 
             $this->render('login', $data);
         }
 

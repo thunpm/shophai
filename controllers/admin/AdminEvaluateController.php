@@ -9,6 +9,7 @@
 
         public function list() { 
             $list = Evaluate::getAll();
+            $message = "";
             if (isset($_GET['message'])) {
                 $message = $_GET['message'];
             }

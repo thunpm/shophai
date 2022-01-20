@@ -60,6 +60,5 @@ input.span12 {
 input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 50%;
     height: 41px;
 }

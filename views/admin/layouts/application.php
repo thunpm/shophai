@@ -12,10 +12,55 @@
 
     <link rel="stylesheet" type="text/css" href="assets/lib/font-awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap/css/bootstrap.min.css"/>
+
     <script src="assets/lib/jquery-3.3.1.min.js"></script>
 	<script src="assets/lib/popper.min.js"></script>
 	<script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Cấu hình các nhãn phân trang
+            $('#example').dataTable( {
+                "language": {
+                "sProcessing":   "Đang xử lý...",
+                "sLengthMenu":   "Số sản phẩm trên 1 trang _MENU_",
+                "sZeroRecords":  "Không tìm thấy dòng nào phù hợp",
+                "sInfo":         "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty":    "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix":  "",
+                "sSearch":       "Tìm kiếm",
+                "sUrl":          "",
+                "oPaginate": {
+                    "sFirst":    "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext":     "Tiếp",
+                    "sLast":     "Cuối"
+                    }
+                }
+            }); 
+        }); 
+    </script>  
+    <style>
+        select.custom-select.custom-select-sm.form-control.form-control-sm, input.form-control.form-control-sm {
+            font-size: 15px;
+            height: 35px;
+            margin: 10px 0px 20px 0px;
+        }
+
+
+    </style>
 </head>
 <body>
+    <?php
+        if (isset($_SESSION['admin']) == false || $_SESSION['admin'] == null) {
+            header("location:admin.php?controller=page&action=login");
+            exit();
+        } 
+    ?>
     <?= @$content ?> 
 </body> 

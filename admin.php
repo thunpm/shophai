@@ -12,20 +12,20 @@
 	    if (isset($_GET['action'])) { 
 		    $action = $_GET['action'];
 	    } else { 
-            $action = 'list';
+
 	    } 
     } else { 
 	    $controller = 'page'; 
-	    $action = 'home'; 
+	    $action = 'login'; 
     } 
 
     // lấy được controller với action rồi thì xử lý chuyển trang
-    $controllers = array('page' => ['home', 'error'], 
+    $controllers = array('page' => ['home', 'error', 'login', 'check_login', 'info_admin', 'logout'], 
                         'user' => ['list', 'detail', 'delete'],
                         'category' => ['list', 'add', 'edit', 'delete'],
                         'type' => ['list', 'add', 'edit', 'delete'],
                         'product' => ['list', 'add', 'edit', 'delete'],
-                        'invaluate' => ['list', 'detail', 'delete'],
+                        'evaluate' => ['list', 'delete'],
                         'news' => ['list', 'add', 'edit', 'delete'],
                         'invoice' => ['list', 'add', 'update', 'delete'],
                         'statistics' => ['list']);

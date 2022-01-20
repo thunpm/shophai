@@ -79,6 +79,23 @@
 			return $list;
 		}
 
+		static function listByDate($date1, $date2) {
+			$db = DB::getInstance(); 
+			$sql = "select cthd.MaSP, sum(cthd.SoLuong) as TongSoLuong, cthd.Gia, cthd.KhuyenMai from ChiTietHoaDon cthd 
+					inner join SanPham on SanPham.MaSP = cthd.MaSP 
+					inner join HoaDon on HoaDon.MaHD = cthd.MaHD 
+					where date(NgayLap) between '".$date1."' and '".$date2."' 
+					group by cthd.MaSP"; 
+            $req = $db->query($sql);
+			$list = [];
+
+			foreach ($req->fetchAll() as $item) { 
+				$sanPham = Product::getSanPham($item['MaSP']);
+				$list[] = new Items($sanPham, $item['TongSoLuong'], $item['Gia'], $item['KhuyenMai']);
+            }
+
+			return $list;
+		}
 		
 	}
 ?>

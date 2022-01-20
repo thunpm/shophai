@@ -76,12 +76,12 @@
             $list = [];
 
             foreach ($req->fetchAll() as $item) { 
-                $list[] = new Product($item['MaSP'], $item['TenSP'], $item['MoTa'], $item['SoLuongCo'], 
+                return new Product($item['MaSP'], $item['TenSP'], $item['MoTa'], $item['SoLuongCo'], 
                                     $item['SoLuongBan'], $item['Gia'], $item['KhuyenMai'], $item['MaTL'],
                                     Picture::listBySanPham($item['MaSP']), Characteristic::listBySanPham($item['MaSP'])); 
             } 
 
-            return $list[0]; 
+            return null; 
         }
     }
 ?>

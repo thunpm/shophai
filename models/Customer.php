@@ -53,9 +53,7 @@ class Customer {
 
         $sql = "INSERT INTO `khachhang`(`MaKH`, `TenDangNhap`, `MatKhau`, `HoTen`, `SoDienThoai`)
                            VALUE('$so','$TenDangNhap','$MatKhau','$HoTen','$SoDienThoai')"; 
-                             $req = $db->query($sql);
-    
-                           
+        $req = $db->query($sql);                    
     }
 
     static function getregisterId($TenDangNhap) { 
@@ -90,6 +88,21 @@ class Customer {
            return new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
                             $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
         } 
+
+        return null;
+    }
+
+    static function getById($id) { 
+        $db = DB::getInstance(); 
+        $sql = "SELECT * FROM KhachHang WHERE MaKH='".$id."'"; 
+        $req = $db->query($sql);
+
+        foreach ($req->fetchAll() as $item) { 
+           return new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
+                            $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
+        } 
+
+        return null;
     }
 
     static function UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email) { 

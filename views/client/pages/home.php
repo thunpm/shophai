@@ -210,7 +210,7 @@
 										$demSanPham += 1;
 										if ($demSanPham <= 4) {
 								?>
-										<a href="index.php?controller=product&action=product_detail" class="card">
+										<a href="index.php?controller=product&action=product_detail&masp=<?= $sanPham->maSP?>&madanhmuc=<?=$danhMuc->maDM?>" class="card">
 											<img class="product-similar-item__img" src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>" alt="Card image cap">
 											<div class="card-body">
 												<h5 class="card-title"><?= $sanPham->tenSP ?></h5>

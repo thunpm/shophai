@@ -36,7 +36,8 @@ create table DiaChi (
 -- danh mục
 CREATE TABLE DanhMuc (
 	MaDM VARCHAR(10) PRIMARY KEY,
-	TenDM NVARCHAR(500) NOT NULL
+	TenDM NVARCHAR(500) NOT NULL,
+	DaXoa bit default(0) -- đã xóa hay chưa
 );
 
 -- loại sản phẩm
@@ -44,6 +45,7 @@ CREATE TABLE TheLoai (
 	MaTL VARCHAR(10) PRIMARY KEY not null,
 	TenTL NVARCHAR(500),
 	MaDM VARCHAR(10) not null,
+	DaXoa bit default(0), -- đã xóa hay chưa
     
 	FOREIGN KEY (MaDM) REFERENCES DanhMuc (MaDM)
 );

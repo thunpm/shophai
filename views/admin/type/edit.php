@@ -17,14 +17,26 @@
 					<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
 						<thead>
 							<tr>
-                                <th width="20%">Mã Danh Mục</th>
-								<th width="60%">Tên Danh Mục</th>                             
+                                <th width="20%">Mã Thể loại</th>
+								<th width="40%">Tên Thể loại</th>
+								<th width="20%">Tên Danh mục</th>                              
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-                                <td><input type="text" class="span12" name="MaDM" value="<?php echo isset($danhmuc) ? $danhmuc->maDM : "" ?>" disabled></td>
-								<td><input type="text" class="span12" name="TenDM" value="<?php echo isset($danhmuc) ? $danhmuc->tenDM : "" ?>"></td> 
+                                <td><input type="text" class="span12" name="MaTL" value="<?php echo isset($theloai) ? $theloai->maTL : "" ?>" disabled></td>
+								<td><input type="text" class="span12" name="TenTL" value="<?php echo isset($theloai) ? $theloai->tenTL : "" ?>"></td>
+								<td>
+									<select name="MaDM">
+										<option value="0">Chọn danh mục</option>
+										<?php
+											if(isset($listDM)) {
+												foreach($listDM as $item) {
+										?>
+									    <option <?php if(isset($theloai) && ($theloai->maDM == $item->maDM)) echo "selected";?> value="<?=$item->maDM?>"><?=$item->tenDM?></option>
+										<?php }}?>
+								</select>
+								</td>
 							</tr> 	
 						</tbody>
 					</table>

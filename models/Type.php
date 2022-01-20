@@ -35,5 +35,21 @@
 
             return $list[0]; 
         }
+        
+         static function getLoai() { 
+            $db = DB::getInstance(); 
+            $sql = "SELECT * FROM TheLoai ORDER BY MaTL DESC"; 
+            $req = $db->query($sql);
+            $list = [];
+            foreach ($req->fetchAll() as $item) { 
+                $list[] = new Type($item['MaTL'], $item['TenTL'], $item['MaDM'],null); 
+               
+            
+            } 
+            return $list;
+            // echo"<pre>";
+			// var_dump($list);
+    
+        }
     }
 ?>

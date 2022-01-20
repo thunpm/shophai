@@ -8,13 +8,13 @@
     <div class="mr-auto"></div>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="admin.php?controller=page&action=home">Trang chủ</a>
+        <a class="nav-link" href="admin.php">Trang chủ</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Thông báo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="admin.php?controller=page&action=info_admin">Admin</a>
+        <a class="nav-link" href="#">Admin</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -38,7 +38,7 @@
           </a>
         </li>
         <li>
-          <a href="admin.php?controller=type&action=list" class="nav-a">
+          <a href="#" class="nav-a">
             <i class="fas fa-align-justify nav-a__icon"></i> Quản lý thể loại
           </a>
         </li>
@@ -53,27 +53,27 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-a">
+          <a href="admin.php?controller=order&action=list" class="nav-a">
           <i class="fas fa-shopping-cart nav-a__icon"></i> Quản lý đơn hàng
           </a>
         </li>
         <li>
-          <a href="#" class="nav-a">
+          <a href="admin.php?controller=page&action=listContact" class="nav-a">
           <i class="fas fa-reply nav-a__icon"></i> Phản hồi
           </a>
         </li>
         <li>
-          <a href="admin.php?controller=evaluate&action=list" class="nav-a">
+          <a href="#" class="nav-a">
             <i class="far fa-star nav-a__icon"></i> Đánh giá
           </a>
         </li>
         <li>
-          <a href="admin.php?controller=statistics&action=list" class="nav-a">
+          <a href="#" class="nav-a">
             <i class="far fa-calendar-alt nav-a__icon"></i> Thống kê
           </a>
         </li>
         <li>
-          <a href="admin.php?controller=page&action=logout" class="nav-a">
+          <a href="#" class="nav-a">
             <i class="fas fa-power-off nav-a__icon"></i> Đăng xuất
           </a>
         </li>

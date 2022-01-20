@@ -1,17 +1,49 @@
 <?php 
 	require_once('models/Product.php'); 
 	require_once('models/Items.php'); 
+	require_once('models/Customer.php'); 
 	class Invoice { 
 		public $maHD;
 		public $maKH;
 		public $ngayLap;
+		public $trangThai;
 		public $detail;
 
-		function __construct($maHD, $maKH, $ngayLap) { 
+		function __construct($maHD, $maKH, $ngayLap, $trangThai) { 
 			$this->maHD = $maHD;
 			$this->maKH = $maKH;
 			$this->ngayLap = $ngayLap;
+			$this->trangThai = $trangThai;
 		}
+
+		static function getOrders() {
+			$db = DB::getInstance(); 
+			$sql = "SELECT * FROM hoadon"; 
+            $req = $db->query($sql);
+			$list = [];
+			$i = 0;
+
+			foreach ($req->fetchAll() as $item) { 
+				$i++;
+                $list[$i] = new Invoice($item['MaHD'], $item['MaKH'], $item['NgayLap'], $item['TrangThai']);
+				$sql = "SELECT * FROM chitiethoadon WHERE MaHD='".$item['MaHD']."'"; 
+            	$req2 = $db->query($sql);
+				$list2 = [];
+				$customer = '';
+
+				foreach ($req2->fetchAll() as $item2) { 
+					$sanPham = Product::getSanPham($item2['MaSP']);
+                    $list2[] = new Items($sanPham, $item2['SoLuong'], $item2['Gia'], $item2['KhuyenMai']);
+
+					$customer = Customer::getByMaKH($item['MaKH']);
+				}
+
+				$list[$i]->detail = $list2;
+				$list[$i]->customer = $customer;
+            }
+
+			return $list;
+        }
 
 		static function lastID() {
 			$db = DB::getInstance(); 
@@ -63,7 +95,7 @@
 
 			foreach ($req->fetchAll() as $item) { 
 				$i++;
-                $list[$i] = new Invoice($item['MaHD'], $item['MaKH'], $item['NgayLap']);
+                $list[$i] = new Invoice($item['MaHD'], $item['MaKH'], $item['NgayLap'], $item['TrangThai']);
 				$sql = "SELECT * FROM ChiTietHoaDon WHERE MaHD='".$item['MaHD']."'"; 
             	$req2 = $db->query($sql);
 				$list2 = [];
@@ -79,23 +111,48 @@
 			return $list;
 		}
 
-		static function listByDate($date1, $date2) {
+		static function deleteInvoice($MaHD) {
 			$db = DB::getInstance(); 
-			$sql = "select cthd.MaSP, sum(cthd.SoLuong) as TongSoLuong, cthd.Gia, cthd.KhuyenMai from ChiTietHoaDon cthd 
-					inner join SanPham on SanPham.MaSP = cthd.MaSP 
-					inner join HoaDon on HoaDon.MaHD = cthd.MaHD 
-					where date(NgayLap) between '".$date1."' and '".$date2."' 
-					group by cthd.MaSP"; 
+            $sql01 = "DELETE FROM hoadon WHERE MaHD = '".$MaHD."'"; 
+            $sql02 = "DELETE FROM chitiethoadon WHERE MaHD = '".$MaHD."'"; 
+			$db->query($sql02);
+			sleep(1);
+            $db->query($sql01);
+		}
+
+		static function showOrder($MaHD) {
+			$db = DB::getInstance(); 
+			$sql = "SELECT * FROM hoadon WHERE MaHD = '".$MaHD."'"; 
             $req = $db->query($sql);
 			$list = [];
+			$i = 0;
 
 			foreach ($req->fetchAll() as $item) { 
-				$sanPham = Product::getSanPham($item['MaSP']);
-				$list[] = new Items($sanPham, $item['TongSoLuong'], $item['Gia'], $item['KhuyenMai']);
+				$i++;
+                $list[$i] = new Invoice($item['MaHD'], $item['MaKH'], $item['NgayLap'], $item['TrangThai']);
+				$sql = "SELECT * FROM chitiethoadon WHERE MaHD='".$item['MaHD']."'"; 
+            	$req2 = $db->query($sql);
+				$list2 = [];
+				$customer = '';
+
+				foreach ($req2->fetchAll() as $item2) { 
+					$sanPham = Product::getSanPham($item2['MaSP']);
+                    $list2[] = new Items($sanPham, $item2['SoLuong'], $item2['Gia'], $item2['KhuyenMai']);
+
+					$customer = Customer::getByMaKH($item['MaKH']);
+				}
+
+				$list[$i]->detail = $list2;
+				$list[$i]->customer = $customer;
             }
 
-			return $list;
+			return $list['1'];
 		}
-		
+
+		static function updateOrder($MaHD, $TrangThai) {
+			$db = DB::getInstance(); 
+			$sql = "UPDATE hoadon SET TrangThai='".$TrangThai."' WHERE MaHD = '".$MaHD."'";
+            $db->query($sql);
+		}
 	}
 ?>

@@ -2,6 +2,7 @@
     require_once('controllers/BaseController.php');
     require_once('models/Customer.php');
     require_once('models/Product.php');
+    require_once('models/Page.php');
 
     class PageController extends BaseController  { 
         function __construct() { 
@@ -28,5 +29,25 @@
             $data = array('title' => 'Lỗi'); 
             $this->render('error', $data); 
         } 
+
+        public function sendContact() {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone_number'];
+            $address = $_POST['address'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $query = Page::storeContact($name, $email, $phone, $address, $title, $description);
+            if ($query > 0) {
+                echo '<script type="text/javascript">
+                        alert("Gửi phản hồi thất bại. Vui lòng thử lại!"); 
+                    </script>';
+            } else {
+                echo '<script type="text/javascript">
+                        alert("Gửi phản hồi thành công!"); 
+                    </script>';
+            }
+            $this->render('contact');
+        }
     }
 ?>

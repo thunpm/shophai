@@ -36,8 +36,7 @@ create table DiaChi (
 -- danh mục
 CREATE TABLE DanhMuc (
 	MaDM VARCHAR(10) PRIMARY KEY,
-	TenDM NVARCHAR(500) NOT NULL,
-	DaXoa bit default(0) -- đã xóa hay chưa
+	TenDM NVARCHAR(500) NOT NULL
 );
 
 -- loại sản phẩm
@@ -45,7 +44,6 @@ CREATE TABLE TheLoai (
 	MaTL VARCHAR(10) PRIMARY KEY not null,
 	TenTL NVARCHAR(500),
 	MaDM VARCHAR(10) not null,
-	DaXoa bit default(0), -- đã xóa hay chưa
     
 	FOREIGN KEY (MaDM) REFERENCES DanhMuc (MaDM)
 );
@@ -112,6 +110,7 @@ create table HoaDon (
 	MaHD varchar(10) not null,
 	MaKH varchar(10) not null,
 	NgayLap datetime,
+    TrangThai varchar(191) NOT NULL DEFAULT '0',
 	primary key (MaHD),
 	foreign key (MaKH) references KhachHang (MaKH)
 );
@@ -160,6 +159,19 @@ CREATE TABLE TinTuc (
 	foreign key (MaDMT) references DanhMucTin (MaDMT),
 	foreign key (MaAD) references Admin (MaAD)
 );
+
+
+CREATE TABLE phanhoi (
+  MaPH varchar(191) NOT NULL,
+  HoTen varchar(191) NOT NULL,
+  Email varchar(64) NOT NULL,
+  SoDienThoai varchar(11) NOT NULL,
+  DiaChi varchar(191) DEFAULT NULL,
+  TieuDe varchar(191) NOT NULL,
+  NoiDung text NOT NULL,
+  primary key (MaPH)
+);
+
 
 -- insert KhachHang
 insert KhachHang (MaKH, TenDangNhap, MatKhau, HoTen, SoDienThoai) 
@@ -1083,13 +1095,14 @@ values
     ('DG005', 'SP002', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
     ('DG006', 'SP002', 'KH002', 4, 'Tốt!'),
     ('DG007', 'SP005', 'KH001', 5, 'Sản phẩm bền lắm ạ!'),
-	('DG008', 'SP059', 'KH001', 5, 'Chất lượng sản phẩm tuyệt vời! Tôi rất hài lòng!'),
-    ('DG009', 'SP060', 'KH004', 4, 'Sản phẩm đẹp!'),
-    ('DG010', 'SP060', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
-    ('DG011', 'SP076', 'KH003', 3, 'Sản phẩm đẹp!'),
-    ('DG012', 'SP076', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
-    ('DG013', 'SP061', 'KH002', 4, 'Tốt!'),
-    ('DG014', 'SP061', 'KH001', 5, 'Sản phẩm đẹp!');
+	('DG020', 'SP059', 'KH001', 5, 'Chất lượng sản phẩm tuyệt vời! Tôi rất hài lòng!'),
+    ('DG021', 'SP060', 'KH004', 4, 'Sản phẩm đẹp!'),
+    ('DG022', 'SP060', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
+    ('DG023', 'SP076', 'KH003', 3, 'Sản phẩm đẹp!'),
+    ('DG024', 'SP076', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
+    ('DG025', 'SP061', 'KH002', 4, 'Tốt!'),
+    ('DG026', 'SP061', 'KH001', 5, 'Sản phẩm đẹp!');
+
     
 insert Admin (MaAD, TenDangNhap, MatKhau, HoTen)
 values

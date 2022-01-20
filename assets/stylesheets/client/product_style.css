@@ -11,7 +11,7 @@ html{
 /* trang sản phẩm */
 .product-detail {
     padding: 10px 65.297px;
-    background-color: #dcdcdc;
+    background-color: #f6f6f6;
     width: 100%;
     
 }
@@ -42,11 +42,10 @@ li.active {
     margin-bottom: 30px;
 }
 .product-list-filter__label {
-    font-size: 23px;
+    font-size: 21px;
     line-height: 32px;
     color: var(--primary-color);
-    padding-left: 23px;
-    font-weight: 500;
+    font-weight: 700;
 }
 .product-list-filter__quantity {
     font-size: 15px;
@@ -161,7 +160,8 @@ span.product-list__select-sort {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0px 10px;
+    /* margin: 0px 10px; */
+    margin: 0px;
 }
 .product-item__ration {
     margin: -1px 0 0 auto;
@@ -208,11 +208,11 @@ a.pagination-item__link:hover {
 }
 
 .pagination-item--active .pagination-item__link {
-    background-color: #0062cc;
+    background-color: #ccc;
     color: var(--white-color);
 }
 .pagination-item {
-    margin: 0 12px;
+    margin: 0 3px;
 }
 .product-detail__number-name {
     color: #757575;
@@ -413,9 +413,9 @@ img.product-detail__img-big {
     margin: auto;
 }
 img.product-detail__img-small {
-    width: 80%;
-    display: block;
-    margin: auto;
+    width: 200px;
+    padding-left: 23px;
+    margin-left:  50px;
 }
 .product-detail__infor-img--item {
     display: flex;
@@ -500,7 +500,7 @@ h4.product-detail__infor--name {
     color: var(--white-color);
     font-size: 1rem;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 4px;
     line-height: 29px;
     margin: 0 4px;
 }
@@ -521,18 +521,16 @@ button.btn.product-btn__buying {
 /* chi tiết sản phẩm */
 .product-detail__shared-heading {
     background-color: #a5a5f5;
-    color: #0e0d0d;
+    color: #fff;
     padding: 12px 28px;
-    border: 1px solid #000;
     font-size: 18px;
     font-weight: 600;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 }
 .product-detail__description{
+    padding: 16px;
     display: flex;
-    line-height: 25px;
-    padding: 25px 70px 25px 70px;
 }
 .product-detail__list {
     list-style: none;
@@ -551,7 +549,7 @@ button.btn.product-btn__buying {
 
 .product-detail__parameter {
     display: flex;
-    padding: 25px 0px 25px 70px;
+    padding: 16px;
 }
 .product-detail__parameter-list {
     display: flex;
@@ -577,11 +575,11 @@ a.product-btn__add {
 }
 .product-similar-item {
     background-color: var(--white-color);
-    
     display: block;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     position: relative;
     border-radius: 5px;
+    transition: .3s ease;
     
 }
 a.product-similar-item {
@@ -621,8 +619,7 @@ a.product-similar_link {
 }
 
 .product-similar-item__price {
-    margin: 10px 10px;
-    text-align: center;
+    margin: 10px 0px;
     display: grid;
 }
 .product-item__price-current {
@@ -631,19 +628,15 @@ a.product-similar_link {
     left: 55%;
     color: #d21809;
     text-decoration: line-through;
-    font-weight: bold;
+    font-size: 13px;
 }
 .product-similar-item__price-old {
-    border: 1px solid #d21809;
-    border-radius: 10px;
     font-weight: 700;
-    background-color: #d21809;
-    color: white;
+    color: #d2190a;
     font-size: 16px;
 }
 .product-similar-item__sold {
     font-size: 12px;
-    margin-left: 10px;
     color: #666;
 }
 
@@ -698,14 +691,14 @@ span.product-similar-item__sale-off-label {
     display: flex;
 }
 .product-detail__no-evaluate-msg {
-    font-size: 18px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
     font-weight: 500;
     color: #ccc;
     font-style: oblique;
     margin-top: 20px;
+    padding: 15px;
 }
 /* sửa */
 .product-list-moble {
@@ -959,4 +952,212 @@ span.product-similar-item__sale-off-label {
         flex-wrap: wrap;
         justify-content: space-around;
     }
+}
+
+.rating {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: row-reverse;
+    height: 150px;
+    position: relative;
+}
+
+.rating-0 {
+    filter: grayscale(100%);
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-top: auto;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 76%;
+    transition: .3s;
+}
+
+.rating > input:checked ~ label,
+.rating > input:checked ~ label ~ label {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+
+.rating > input:not(:checked) ~ label:hover,
+.rating > input:not(:checked) ~ label:hover ~ label {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+.emoji-wrapper {
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.emoji-wrapper:before,
+.emoji-wrapper:after{
+    content: "";
+    height: 15px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+
+.emoji-wrapper:before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
+}
+
+.emoji-wrapper:after{
+    bottom: 0;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
+}
+
+.emoji {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s;
+}
+
+.emoji > svg {
+    margin: 15px 0;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+}
+
+#rating-1:checked ~ .emoji-wrapper > .emoji { transform: translateY(-100px); }
+#rating-2:checked ~ .emoji-wrapper > .emoji { transform: translateY(-200px); }
+#rating-3:checked ~ .emoji-wrapper > .emoji { transform: translateY(-300px); }
+#rating-4:checked ~ .emoji-wrapper > .emoji { transform: translateY(-400px); }
+#rating-5:checked ~ .emoji-wrapper > .emoji { transform: translateY(-500px); }
+
+.feedback {
+    width: 100%;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/*Đánh giá sản phẩm*/
+.rating-product {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+}
+
+.rating-product .total-rating {
+    width: 15%;
+}
+
+.rating-product .list-rating {
+    width: 70%;
+}
+
+.rating-product .list-rating .item {
+    display: flex;
+    align-items: center;
+    height: 17px;
+}
+
+.rating-product .list-rating .item .progress {
+    width: 70%;
+    background: #f6f6f6;
+    height: 7px;
+    margin: 0 5px;
+    position: relative;
+}
+
+.rating-product .list-rating .item .progress-rating {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #ffaa06;
+    border-radius: 5px;
+}
+
+.rating-product .list-rating .item .star {
+    width: 3%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    align-items: center;
+}
+
+.rating-product .list-rating .item .star .number {
+    padding-top: 2px;
+}
+
+.rating-product .list-rating .item .star .fa-star {
+    color: #a3a3a1;
+}
+
+.rating-product .list-rating .item .text {
+    font-size: 12px;
+}
+
+.rating-product .total-rating {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #ffaa06;
+}
+
+.rating-product .total-rating .fa {
+    font-size: 68px;
+    position: relative;
+}
+
+.rating-product .total-rating .number {
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.rating-product .area-submit {
+    display: flex;
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-product .area-submit .btn-rating {
+    font-size: 13px;
+    background: #3085d6;
+    border-color: #3085d6;
+}
+
+.form-control:focus,
+.btn:focus {
+    box-shadow: none !important; 
+}
+
+.error {
+    color: red;
+    font-size: 13px;
 }

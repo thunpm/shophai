@@ -3,6 +3,10 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+
+table tbody {
+    font-size: 14px;
+}
   
 td, th {
     border: 1px solid #dddddd;
@@ -12,7 +16,7 @@ td, th {
 
 .row-fluid {
     margin: 26px 26px 12px;
-    box-shadow: 0 0px 5px 0 rgb(0 0 0 / 50%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .customer-icon {
@@ -57,9 +61,22 @@ input.span12 {
 .block-sorting {
     padding: 12px ;
 }
-input[type="text"] {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 50%;
-    height: 41px;
+
+.list-product {
+	margin-top: 20px;
+    font-size: 14px;
+}
+
+.list-product th,
+.list-product td {
+	border: 0 !important;
+}
+
+.radio {
+    cursor: pointer;
+}
+
+.heading-title {
+    border-bottom: 1px dashed #ced4da; 
+    padding-bottom: 10px
 }

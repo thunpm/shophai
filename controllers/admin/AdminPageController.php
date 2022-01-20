@@ -1,6 +1,6 @@
 <?php 
     require_once('controllers/admin/AdminBaseController.php');
-    require_once('models/Admin.php');
+    require_once('models/Page.php');
 
     class AdminPageController extends AdminBaseController  { 
         function __construct() { 
@@ -12,46 +12,23 @@
             $this->render('home', $data);
         }
 
-        public function login() { 
-            $data = array('title' => 'Đăng nhập Admin'); 
-            $this->render('login', $data);
-        }
-
-        public function logout() { 
-            session_unset(); 
-            $this->login();
-        }
-
-        public function check_login() { 
-            if (isset($_POST['TenDangNhap']) && isset($_POST['password'])) {
-                $tenDangNhap = $_POST['TenDangNhap'];
-                $matKhau = $_POST['password'];
-
-                $admin = Admin::isValidAccount($tenDangNhap, $matKhau);
-                if ($admin != null) {
-                    $_SESSION['admin'] = $admin;
-
-                    $this->home();
-                } else {
-                    $message = "Tên đăng nhập hoặc mật khẩu không khớp!";
-
-                    $data = array('title' => 'Đăng nhập Admin', 'message' => $message); 
-                    $this->render('login', $data);
-                }
-                
-            } else {
-                $this->login();
-            } 
-        }
-
-        public function info_admin() { 
-            $data = array('title' => 'Thông tin Admin'); 
-            $this->render('info_admin', $data); 
-        }
-
         public function error() {
             $data = array('title' => 'Lỗi'); 
             $this->render('error', $data); 
         } 
+
+        public function listContact() {
+            $contacts = Page::getContacts();
+            $data = array('title' => 'Danh sách phản hồi', 'contacts' => $contacts);
+            $this->render('contact', $data);
+        }
+
+        public function deleteContact() {
+            $MaPH = $_GET['MaPH'];
+            Page::deleteContact($MaPH);
+            $contacts = Page::getContacts();
+            $data = array('title' => 'Danh sách phản hồi', 'contacts' => $contacts);
+            $this->render('contact', $data);
+        }
     }
 ?>

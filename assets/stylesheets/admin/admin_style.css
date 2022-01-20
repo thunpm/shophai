@@ -64,7 +64,25 @@ body {
 .form-group {
     margin-bottom: 1rem;
 }
-
-.workplace {
-	padding-bottom: 50px;
+.label-info {
+	font-size: 12px;
+    background: #1bc4df;
+    padding: 1px 9px;
+    border-radius: 4px;
+    color: #fff;
 }
+.label-danger {
+	font-size: 12px;
+    background: #cd3b49;
+    padding: 1px 9px;
+    border-radius: 4px;
+    color: #fff;
+}
+.label-warning {
+	font-size: 12px;
+    background: #ffc20c;
+    padding: 1px 9px;
+    border-radius: 4px;
+    color: #fff;
+}
+

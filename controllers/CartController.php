@@ -6,6 +6,7 @@
     require_once('models/Address.php'); 
     require_once('models/Customer.php'); 
     require_once('models/Invoice.php'); 
+    require_once('models/Evaluate.php'); 
 
     class CartController extends BaseController  { 
         function __construct() { 
@@ -168,6 +169,23 @@
                 header('Location: index.php?controller=cart&action=list'); 
             }
             
+        }
+
+        public function rating() {
+            $maSp = $_POST['maSP'];
+            $maKh = $_POST['maKH'];
+            $danhGia = $_POST['rating'];
+            $nhanXet = $_POST['content'];
+            $query = Evaluate::store($maSp, $maKh, $danhGia, $nhanXet);
+
+
+            if ($query > 0) {
+                echo 400;
+                return;
+            } else {
+                echo 200;
+                return;
+            }
         }
     }
 ?>

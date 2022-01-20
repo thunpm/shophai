@@ -8,11 +8,6 @@
 					<div class="isw-grid"></div>                      
 					<div class="clear"></div>
 				</div>
-				<div class="mes" style="color: red; margin-left: 25px ;">
-				    <?php
-				        if(isset($message)) echo $message;
-				    ?>
-				</div>
 				<div class="block-sorting">
 					<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
 						<thead>
@@ -23,8 +18,8 @@
 						</thead>
 						<tbody>
 							<tr>
-                                <td><input type="text" class="span12" name="MaDM" value="<?php echo isset($danhmuc) ? $danhmuc->maDM : "" ?>" disabled></td>
-								<td><input type="text" class="span12" name="TenDM" value="<?php echo isset($danhmuc) ? $danhmuc->tenDM : "" ?>"></td> 
+                                <td><input type="text" class="span12" name="MaDM" value="DM01"></td>
+								<td><input type="text" class="span12" name="MaDM" value="Điện thoại"></td> 
 							</tr> 	
 						</tbody>
 					</table>

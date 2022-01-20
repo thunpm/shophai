@@ -20,11 +20,11 @@
     } 
 
     // lấy được controller với action rồi thì xử lý chuyển trang
-    $controllers = array('page' => ['home', 'error', 'contact', 'intro'], 
+    $controllers = array('page' => ['home', 'error', 'contact', 'intro', 'sendContact'], 
                         'user' => ['login', 'register', 'order', 'info', 'address_list', 'logout', 'password', 'check_register', 'check_login', 'add_address', 'edit_address'],
-                        'product' => ['product_detail', 'product_list', 'rating'],
+                        'product' => ['product_detail', 'product_list'],
                         'news' => ['news_list', 'news_detail'],
-                        'cart' => ['add', 'edit', 'list', 'pay', 'order']);
+                        'cart' => ['add', 'edit', 'list', 'pay', 'order', 'rating']);
 
     if (! array_key_exists($controller, $controllers) || ! in_array($action, $controllers[$controller])) { 
 	    $controller = 'page'; 

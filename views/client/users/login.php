@@ -14,22 +14,28 @@
                         }
                         ?>
                         <form id="login-form" class="form" action="index.php?controller=user&action=check_login" method="post">
-                            <h4 class="text-center text-inf">ĐĂNG NHẬP</h4>
+                            <h4 class="text-center text-inf">
+                                <i class="fa fa-user icon-user"></i>
+                                ĐĂNG NHẬP
+                            </h4>
                            <div class="form-group">
-                                <label for="TenDangNhap" class="text-inf">Tên đăng nhập:</label><br>
+                                <label for="TenDangNhap">Tên đăng nhập:</label><br>
                                 <input type="text" name="TenDangNhap" id="TenDangNhap" class="form-control"  value="<?php echo isset($TenDangNhap) ? $TenDangNhap : "" ?>">
                             </div>
                             <div class="form-group">
-                                <label for="MatKhau" class="text-inf">Mật khẩu:</label><br>
+                                <label for="MatKhau">Mật khẩu:</label><br>
                                 <input type="text" name="password" id="MatKhau" class="form-control" value="<?php echo isset($MatKhau) ? $MatKhau : "" ?>">
                             </div>
-                            <div class="form-group">
-                                <label for="remember-me" class="text-inf"><span>Ghi nhớ đăng nhập</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <input style="margin-top: 20px;" type="submit" name="submit" class="btn btn-danger btn-md" value="Đăng nhập">
+                            <div class="form-group d-flex mt-3" style="justify-content: space-between; align-items: center">
+                                <label for="remember-me">
+                                    <input id="remember-me" name="remember-me" type="checkbox">
+                                    <span>Ghi nhớ đăng nhập</span> 
+                                </label>
+                                <input type="submit" name="submit" class="btn btn-danger btn-md" value="Đăng nhập">
                             </div>
                         </form>
                         <div id="register-link" class="text-right">
-                            <a href="index.php?controller=user&action=register" class="text-inf">Bạn chưa có tài khoản? Đăng ký ngay!</a>
+                            <a href="index.php?controller=user&action=register">Bạn chưa có tài khoản? Đăng ký ngay!</a>
                         </div>
                     </div>
                 </div>

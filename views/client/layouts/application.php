@@ -21,6 +21,7 @@
 	<script src="assets/lib/jquery-3.3.1.min.js"></script>
 	<script src="assets/lib/popper.min.js"></script>
 	<script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/lib/validate.js"></script>
 </head>
 
 <body>

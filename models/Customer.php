@@ -21,6 +21,10 @@ class Customer {
         $this->birthday = $birthday;
     } 
 
+public function setUers ($idCustomer)
+    	{
+        	$this->idCustomer = $idCustomer;
+    	}
 
 
     static function lastID() {
@@ -146,7 +150,32 @@ class Customer {
         }
         return $ten; 
     }
+static function getAll()
+    {
+        $db = DB::getInstance(); 
+		$sql = "SELECT* FROM KhachHang  WHERE DaXoa = 0 ORDER BY MaKH";
+		$req = $db->query($sql);
+        $list = [];
 
+        foreach ($req->fetchAll() as $item) { 
+            $list[] = new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
+            $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
+        } 
+
+        return $list; 
+
+		
+	}
+
+   
+    static function delete($idCustomer) {
+        $db = DB::getInstance(); 
+        $db = DB::getInstance(); 
+        $stmt = $db->prepare('update khachhang set DaXoa = 1 where MaKH = :MaKH');
+        $stmt->bindParam(':MaKH', $idCustomer);
+        $stmt->execute();
+        return 1;
+    }
 }
 
 ?>

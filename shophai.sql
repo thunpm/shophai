@@ -14,7 +14,7 @@ create table KhachHang (
     Email varchar(50),
     GioiTinh nvarchar(50),
     NgaySinh date,
-    
+   DaXoa bit default(0), -- đã xóa hay chưa
     primary key (MaKH)
 );
 
@@ -58,7 +58,7 @@ CREATE TABLE SanPham (
 	Gia float NOT NULL,
 	KhuyenMai float NOT NULL,
 	MaTL VARCHAR(10) NOT NULL,
-    
+     DaXoa bit default(0), -- đã xóa hay chưa
 	FOREIGN KEY (MaTL) REFERENCES TheLoai (MaTL)
 );
 

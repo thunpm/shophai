@@ -1,9 +1,6 @@
-<?php 
-require_once('../layouts/index.php');
-require_once('../sibar/sibar.php')
-?>
+<?php require_once('views/admin/layouts/sibar.php') ?>
 <div id="wrapper">
-  <form method="post" action="">
+  <form method="post" action="admin.php?controller=user&action=list">
 	<div class="workplace">                         
 		<div class="row-fluid">
 			<div class="span12">                    
@@ -14,6 +11,9 @@ require_once('../sibar/sibar.php')
 					                         
 					<div class="clear"></div>
 				</div>
+				<?php
+				        if(isset($message)) echo $message;
+				    ?>
 				<div class="block-sorting">
 					<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
 						<thead>
@@ -23,42 +23,41 @@ require_once('../sibar/sibar.php')
 								<th width="10%">UserName</th>
 								<th width="10%">PassWord</th>
 								<th width="20%">Họ Tên</th>
+								<th width="16%">Ngày Sinh</th>
                                 <th width="14%">Phone</th>
 								<th width="16%">Email</th> 
-                                <th width="16%">Địa chỉ</th>  
+                              
                                 <th></th>                                 
 							</tr>
 						</thead>
 						<tbody>
-						
-							<tr>
-				
-                                <td>KH001</td>
-								<td>Thu</td>
-								<td>123</td>
-								<td>Nguyễn Phan Minh Thư</td>
-								<td>0898154428</td>      
-                                <td>thu@gmail.com</td>
-                                <td>Quảng Nam</td>  
-                                <td><i class="fas fa-trash-alt customer-icon"></i></td>  
-                                <!-- <td width="187"><input class="btn btn-large" type="submit" value="Xóa User" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" name="no" ></td>                      -->
-							</tr> 
-						
+							<?php 
+											
+							if($dulieu != null) {
+								foreach($dulieu as $value){	
+							// echo"<pre>";
+							// print_r($value);
+						?>
+										
 						<tr>
 				
-                                <td>KH007</td>
-								<td>Dương</td>
-								<td>123</td>
-								<td>Võ Thùy Dương</td>
-								<td>0898154434</td>      
-                                <td>Duong@gmail.com</td>
-                                <td>Quảng Nam</td>  
-                                <td><i class="fas fa-trash-alt customer-icon"></i></td>  
-                                <!-- <td width="187"><input class="btn btn-large" type="submit" value="Xóa User" onClick="return confirm('Bạn có chắc chắn muốn xóa ?');" name="no" ></td>                      -->
+                                <td><?=$value-> idCustomer ?></td>
+								<td><?=$value-> username ?></td>
+								<td><?=$value-> password ?></td>
+								<td><?=$value-> fullname ?></td>
+								<td><?=$value-> birthday ?></td>  
+								<td><?=$value-> phoneNumber ?></td>      
+                                <td><?=$value-> email ?></td>
+								<td>
+									<a href="admin.php?controller=user&action=delete&id=<?=$value-> idCustomer?>"onClick="return confirm('Bạn có chắc chắn muốn xóa ?');">
+										<i class="fas fa-trash-alt customer-icon"></i>
+									</a>
+								</td>  
 							</tr> 
 
 
-							
+
+							<?php } }                           ?>
 						</tbody>
 					</table>
 					

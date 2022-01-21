@@ -5,7 +5,7 @@
 	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="navbar-nav">
 			<li class="nav-item menu-item">
-					<a class="nav-link" href="index.php">TRANG CHỦ</a>
+					<a class="nav-link" href="index.php">Trang chủ</a>
 			</li>
 			<?php
 			if($listDM != null) {
@@ -19,7 +19,10 @@
 			}
 			?>	
 			<li class="nav-item menu-item">
-				<a class="nav-link" href="index.php?controller=news&action=news_list">TIN TỨC</a>
+				<a class="nav-link" href="index.php?controller=news&action=news_list">Tin tức</a>
+			</li>
+			<li class="nav-item menu-item">
+				<a class="nav-link" href="index.php?controller=page&action=contact">Liên hệ</a>
 			</li>
 		<ul>
 	</div>

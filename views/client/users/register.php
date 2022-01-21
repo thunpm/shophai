@@ -7,27 +7,30 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="index.php?controller=user&action=check_register" method="post">
-                            <h4 class="text-center text-inf">ĐĂNG KÝ</h4>
+                            <h4 class="text-center text-inf">
+                                <i class="fa fa-user icon-user"></i>
+                                ĐĂNG KÝ
+                            </h4>
                             <input type="hidden" name="MaKH" id="MaKH" class="form-control">
                            
                             <div class="form-group">
-                                <label for="HoTen" class="text-inf">Họ và tên:</label><br>
+                                <label for="HoTen">Họ và tên:</label><br>
                                 <input type="text" name="HoTen" id="HoTen" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="SoDienThoai" class="text-inf">Số điện thoại:</label><br>
+                                <label for="SoDienThoai">Số điện thoại:</label><br>
                                 <input type="text" name="SoDienThoai" id="SoDienThoai" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="TenDangNhap" class="text-inf">Tên đăng nhập:</label><br>
+                                <label for="TenDangNhap">Tên đăng nhập:</label><br>
                                 <input type="text" name="TenDangNhap" id="TenDangNhap" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="MatKhau" class="text-inf">Mật khẩu:</label><br>
+                                <label for="MatKhau">Mật khẩu:</label><br>
                                 <input type="text" name="MatKhau" id="MatKhau" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="XNMatKhau" class="text-inf">Xác nhận mật khẩu:</label><br>
+                                <label for="XNMatKhau">Xác nhận mật khẩu:</label><br>
                                 <input type="text" name="XNMatKhau" id="XNMatKhau" class="form-control">
                             </div>
                             <div class="form-group">

@@ -28,7 +28,7 @@
             $list = [];
 
             foreach ($req->fetchAll() as $item) { 
-                $list[] = new Evaluate($item['MaDG'], $item['MaSP'], $item['MaKH'], $item['DanhGia'], $item['NhanXet']); 
+                $list[] = new Evaluate($item['MaDG'], $item['MaSP'], Customer::getName($item['MaKH']), $item['DanhGia'], $item['NhanXet']); 
             } 
             return $list; 
         }
@@ -93,6 +93,15 @@
 				return false;
 			}
         }
+
+		static function store ($maSP, $maKH, $danhGia, $nhanXet) {
+			$maDG = Evaluate::lastID();
+			$db = DB::getInstance(); 
+			$sql = "INSERT INTO `danhgia`(`MaDG`, `MaSP`, `MaKH`, `DanhGia`, `NhanXet`)
+                           VALUE('$maDG','$maSP','$maKH','$danhGia','$nhanXet')"; 
+			$req = $db->query($sql);
+		}
+
 		
 	}
 ?>

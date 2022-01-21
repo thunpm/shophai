@@ -1,4 +1,3 @@
-
 <div class="login-block">
     <div id="login">
         <div class="container">
@@ -18,7 +17,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="MatKhau" class="text-inf">Mật khẩu:</label><br>
-                                <input required type="text" name="password" id="MatKhau" class="form-control" value="">
+                                <input required type="password" name="password" id="MatKhau" class="form-control" value="">
                             </div>
                             <div class="form-group">  
                                 <input style="margin-top: 20px;" type="submit" name="submit" class="btn btn-danger btn-md" value="Đăng nhập">

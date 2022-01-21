@@ -21,6 +21,10 @@ class Customer {
         $this->birthday = $birthday;
     } 
 
+public function setUers ($idCustomer)
+    	{
+        	$this->idCustomer = $idCustomer;
+    	}
 
 
     static function lastID() {
@@ -37,7 +41,7 @@ class Customer {
     }
 
 
-	static function isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai){
+	 static function isRegister($so,$TenDangNhap,$MatKhau,$HoTen,$SoDienThoai){
         $db = DB::getInstance(); 
         $MaKH = Customer::lastID();
         if ($MaKH == null) {
@@ -53,7 +57,9 @@ class Customer {
 
         $sql = "INSERT INTO `khachhang`(`MaKH`, `TenDangNhap`, `MatKhau`, `HoTen`, `SoDienThoai`)
                            VALUE('$so','$TenDangNhap','$MatKhau','$HoTen','$SoDienThoai')"; 
-        $req = $db->query($sql);                    
+                             $req = $db->query($sql);
+    
+                           
     }
 
     static function getregisterId($TenDangNhap) { 
@@ -88,21 +94,17 @@ class Customer {
            return new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
                             $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
         } 
-
-        return null;
     }
 
-    static function getById($id) { 
+    static function getByMaKH($MaKH) { 
         $db = DB::getInstance(); 
-        $sql = "SELECT * FROM KhachHang WHERE MaKH='".$id."'"; 
+        $sql = "SELECT * FROM KhachHang WHERE MaKH='".$MaKH."'"; 
         $req = $db->query($sql);
 
         foreach ($req->fetchAll() as $item) { 
            return new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
                             $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
         } 
-
-        return null;
     }
 
     static function UpdateAccount($MaKH,$HoTen,$SoDienThoai,$Email) { 
@@ -148,7 +150,44 @@ class Customer {
         }
         return $ten; 
     }
+static function getAll()
+    {
+        $db = DB::getInstance(); 
+		$sql = "SELECT* FROM KhachHang  WHERE DaXoa = 0 ORDER BY MaKH";
+		$req = $db->query($sql);
+        $list = [];
 
+        foreach ($req->fetchAll() as $item) { 
+            $list[] = new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
+            $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
+        } 
+
+        return $list; 
+
+		
+	}
+
+    static function getById($id) { 
+        $db = DB::getInstance(); 
+        $sql = "SELECT * FROM KhachHang WHERE MaKH='".$id."'"; 
+        $req = $db->query($sql);
+
+        foreach ($req->fetchAll() as $item) { 
+           return new Customer($item['MaKH'], $item['TenDangNhap'], $item['MatKhau'], $item['HoTen'],
+                            $item['SoDienThoai'], $item['Email'], $item['GioiTinh'], $item['NgaySinh']);
+        } 
+
+        return null;
+    }
+   
+    static function delete($idCustomer) {
+        $db = DB::getInstance(); 
+        $db = DB::getInstance(); 
+        $stmt = $db->prepare('update khachhang set DaXoa = 1 where MaKH = :MaKH');
+        $stmt->bindParam(':MaKH', $idCustomer);
+        $stmt->execute();
+        return 1;
+    }
 }
 
 ?>

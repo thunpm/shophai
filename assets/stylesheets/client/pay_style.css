@@ -43,9 +43,9 @@ h3.pay-generality__name {
     margin-bottom: 20px;
 }
 .pay-generality__payment-methods {
-    border: 1px solid #ccc;
+    border: 1px solid #f6f6f6;
     padding: 0 0 16px 26px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 .pay-generality__selection {
     padding-top: 13px;
@@ -69,14 +69,14 @@ input[type="radio"] {
 
 .pay-generality__delivery-address {
     position: relative;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #f6f6f6;
+    border-radius: 3px;
     width: 40%;
 }
 .pay-generality__delivery-address--item::before {
     position: absolute;
     content: "";
-    border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid #f6f6f6;
     top: 48px;
     left: 20px;
     right: 20px;

@@ -2,7 +2,7 @@
     z-index: 1000;
     position: fixed;
     left: 250px;
-    width: 250px;
+    width: 20%;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
@@ -78,6 +78,7 @@ a.navbar-brand {
 #sidebar .nav a i{
     margin-right: 16px;
 }
+
 .nav-a__icon {
     font-size: 18px;
 }

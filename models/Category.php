@@ -16,13 +16,11 @@
 			$this->listSP = $listSP;
 		}
 
-		public function setMaDM ($maDM)
-    	{
+		public function setMaDM ($maDM) {
         	$this->maDM = $maDM;
     	}
 
-    	public function setTenDM ($tenDM)
-    	{
+    	public function setTenDM ($tenDM) {
         	$this->tenDM = $tenDM;
     	}
 
@@ -42,7 +40,7 @@
 
 		static function getDanhMuc($maDM) { 
 			$db = DB::getInstance(); 
-			$sql = "SELECT * FROM DanhMuc WHERE MaDM = '".$maDM."'"; 
+			$sql = "SELECT * FROM DanhMuc WHERE MaDM = '".$maDM."' AND DaXoa = 0"; 
 			$req = $db->query($sql);
 			$list = [];
 
@@ -56,7 +54,7 @@
 
 		static function getNameById($maDM) { 
 			$db = DB::getInstance(); 
-			$sql = "SELECT TenDM FROM DanhMuc WHERE MaDM = '".$maDM."'"; 
+			$sql = "SELECT TenDM FROM DanhMuc WHERE MaDM = '".$maDM."' AND DaXoa = 0"; 
 			$req = $db->query($sql);
 
 			foreach ($req->fetchAll() as $item) { 
@@ -67,7 +65,7 @@
 
 		static function getByName($tenDM) { 
 			$db = DB::getInstance(); 
-			$sql = "SELECT MaDM FROM DanhMuc WHERE TenDM = '".$tenDM."'"; 
+			$sql = "SELECT MaDM FROM DanhMuc WHERE TenDM = '".$tenDM."' AND DaXoa = 0"; 
 			$req = $db->query($sql);
 
 			foreach ($req->fetchAll() as $item) { 
@@ -86,28 +84,29 @@
 	            $last = $item['MaDM'];
 	        } 
 
+			if ($last == null) {
+            	$last = 'DM00';
+        	}
+        	$last = substr($last, 2, 2) + 0;
+        	$last = $last + 1;
+        	for($i = 0; $i <= 2 - strlen($last); $i++) {
+        		$last = '0'.$last;
+        	}
+        	$last = 'DM'.$last;
+
 	        return $last;
     	}
 
-		static function insertDM($maDM, $tenDM) {
+		static function insertDM($tenDM) {
 			$db = DB::getInstance();
 
 			$kt_tenDM = Category::getByName($tenDM);
-			if($kt_tenDM != null) {
+			if ($kt_tenDM != null) {
 				return 2;
 			}
 
-			$MaDM = Category::lastID();
-			if ($MaDM == null) {
-            	$MaDM = 'DM00';
-        	}
-        	$maDM = substr($MaDM, 2, 3) + 0;
-        	$maDM = $maDM + 1;
-        	for($i = 0; $i <= 2 - strlen($maDM); $i++) {
-        		$maDM = '0'.$maDM;
-        	}
-        	$maDM = 'DM'.$maDM;
- 
+			$maDM = Category::lastID();
+
 			$stmt = $db->prepare('insert into DanhMuc (MaDM, TenDM) values (:MaDM, :TenDM)');
 			$stmt->bindParam(':MaDM', $maDM);
 			$stmt->bindParam(':TenDM', $tenDM);
@@ -126,7 +125,11 @@
 			$stmt->bindParam(':MaDM', $maDM);
 			$stmt->bindParam(':TenDM', $tenDM);
 			$stmt->execute();
-			return 0;
+			if ($stmt > 0) {
+				return 0;
+			} else {
+				return 1;
+			}
 		}
 
 		static function deleteDM($maDM) {

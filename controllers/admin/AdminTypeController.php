@@ -57,19 +57,18 @@
         public function add() {
             if(isset($_POST['submit'])) {
                 $message = "";
-                $maTL = $_POST['MaTL'];
                 $tenTL = $_POST['TenTL'];
                 $maDM = $_POST['MaDM'];
                 
-                if($maTL == "" || $tenTL == "" || $maDM == 0) {
+                if($tenTL == "" || $maDM == "0") {
                     $message = "Dữ liệu nhập vào rỗng!";
                     $list = Category::listDanhMuc();
-                    $data = array('title' => 'Thêm thể loại', 'listDM' => $list, 'message' => $message, 'MaTL' => $maTL, 'TenTL' => $tenTL, 'MaDM' => $maDM); 
+                    $data = array('title' => 'Thêm thể loại', 'listDM' => $list, 'message' => $message, 'MaTL' => Type::lastID(), 'TenTL' => $tenTL, 'MaDM' => $maDM); 
                     $this->render('add', $data);
                     return;
                 }
 
-                Type::insertTheLoai($maTL, $tenTL, $maDM);
+                Type::insertTheLoai($tenTL, $maDM);
                 $message = "Thêm thể loại thành công!";
                 $list = Type::list();
                 $data = array('title' => 'Quản lý thể loại', 'listTL' => $list, 'message' => $message); 
@@ -77,7 +76,7 @@
                 return;
             } else {
                 $list = Category::listDanhMuc();
-                $data = array('title' => 'Thêm thể loại', 'listDM' => $list); 
+                $data = array('title' => 'Thêm thể loại', 'listDM' => $list, 'MaTL' => Type::lastID()); 
                 $this->render('add', $data);
             }
         }

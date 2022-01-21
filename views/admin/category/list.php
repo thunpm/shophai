@@ -1,5 +1,3 @@
-<?php require_once('views/admin/layouts/sibar.php') ?>
-
 <div id="wrapper">
 	<div class="workplace">                         
 		<div class="row-fluid">
@@ -22,11 +20,11 @@
 					<div class="mes" style="color: blue; margin-left: 20px ;">
                        	<?php
                        		if(isset($message)) echo $message;
-                       ?>
+                       	?>
                     </div>
 				</div>
 				<div class="block-sorting">
-					<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
+					<table id="example" cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
 						<thead>
 							<tr>
                                 <th width="20%">Mã Danh Mục</th>

@@ -14,7 +14,7 @@ create table KhachHang (
     Email varchar(50),
     GioiTinh nvarchar(50),
     NgaySinh date,
-    
+	DaXoa bit default(0), -- đã xóa hay chưa
     primary key (MaKH)
 );
 
@@ -27,7 +27,7 @@ create table DiaChi (
     Xa nvarchar(500),
     SoNha nvarchar(500),
     GhiChu nvarchar(500),
-    MacDinh bit default(0), -- có phải địa chỉ giao hàng mặc định?
+    MacDinh bit default(0), -- có phải địa chỉ giao hàng mặc định
     
     primary key (MaDC),
     foreign key (MaKH) references KhachHang (MaKH)
@@ -46,7 +46,6 @@ CREATE TABLE TheLoai (
 	TenTL NVARCHAR(500),
 	MaDM VARCHAR(10) not null,
 	DaXoa bit default(0), -- đã xóa hay chưa
-    
 	FOREIGN KEY (MaDM) REFERENCES DanhMuc (MaDM)
 );
 
@@ -60,7 +59,7 @@ CREATE TABLE SanPham (
 	Gia float NOT NULL,
 	KhuyenMai float NOT NULL,
 	MaTL VARCHAR(10) NOT NULL,
-    
+	DaXoa bit default(0), -- đã xóa hay chưa
 	FOREIGN KEY (MaTL) REFERENCES TheLoai (MaTL)
 );
 
@@ -112,6 +111,7 @@ create table HoaDon (
 	MaHD varchar(10) not null,
 	MaKH varchar(10) not null,
 	NgayLap datetime,
+    TrangThai varchar(191) NOT NULL DEFAULT '0',
 	primary key (MaHD),
 	foreign key (MaKH) references KhachHang (MaKH)
 );
@@ -139,7 +139,7 @@ create table Admin (
 );
 
 -- danh mục tin tức
-create table DanhMucTin(
+create table DanhMucTin (
 	MaDMT VARCHAR(10) PRIMARY KEY,
 	TenDM NVARCHAR(500) NOT NULL
 );
@@ -161,6 +161,19 @@ CREATE TABLE TinTuc (
 	foreign key (MaAD) references Admin (MaAD)
 );
 
+-- phản hồi
+CREATE TABLE PhanHoi (
+	MaPH varchar(191) NOT NULL,
+	HoTen varchar(191) NOT NULL,
+	Email varchar(64) NOT NULL,
+	SoDienThoai varchar(11) NOT NULL,
+	DiaChi varchar(191) DEFAULT NULL,
+	TieuDe varchar(191) NOT NULL,
+	NoiDung text NOT NULL,
+    
+	primary key (MaPH)
+);
+
 -- insert KhachHang
 insert KhachHang (MaKH, TenDangNhap, MatKhau, HoTen, SoDienThoai) 
 values
@@ -172,13 +185,13 @@ values
     ('KH006', 'ngan', '123', N'Trần Thị Ngân', '0898154433'),
     ('KH007', 'duong', '123', N'Võ Thùy Dương', '0898154434');
 
--- insert diachi
+-- insert DiaChi
 INSERT INTO DiaChi( MaDC, MaKH,Tinh, Huyen,Xa,SoNha, GhiChu, MacDinh)
 VALUES
     ('DC001', 'KH001', N'Quảng Nam', N'Điện Bàn', N'Xa1', N'Số nhà 12', N'ghi chú 1', 1),
-    ('DC002', 'KH006', N'Quảng Nam', N'Thăng Bình',  N'Xa2', N'Số nhà 10', N'ghi chú 2', 1),
+    ('DC002', 'KH006', N'Quảng Nam', N'Thăng Bình', N'Xa2', N'Số nhà 10', N'ghi chú 2', 1),
     ('DC003', 'KH004', N'Đà nãng', N'Liên Chiểu', N'Hòa Khánh', N'Số 124', N'ghi chú 3', 1),
-    ('DC004', 'KH002', N'Quảng Ngãi', N'Đức Phổ',  N'Xa3', N'Số 111', N'ghi chú 4', 1),
+    ('DC004', 'KH002', N'Quảng Ngãi', N'Đức Phổ', N'Xa3', N'Số 111', N'ghi chú 4', 1),
     ('DC005', 'KH001', N'Đà Nẵng', N'Cẩm Lệ', N'Xa4', N'Số nhà 11', N'ghi chú 5', 0);
 
 -- insert DanhMuc    
@@ -1083,25 +1096,28 @@ values
     ('DG005', 'SP002', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
     ('DG006', 'SP002', 'KH002', 4, 'Tốt!'),
     ('DG007', 'SP005', 'KH001', 5, 'Sản phẩm bền lắm ạ!'),
-	('DG008', 'SP059', 'KH001', 5, 'Chất lượng sản phẩm tuyệt vời! Tôi rất hài lòng!'),
-    ('DG009', 'SP060', 'KH004', 4, 'Sản phẩm đẹp!'),
-    ('DG010', 'SP060', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
-    ('DG011', 'SP076', 'KH003', 3, 'Sản phẩm đẹp!'),
-    ('DG012', 'SP076', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
-    ('DG013', 'SP061', 'KH002', 4, 'Tốt!'),
-    ('DG014', 'SP061', 'KH001', 5, 'Sản phẩm đẹp!');
-    
+	('DG020', 'SP059', 'KH001', 5, 'Chất lượng sản phẩm tuyệt vời! Tôi rất hài lòng!'),
+    ('DG021', 'SP060', 'KH004', 4, 'Sản phẩm đẹp!'),
+    ('DG022', 'SP060', 'KH005', 5, 'Chất lượng sản phẩm tốt!'),
+    ('DG023', 'SP076', 'KH003', 3, 'Sản phẩm đẹp!'),
+    ('DG024', 'SP076', 'KH001', 4, 'Sản phẩm bền lắm ạ!'),
+    ('DG025', 'SP061', 'KH002', 4, 'Tốt!'),
+    ('DG026', 'SP061', 'KH001', 5, 'Sản phẩm đẹp!');
+
+-- insert Admin
 insert Admin (MaAD, TenDangNhap, MatKhau, HoTen)
 values
 	('AD001', 'admin', '123', 'Nguyễn Phan Minh Thư');
 	
+-- insert DanhMucTin
 insert DanhMucTin (MaDMT, TenDM)
 values
 	('DM001', 'Tin công nghệ'),
 	('DM002', 'Review sản phẩm'),
 	('DM003', 'Khuyến mãi');
-    
-insert TinTuc(MaTT, TieuDe, TomTat, NgayDang, MaAD, NoiDung, MaDMT, Anh)
+   
+-- insert TinTuc
+insert TinTuc (MaTT, TieuDe, TomTat, NgayDang, MaAD, NoiDung, MaDMT, Anh)
 values
 	('TT001', 'Đây là 5 lý do bạn nên mua chiếc vivo Y33s ngay trong dịp cuối năm này', 'Phân khúc tầm trung luôn nhộn nhịp bởi các nhà sản xuất khá tập trung và mong muốn mang đến cho người dùng Việt Nam những trải nghiệm tốt nhất. Những ngày vừa qua, vivo Y33s đã tạo ra cơn sốt và hứa hẹn sẽ chiếm trọn niềm tin người dùng.', '2021-12-27', 'AD001', '<strong>1. Thiết kế mỏng nhẹ, khung viền phẳng 2.5D đẳng cấp</strong></br>Vivo luôn mang đến ngôn ngữ thiết kế mỏng nhẹ thời thượng cho smartphone của họ tại thị trường Việt Nam ở hầu như mọi phân khúc. vivo Y33s có độ dày chỉ 8mm và nặng 182g dù cho thiết kế màn hình lớn cùng viên pin dung lượng cao. Bên cạnh đó, khung viền phẳng 2.5D cũng sẽ giúp cho máy được cân bằng, tạo cảm giác cao cấp và thoải mái khi sử dụng.
     <br /><strong>2. Viên pin lớn, sạc siêu tốc tiết kiệm thời gian</strong></br>Vivo Y33s trang bị dung lượng pin 5000mAh giúp bạn có thể thoải mái sử dụng cả ngày mà không cần phải lo lắng vấn đề hết pin. Ngoài ra, Y33s còn được trang bị công nghệ Sạc Siêu Tốc 18W (9V-2A) và công nghệ vivo Energy Guardian (VEG) giúp sạc nhanh, giảm mức tiêu thụ năng lượng và quản lý năng lượng hiệu quả. Và đừng quên chức năng sạc ngược trên Y33s sẽ biến chiếc điện thoại của bạn thành một thiết bị sạc dự phòng tiện lợi.</br><strong>3. Cụm 3 camera sau siêu sắc nét</strong></br>

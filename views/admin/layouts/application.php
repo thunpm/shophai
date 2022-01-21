@@ -61,8 +61,29 @@
         if (isset($_SESSION['admin']) == false || $_SESSION['admin'] == null) {
             header("location:admin.php?controller=page&action=login");
             exit();
-        } 
+        } else {
+            $_SESSION["admin"] = unserialize(serialize($_SESSION["admin"]));
+        }
     } 
     ?>
-    <?= @$content ?> 
+
+    <?php
+    if (isset($title) && $title == "Đăng nhập Admin") {
+    ?>
+        <?= @$content ?> 
+    <?php
+    } else {
+    ?>
+        <div class="content-block">
+            <div style="width: 20%;">
+                <?php require_once('views/admin/layouts/sibar.php') ?>
+            </div>
+            <div style="width: 80%;">
+                <?php require_once('views/admin/layouts/menu.php') ?>
+                <?= @$content ?> 
+            </div>
+        </div>
+    <?php
+    }
+    ?>
 </body> 

@@ -2,36 +2,37 @@
 <?php require('views/client/layouts/menu.php'); ?>
 
 <div class="main-block">
-	<div class="content">
-		<div class="banner">
-			<div id="carouselExampleControls" class="carousel slide border" data-ride="carousel">
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="assets/images/banners/banner-1.jpg">
-					</div>
-					<div class="carousel-item">
-						<img src="assets/images/banners/banner-2.jpg">
-					</div>
-					<div class="carousel-item">
-						<img src="assets/images/banners/banner-3.jpg">
-					</div>
-					<div class="carousel-item">
-						<img src="assets/images/banners/banner-4.jpg">
-					</div>
-					<div class="carousel-item">
-						<img src="assets/images/banners/banner-5.jpg">
-					</div>
+	<div class="banner">
+		<div id="carouselExampleControls" class="carousel slide border" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item">
+					<img src="assets/images/banners/banner-1.jpg">
 				</div>
-				<a class="carousel-control-prev" role="button" href="#carouselExampleControls" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only"></span>
-				</a>	
-				<a class="carousel-control-next" role="button" href="#carouselExampleControls" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only"></span>
-				</a>
+				<div class="carousel-item">
+					<img src="assets/images/banners/banner-2.jpg">
+				</div>
+				<div class="carousel-item">
+					<img src="assets/images/banners/banner-3.jpg">
+				</div>
+				<div class="carousel-item">
+					<img src="assets/images/banners/banner-4.jpg">
+				</div>
+				<div class="carousel-item active">
+					<img src="assets/images/banners/banner-5.jpg">
+				</div>
 			</div>
+			<a class="carousel-control-prev" role="button" href="#carouselExampleControls" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only"></span>
+			</a>	
+			<a class="carousel-control-next" role="button" href="#carouselExampleControls" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only"></span>
+			</a>
 		</div>
+	</div>
+	<div class="content">
+		
 		<div class="product-block">
 			<?php
 			if($listDM != null) {
@@ -210,7 +211,7 @@
 										$demSanPham += 1;
 										if ($demSanPham <= 4) {
 								?>
-										<a href="index.php?controller=product&action=product_detail&masp=<?= $sanPham->maSP?>&madanhmuc=<?=$danhMuc->maDM?>" class="card">
+										<a href="index.php?controller=product&action=product_detail" class="card">
 											<img class="product-similar-item__img" src="assets/images/products/<?= $sanPham->listHinh[0]->tenHinh?>" alt="Card image cap">
 											<div class="card-body">
 												<h5 class="card-title"><?= $sanPham->tenSP ?></h5>

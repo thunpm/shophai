@@ -6,7 +6,7 @@
 	    protected $folder; 
 
 	    // Hàm hiển thị kết quả ra cho người dùng. 
-        function render($file, $data = array()) {		
+        function render($file, $data = array()) {	
             // lấy danh mục
             include_once('controllers/' . 'CategoryController.php');
             $category = new CategoryController;
@@ -24,7 +24,7 @@
             } 
         }
 
-        function render1($file) {		
+        function render1($file) {	
             $view_file = 'views/' . $this->folder . '/' . $file . '.php'; 
             if (is_file($view_file)) {	
                 require_once($view_file); 		

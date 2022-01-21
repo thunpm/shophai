@@ -1,5 +1,3 @@
-<?php require_once('views/admin/layouts/sibar.php') ?>
-
 <div id="wrapper">
   	<form method="post" action="">
 		<div class="row-fluid">
@@ -7,7 +5,7 @@
 				<div class="head">
 					<div class="isw-grid" style="color: red; margin-left: 20px ;">
                        <?php
-                       if(isset($message)) echo $message;
+                       		if (isset($message)) echo $message;
                        ?>
                     </div>
 					                       
@@ -23,7 +21,7 @@
 						</thead>
 						<tbody>
 							<tr>
-                            <td><input type="text" class="span12" name="MaDM" value="<?php echo isset($maDM) ? $maDM : "" ?>"></td>
+                            <td><input disabled type="text" class="span12" name="MaDM" value="<?php echo isset($maDM) ? $maDM : "" ?>"></td>
 							<td><input type="text" class="span12" name="TenDM" value="<?php echo isset($tenDM) ? $tenDM : "" ?>"></td>
 							</tr> 
 						</tbody>

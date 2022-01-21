@@ -1,5 +1,3 @@
-<?php require_once('views/admin/layouts/sibar.php') ?>
-
 <div id="wrapper">
 	<div class="workplace">                         
 		<div class="row-fluid">

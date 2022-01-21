@@ -1,6 +1,5 @@
 <?php 
     class AdminBaseController { 
-
 	    protected $folder; 
 
 	    // Hàm hiển thị kết quả ra cho người dùng. 
@@ -16,16 +15,6 @@
                 header('Location: admin.php?controller=page&action=error'); 
             } 
         }
-
-        function render1($file) {		
-            $view_file = 'views/' . $this->folder . '/' . $file . '.php'; 
-            if (is_file($view_file)) {	
-                require_once($view_file); 		
-                $content = ob_get_clean(); 
-                require_once('views/client/layouts/application.php'); 
-            } else {
-                header('Location: admin.php?controller=page&action=error'); 
-            } 
-        } 
+        
     }
 ?>

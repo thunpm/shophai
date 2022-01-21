@@ -12,22 +12,23 @@
 	    if (isset($_GET['action'])) { 
 		    $action = $_GET['action'];
 	    } else { 
-
+            $action = 'list';
 	    } 
     } else { 
 	    $controller = 'page'; 
-	    $action = 'login'; 
+	    $action = 'home'; 
     } 
 
     // lấy được controller với action rồi thì xử lý chuyển trang
-    $controllers = array('page' => ['home', 'error', 'login', 'check_login', 'info_admin', 'logout'], 
+    $controllers = array('page' => ['home', 'error', 'login', 'check_login', 'info_admin', 'logout'],
+                        'response' => ['listContact', 'deleteContact'], 
                         'user' => ['list', 'detail', 'delete'],
                         'category' => ['list', 'add', 'edit', 'delete'],
+                        'order' => ['list', 'edit', 'update', 'delete'],
                         'type' => ['list', 'add', 'edit', 'delete'],
                         'product' => ['list', 'add', 'edit', 'delete'],
-                        'evaluate' => ['list', 'delete'],
+                        'evaluate' => ['list', 'detail', 'delete'],
                         'news' => ['list', 'add', 'edit', 'delete'],
-                        'invoice' => ['list', 'add', 'update', 'delete'],
                         'statistics' => ['list']);
 
     if (! array_key_exists($controller, $controllers) || ! in_array($action, $controllers[$controller])) { 

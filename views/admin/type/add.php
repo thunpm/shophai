@@ -1,5 +1,3 @@
-<?php require_once('views/admin/layouts/sibar.php') ?>
-
 <div id="wrapper">
   	<form method="post" action="">
 		<div class="row-fluid">

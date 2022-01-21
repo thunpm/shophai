@@ -71,23 +71,24 @@
                 $last = $item['MaTL'];
             } 
 
+            if ($last == null) {
+                $last = 'LSP000';
+            }
+            $last = substr($last, 3, 4) + 0;
+            $last = $last + 1;
+            for($i = 0; $i <= 3 - strlen($last); $i++) {
+                $last = '0'.$last;
+            }
+            $last = 'LSP'.$last;
+
             return $last;
         }
 
-        static function insertTheLoai($MaTheLoai, $TenTheLoai, $MaDanhMuc) { 
+        static function insertTheLoai($TenTheLoai, $MaDanhMuc) { 
             $db = DB::getInstance();
 
-            $MaTL = Type::lastID();
-            if ($MaTL == null) {
-                $MaTL = 'LSP000';
-            }
-            $MaTheLoai = substr($MaTL, 3, 4) + 0;
-            $MaTheLoai = $MaTheLoai + 1;
-            for($i = 0; $i <= 3 - strlen($MaTheLoai); $i++) {
-                $MaTheLoai = '0'.$MaTheLoai;
-            }
-            $MaTheLoai = 'LSP'.$MaTheLoai;
- 
+            $MaTheLoai = Type::lastID();
+            
             $stmt = $db->prepare('insert into theloai (MaTL, TenTL, MaDM) values (:MaTL, :TenTL, :MaDM)');
             $stmt->bindParam(':MaTL', $MaTheLoai);
             $stmt->bindParam(':TenTL', $TenTheLoai);

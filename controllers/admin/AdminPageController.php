@@ -49,9 +49,10 @@
             $this->render('info_admin', $data); 
         }
 
-        public function error() {
+        public function error() { 
             $data = array('title' => 'Lỗi'); 
             $this->render('error', $data); 
-        } 
+        }
+
     }
 ?>

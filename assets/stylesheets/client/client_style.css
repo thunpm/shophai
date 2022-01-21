@@ -50,27 +50,28 @@ p {
 
 .header .find .search-box input {
 	width: 370px;
-    height: 40px;
-    border: 2px solid #14274A;
-    border-radius: 5px 0px 0px 5px;
+    height: 38px;
+    border-radius: 3px 0px 0px 3px;
     float: left;
-    padding-left: 15px;
-    font-size: 18px;
+    padding-left: 18px;
+    font-size: 16px;
+	margin-top: 1px;
 }
 
 .header .find .search-box button {
 	width: 50px;
 	height: 40px;
-	font-size: 25px;
+	font-size: 19px;
 	background-color: #14274A;
-	border-radius: 0px 5px 5px 0px;
+	border-radius: 0px 3px 3px 0px;
 	color: white;
+	cursor: pointer;
 }
 
 .header .login-cart a {
 	display: flex;
 	flex-direction: column;
-	font-size: 18px;
+	font-size: 15px;
 	color: white;
 	margin: 10px;
 }
@@ -94,7 +95,6 @@ p {
 	width: 100%;
 	background-color: #14274A;
 	color: white;
-	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -118,6 +118,7 @@ p {
 	text-decoration: none;
 	color: white;
 	text-transform: uppercase;
+	font-size: 20px;
 }
 
 .menu .dropdown-menu.show {
@@ -148,6 +149,7 @@ p {
 
 .footer p {
 	line-height: 23px;
+	margin-bottom: 3px;
 }
 
 .footer .khoi {
@@ -187,7 +189,7 @@ p {
 }
 
 .main-block {
-	background-color: gainsboro;
+	background-color: #f6f6f6;
 }
 
 .main-block .content {
@@ -195,6 +197,14 @@ p {
 	margin: auto;
 	margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.banner {
+	width: 100%;
+}
+
+.banner img {
+	width: 100%;
 }
 
 .main-block .content .banner img {
@@ -211,7 +221,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
 	margin-bottom: 30px;
 }
 
@@ -268,10 +278,11 @@ p {
 .card-list .card {
 	width: 260px;
 	cursor: pointer;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	margin-right: 15px;
+	margin-bottom: 15px;
 	color: black;
 	min-height: 440px;
+	transition: .3s ease-in-out;
 }
 
 .card-list div:nth-child(4) {
@@ -286,7 +297,8 @@ p {
 
 .card-list .card:hover {
 	transform: scale(1.01);
-	box-shadow: rgb(0 0 0 / 10%) 0px 0px 20px;
+	transition: .3s ease-in-out;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	text-decoration: none;
 }
 
@@ -294,19 +306,14 @@ p {
 	padding: 0px 10px 0px 10px;
 }
 
-.card-list .card .card-text {
-	margin-bottom: 10px;
-	font-size: 15px;
-}
-
 .dac-tinh {
 	display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #e9ecef;
     border-radius: 3px;
-    padding: 2px;
-    margin-left: 5px;
+    padding: 2px 5px;
+    margin-right: 2px;
     margin-bottom: 5px;
-	color: #0062cc;
+    color: #1b4ca1;
 }
 
 span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
@@ -321,32 +328,28 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 .card-list .card .gia {
 	height: 40px;
 	margin: 10px 10px;
-	text-align: center;
 }
 
 .card-list .card .gia-goc {
-    top: 10px;
-    left: 55%;
-    color: #d21809;
     text-decoration: line-through;
-	font-weight: bold;
+	text-align: right;
 }
 
 .card-list .card .gia-km {
-	border: 1px solid #d21809;
 	border-radius: 10px;
 	font-weight: 700;
-	background-color: #d21809;
-    color: white;
-	font-size: 16px;
+    color: #d21809;
+	font-size: 20px;
+	text-align: left;
 }
 
 .login-block {
 	background-image: url("../../images/commons/nen-login.jpg");
-	background-repeat: round;
-	width: 100%;
-	height: 800px;
-    opacity: 0.7;
+	background-repeat: no-repeat;
+    width: 100%;
+    height: 800px;
+    opacity: 0.8;
+    background-size: cover;
 }
 
 .login-block #login .container #login-row #login-column #login-box {
@@ -354,8 +357,7 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 	max-width: 600px;
 	height: auto;
 	padding-bottom: 30px;
-	border: 1px solid #8b8686;
-	background-color: #EAEAEA;
+    background-color: #f6f6f6d6;
 }
 
 .login-block #login .container #login-row #login-column #login-box #login-form {
@@ -377,7 +379,7 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 
 .main-block .content .user-info-block {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .main-block .content .list-user-info {
@@ -414,7 +416,7 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 }
 
 .main-block .content .user-info {
-	width: 60%;
+	width: 70%;
 	padding: 30px;
 	background-color: white;
 	border-radius: 5px;
@@ -496,4 +498,31 @@ span.fas.fa-angle-right::before, span.fas.fa-angle-left::before {
 	.dac-tinh {display: none;}
 }
 
+.card {
+	border: 0 !important;
+}
 
+.card-list .product-similar-item__sold {
+	margin-left: 0;
+}
+
+.product-block .carousel {
+	border: 0 !important;
+	border-top: 1px solid #e9ecef !important;
+}
+
+.login-form .icon-user {
+	padding: 7px 8px;
+    border-radius: 50%;
+    border: 1px solid #d2190a;
+    font-size: 19px;
+}
+
+.login-form .form-control {
+	border: 1px solid #e9ecef;
+}
+
+.login-form .form-group label {
+	margin-bottom: 5px;
+	font-size: 15px;
+}

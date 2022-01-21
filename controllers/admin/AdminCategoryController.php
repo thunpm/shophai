@@ -1,4 +1,3 @@
-
 <?php 
     require_once('controllers/admin/AdminBaseController.php');
     require_once('models/Category.php');
@@ -58,33 +57,36 @@
         public function add() { 
             if (isset($_POST['submit'])) {
                 $message = "";
-                $MaDM = $_POST['MaDM'];
                 $TenDM = $_POST['TenDM'];
 
-                if($MaDM == "" || $TenDM == "") {
+                if($TenDM == "") {
                     $message = "Giá trị nhập vào rỗng!";
-                    $data = array('title' => 'Thêm danh mục', 'message' => $message); 
+                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => Category::lastID()); 
                     $this->render('add', $data);
                     return;
                 }
 
-                $kq = Category::insertDM($MaDM, $TenDM);
+                $kq = Category::insertDM($TenDM);
                 //tên danh mục đã tồn tại
-                if($kq == 2) {
+                if ($kq == 2) {
                     $message = "Tên danh mục đã tồn tại!";
-                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => $MaDM, 'tenDM' => $TenDM); 
+                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => Category::lastID(), 'tenDM' => $TenDM); 
                     $this->render('add', $data);
-                    return;
+                } else if ($kq == 1) {
+                    $message = "Lỗi không xác định!";
+                    $data = array('title' => 'Thêm danh mục', 'message' => $message, 'maDM' => Category::lastID(), 'tenDM' => $TenDM); 
+                    $this->render('add', $data);
+                } else {
+                    //thêm thành công
+                    $message = "Thêm danh mục thành công!";
+                    $listDM = Category::listDanhMuc();
+                    $data = array('title' => 'Quản lý danh mục', 'message' => $message, 'listDM' => $listDM);  
+                    $this->render('list', $data);
                 }
-                //thêm thành công
-                $message = "Thêm danh mục thành công!";
-                $listDM = Category::listDanhMuc();
-                $data = array('title' => 'Quản lý danh mục', 'message' => $message, 'listDM' => $listDM);  
-                $this->render('list', $data);
-                return;
+            } else {
+                $data = array('title' => 'Thêm danh mục', 'maDM' => Category::lastID()); 
+                $this->render('add', $data);
             }
-            $data = array('title' => 'Thêm danh mục'); 
-            $this->render('add', $data);
         }
 
         public function delete() {

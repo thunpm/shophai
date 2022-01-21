@@ -6,6 +6,7 @@
     require_once('models/Address.php'); 
     require_once('models/Customer.php'); 
     require_once('models/Invoice.php'); 
+    require_once('models/Evaluate.php'); 
 
     class CartController extends BaseController  { 
         function __construct() { 

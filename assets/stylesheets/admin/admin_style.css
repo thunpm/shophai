@@ -4,12 +4,14 @@
 	border: 0;
 	line-height: 18px;
 }
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
 
-body {
+.content-block {
+	width: 100%;
 	overflow-x: hidden;
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
+	display: flex;
 }
 
 .header {
@@ -19,12 +21,6 @@ body {
 	position: absolute;
 	z-index: 998;
 	background:#263238 ;
-}
-
-#wrapper { 
-    padding-left: 250px;
-    height: 40px;
-   
 }
 
 .login-block {
@@ -68,3 +64,37 @@ body {
 .workplace {
 	padding-bottom: 50px;
 }
+
+.label-info {
+	font-size: 12px;
+    background: #1bc4df;
+    padding: 1px 9px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.label-danger {
+	font-size: 12px;
+    background: #cd3b49;
+    padding: 1px 9px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.label-warning {
+	font-size: 12px;
+    background: #ffc20c;
+    padding: 1px 9px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+	position: fixed;
+    width: 80%;
+}
+
+#wrapper { 
+    padding-top: 75px;
+}
+

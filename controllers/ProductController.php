@@ -65,5 +65,22 @@
             }
            
         }
+
+        public function rating2() {
+            $maSp = $_POST['maSP'];
+            $maKh = $_POST['maKH'];
+            $danhGia = $_POST['rating'];
+            $nhanXet = $_POST['content'];
+            $query = Evaluate::store($maSp, $maKh, $danhGia, $nhanXet);
+
+
+            if ($query > 0) {
+                echo 400;
+                return;
+            } else {
+                echo 200;
+                return;
+            }
+        }
     }
 ?>

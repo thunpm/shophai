@@ -15,10 +15,6 @@
 				</div>
 				<div class="block-sorting">
 					<table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable">
-	
-	
-	  
-		  
 	  	<input type="hidden" name="MaSP" value="">
 	  <tr>
 	  	<td>Tên sản phẩm</td>
@@ -50,17 +46,11 @@
 	<td>
 	
 		  <select name="danhmuc">
-		  <?php 
-						if($listt != null) {
-							foreach($listt as $item) {
-					
-						
-						//  echo"<pre>";
-						//  print_r($value);
-					?>
-			
-			<option value="<?php echo isset($item) ? $item->maTL : '' ?>"><?php echo isset($item) ? $item->tenTL : "" ?></option>
-			
+		  	<?php 
+			if($listt != null) {
+				foreach($listt as $item) {
+			?>
+				<option value="<?php echo isset($item) ? $item->maTL : '' ?>"><?php echo isset($item) ? $item->tenTL : "" ?></option>
 			<?php }}?>
 		</select>
 		

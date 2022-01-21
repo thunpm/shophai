@@ -140,60 +140,41 @@
                 $last = $item['MaSP'];
             } 
 
+            if ($last == null) {
+                $last = 'SP000';
+            }
+            $last = substr($last, 2, 3) + 0;
+            $last = $last + 1;
+            for ($i = 0; $i <= 3 - strlen($last); $i++) {
+                $last = $last;
+            }
+            $last = 'SP'.$last;
+
             return $last;
         }
 
         // thêm sản phẩm
-        static function InsetSP($so,$tenSP,$MoTa,$SoLuongCo,$Gia,$KhuyenMai,$maTL) { 
+        static function InsetSP($tenSP, $MoTa, $SoLuongCo, $Gia, $KhuyenMai, $maTL) { 
             $db = DB::getInstance(); 
-            $MaSP = Product::lastID();
-            if ($MaSP == null) {
-                $MaSP = 'SP00';
-            }
-            $so = substr($MaSP, 2, 3) + 0;
-            $so = $so + 1;
-            for ($i = 0; $i <= 3 - strlen($so); $i++) {
-                $so = $so;
-            }
-            $so = 'SP'.$so;
+
+            $so = Product::lastID();
         
             $sql= "INSERT INTO `sanpham`(`MaSP`, `TenSP`, `MoTa`, `SoLuongCo`, `Gia`, `KhuyenMai`, `MaTL`) 
                                 VALUES ('$so','$tenSP','$MoTa','$SoLuongCo','$Gia','$KhuyenMai','$maTL')";
-            
-                $req = $db->query($sql);
-                // echo"<pre>";
-                // print_r($req);
-            
-        }
-        static function InsetHA($MaAnh,$so,$tenHA) { 
-            $db = DB::getInstance(); 
-            // $so = Product::InsetSP($so,$tenSP,$MoTa,$SoLuongCo,$Gia,$KhuyenMai,$maTL);
-            $MaHA = Product::lastID();
-            if ($MaHA == null) {
-                $MaHA = 'HA00';
-            }
-            $MaAnh = substr($MaHA, 2, 3) + 0;
-            $MaAnh = $MaAnh + 1;
-            for ($i = 0; $i <= 3 - strlen($MaAnh); $i++) {
-                $MaAnh = $MaAnh;
-            }
-            $MaAnh = 'HA'.$MaAnh;
-        
-            $sql= "INSERT INTO `sanpham`(`MaHA`, `MaSP`, `TenHinh`) 
-                                VALUES ('$MaHA','$MaAnh','$tenHA')";
-            
-                $req = $db->query($sql);
-                // echo"<pre>";
-                // print_r($req);
-            
+            $req = $db->query($sql);
+
+            if ($req == true) { 
+                return true;
+            } 
+            return false;
         }
 
-        static function editSP($maSP, $tenSP,$MoTa,$SoLuongCo,$Gia,$KhuyenMai,$maTL) {
-        
+        static function editSP($maSP, $tenSP, $MoTa, $SoLuongCo, $Gia, $KhuyenMai, $maTL) {
             $db = DB::getInstance(); 
-            $sql= "UPDATE sanpham SET MaSP='$maSP',TenSP='$tenSP',MoTa='$MoTa',SoLuongCo='$SoLuongCo',Gia='$Gia',KhuyenMai='$KhuyenMai',MaTL='$maTL' WHERE MaSP='".$maSP."' ";
+            $sql= "UPDATE sanpham SET TenSP='$tenSP', MoTa='$MoTa', SoLuongCo=".$SoLuongCo.", Gia=".$Gia.", KhuyenMai=".$KhuyenMai.", MaTL='$maTL' WHERE MaSP='".$maSP."'";
             $req = $db->query($sql);
-            foreach ($req->fetchAll() as $item) { 
+            
+            if ($req == true) { 
                 return true;
             } 
             return false;

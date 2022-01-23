@@ -76,7 +76,7 @@
             }
             $last = substr($last, 3, 4) + 0;
             $last = $last + 1;
-            for($i = 0; $i <= 3 - strlen($last); $i++) {
+            for($i = 0; $i < 3 - strlen($last); $i++) {
                 $last = '0'.$last;
             }
             $last = 'LSP'.$last;

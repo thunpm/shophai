@@ -1,5 +1,5 @@
 <?php 
-
+require_once ('models/Address.php');
 class Customer { 
     public $idCustomer;
     public $username;
@@ -21,7 +21,7 @@ class Customer {
         $this->birthday = $birthday;
     } 
 
-public function setUers ($idCustomer)
+    public function setUers ($idCustomer)
     	{
         	$this->idCustomer = $idCustomer;
     	}
@@ -49,7 +49,7 @@ public function setUers ($idCustomer)
         }
         $so = substr($MaKH, 2, 3) + 0;
         $so = $so + 1;
-        for ($i = 0; $i <= 3 - strlen($so); $i++) {
+        for ($i = 0; $i < 3 - strlen($so); $i++) {
             $so = '0'.$so;
         }
         $so = 'KH'.$so;
@@ -188,6 +188,7 @@ static function getAll()
         $stmt->execute();
         return 1;
     }
+    
 }
 
 ?>

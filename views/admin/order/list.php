@@ -53,16 +53,9 @@
                                         <b><?= number_format($total) ?> VNĐ</b>
                                     </td>	
                                     <td>
-                                        <?php if ($item->trangThai == 0) { ?>
-                                            <label class="label label-warning">
-                                                Đặt hàng
-                                            </label>
-                                        <?php } ?>
-                                        <?php if ($item->trangThai == 1) { ?>
-                                            <label class="label label-info">
-                                                Đã nhận hàng
-                                            </label>
-                                        <?php } ?>
+                                        <label class="label label-info">
+                                            <?= $item->trangThai ?>
+                                        </label>
                                     </td>	
                                     <td>
                                         <a style="font-size: 15px" href="admin.php?controller=order&action=edit&MaHD=<?= $item->maHD ?>">

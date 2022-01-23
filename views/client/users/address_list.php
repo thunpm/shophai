@@ -49,23 +49,23 @@
                                 <div class="modal-body"> 
                                     <div class="form-group">
                                         <label>Tỉnh/Thành phố: </label>
-                                        <input class="form-control" type="text" name="tinh" value="">
+                                        <input required class="form-control" type="text" name="tinh" value="">
                                     </div>
                                     <div class="form-group">
                                         <label>Quận/Huyện: </label>
-                                        <input class="form-control" type="text" name="huyen" value="">
+                                        <input required class="form-control" type="text" name="huyen" value="">
                                     </div>
                                     <div class="form-group">
                                         <label>Xã/Phường: </label>
-                                        <input class="form-control" type="text" name="xa" value="">
+                                        <input required class="form-control" type="text" name="xa" value="">
                                     </div>
                                     <div class="form-group">
                                         <label>Số nhà: </label>
-                                        <input class="form-control" type="text" name="diaChi" value="">
+                                        <input required class="form-control" type="text" name="diaChi" value="">
                                     </div>
                                     <div class="form-group">
                                         <label>Ghi chú: </label>
-                                        <input class="form-control" type="text" name="diaChi" value="">
+                                        <input required class="form-control" type="text" name="ghiChu" value="">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="info">
                             <div class="add-address">
-                                <a href="#" data-toggle="modal" data-target="#<?= $address->maDC ?>">Chỉnh sửa</a>
+                                <a href="index.php?controller=user&action=add_address&id=<?= $address->maDC ?>" data-toggle="modal" data-target="#<?= $address->maDC ?>">Chỉnh sửa</a>
                             </div>
                             <!-- Modal -->
                             <div class="modal fade" id="<?= $address->maDC ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,27 +108,28 @@
                                             <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="index.php?controller=user&action=add_address" method="POST">
+                                        <form action="index.php?controller=user&action=update_address" method="POST">
                                             <div class="modal-body"> 
+                                                <input type="hidden" name="id" value="<?= $address->maDC ?>">
                                                 <div class="form-group">
                                                     <label>Tỉnh/Thành phố: </label>
-                                                    <input class="form-control" type="text" name="tinh" value="<?= $address->tinh ?>">
+                                                    <input required class="form-control" type="text" name="tinh" value="<?= $address->tinh ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Quận/Huyện: </label>
-                                                    <input class="form-control" type="text" name="huyen" value="<?= $address->huyen ?>">
+                                                    <input required class="form-control" type="text" name="huyen" value="<?= $address->huyen ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Xã/Phường: </label>
-                                                    <input class="form-control" type="text" name="xa" value="<?= $address->xa ?>">
+                                                    <input required class="form-control" type="text" name="xa" value="<?= $address->xa ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Số nhà: </label>
-                                                    <input class="form-control" type="text" name="soNha" value="<?= $address->soNha ?>">
+                                                    <input required class="form-control" type="text" name="soNha" value="<?= $address->soNha ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Ghi chú: </label>
-                                                    <input class="form-control" type="text" name="ghiChu" value="<?= $address->ghiChu ?>">
+                                                    <input required class="form-control" type="text" name="ghiChu" value="<?= $address->ghiChu ?>">
                                                 </div>
                                                 <div class="form-group form-check">
                                                     <?php
@@ -149,6 +150,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="info">
+                            <p class="mac-dinh"><a href="index.php?controller=user&action=delete_address&id=<?= $address->maDC ?>">Xóa</a></p>
                         </div>
                     </div>
                 </div>

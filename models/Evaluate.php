@@ -77,7 +77,7 @@
 			}
 			$so = substr($maDG, 2, 3) + 0;
 			$so = $so + 1;
-			for ($i = 0; $i <= 3 - strlen($so); $i++) {
+			for ($i = 0; $i < 3 - strlen($so); $i++) {
 				$so = '0'.$so;
 			}
 			$so = 'DG'.$so;
@@ -96,9 +96,18 @@
 
 		static function store ($maSP, $maKH, $danhGia, $nhanXet) {
 			$maDG = Evaluate::lastID();
+			if ($maDG == null) {
+				$maDG = 'DG000';
+			}
+			$so = substr($maDG, 2, 3) + 0;
+			$so = $so + 1;
+			for ($i = 0; $i < 3 - strlen($so); $i++) {
+				$so = '0'.$so;
+			}
+			$so = 'DG'.$so;
 			$db = DB::getInstance(); 
 			$sql = "INSERT INTO `danhgia`(`MaDG`, `MaSP`, `MaKH`, `DanhGia`, `NhanXet`)
-                           VALUE('$maDG','$maSP','$maKH','$danhGia','$nhanXet')"; 
+                           VALUE('$so','$maSP','$maKH','$danhGia','$nhanXet')"; 
 			$req = $db->query($sql);
 		}
 

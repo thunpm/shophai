@@ -91,8 +91,8 @@
                                 </td>	 -->
                                 <td><?= $item->sanPham->tenSP ?></td>
                                 <td><?= $item->soLuong ?></td>
-                                <td><?= $item->donGia ?></td>
-                                <td><?= $item->khuyenMai ?></td>
+                                <td><?= number_format($item->donGia) ?> đ</td>
+                                <td><?= number_format($item->khuyenMai) ?> đ</td>
                                 <td><?= number_format(($item->donGia - $item->khuyenMai)*($item->soLuong)) ?> đ</td>
 							</tr> 
                         <?php
@@ -101,7 +101,16 @@
                         ?>
 						</tbody>
 					</table>
+                    
                     <div id="doanhThu" style="display: none;"><?= $tongDoanhThu ?></div>
+                    <div class="isw-grid">
+                       	<a href="admin.php?controller=statistics&action=list"  class="isw-grid__add">
+							<h2 class="isw-grid__text">
+								
+								Trở lại
+							</h2>
+                       </a>
+                    </div>
 				</div>
 			</div> 
 		</div>

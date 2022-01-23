@@ -82,5 +82,14 @@
                 return;
             }
         }
+
+        public function product_list_search() {
+            if(isset($_POST['submit'])) {
+                $key = $_POST['searchText'];
+                $sanPham = Product::listSearch($key);
+                $data = array('title' => 'Tìm kiếm sản phẩm', 'spTimKiem' => $sanPham);
+                $this->render('product_list_search', $data);
+            }
+        }
     }
 ?>

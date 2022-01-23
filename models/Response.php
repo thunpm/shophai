@@ -54,7 +54,7 @@
 			}
 			$ID = substr($last, 2, 3) + 0;
 			$ID = $ID + 1;
-			for ($i = 0; $i <= 3 - strlen($ID); $i++) {
+			for ($i = 0; $i < 3 - strlen($ID); $i++) {
 				$ID = '0'.$ID;
 			}
 			$ID = 'PH'.$ID;

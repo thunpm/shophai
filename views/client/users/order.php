@@ -40,7 +40,9 @@
                     <tr>
                         <th>Mã đơn hàng</th>
                         <th>Ngày đặt</th>
+                        <th>Trạng thái</th>
                         <th>Chi tiết</th>
+                        <th>Hủy đơn</th>
                     </tr>
                     <?php
                     if (isset($listOrder)) {
@@ -49,6 +51,7 @@
                     <tr>
                         <td><?= $order->maHD ?></td>
                         <td><?= $order->ngayLap ?></td>
+                        <td><?= $order->trangThai ?></td>
                         <td>
                             <div class="info">
                                 <div class="add-address">
@@ -114,6 +117,17 @@
                                 </div>
                             </div>
                         </td>
+                        <?php
+                        if ($order->trangThai != "Đã hủy") {
+                        ?>
+                            <th>
+                                <a href="index.php?controller=user&action=cancel_order&id=<?= $order->maHD ?>"><i class="fas fa-times"></i></a>
+                            </th>
+                        <?php
+                        } else {
+                            echo '<th></th>';
+                        }
+                        ?>
                     </tr>
                     <?php
                         }
@@ -336,7 +350,7 @@
                     content: content,
                 },
                 success: function (response) {
-                    if (response == 400) {
+                    if (response == 200) {
                         $('#modal-rating').modal('hide');
                         clearForm();
 
@@ -344,7 +358,7 @@
                         setTimeout(() => {
                             $('.alert-rating-success').addClass('d-none');
                         }, 6000)
-                    } else if (response == 200) {
+                    } else if (response == 400) {
                         $('.alert-rating-fail').removeClass('d-none');
                         setTimeout(() => {
                             $('.alert-rating-fail').addClass('d-none');

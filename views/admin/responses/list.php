@@ -41,7 +41,15 @@
                                 </tr> 
                             <?php endforeach ?>
 						</tbody>
-					</table>		
+					</table>
+                    <div class="isw-grid">
+                       	<a href="admin.php?controller=responses&action=list"  class="isw-grid__add">
+							<h2 class="isw-grid__text">
+								
+								Trở lại
+							</h2>
+                       </a>
+                    </div>		
 				</div>
 			</div> 
 		</div>

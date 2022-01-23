@@ -45,9 +45,9 @@
 	</div>
    	<div class="find">
 		<div class="search-box">
-			<form action="#" method="POST" onsubmit="return check()">
-           		<input id="searchText" type="text" placeholder="Nhập tên sách hoặc tác giả cần tìm" name="searchText" value="">
-           		<button type="submit" class="fa fa-search"></button>
+			<form action="index.php?controller=product&action=product_list_search" method="POST" onsubmit="return check()">
+           		<input id="searchText" type="text" placeholder="Nhập tên sản phẩm cần tìm" name="searchText" value="">
+           		<button type="submit" class="fa fa-search" name="submit"></button>
            	</form>
         </div>
    	</div>

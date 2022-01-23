@@ -29,7 +29,14 @@
             }
          
         }
-       
 
+        public function detail() { 
+            $idCustomer = $_GET['id'];
+            $dulieu=Address::listAddress($idCustomer);
+           
+            $data = array('title' => 'Chi tiết khách hàng','dulieu'=>$dulieu); 
+           $this->render('detail', $data);
+       }
+       
     }
 ?>

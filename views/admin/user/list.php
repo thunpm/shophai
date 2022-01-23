@@ -6,7 +6,7 @@
 			<div class="span12">                    
 				<div class="head">
 					<div class="isw">
-					<h1 class="isw-grid__heading">Danh sách user</h1>
+					<h1 class="isw-grid__heading">Danh sách khách hàng</h1>
 					</div>
 					                         
 					<div class="clear"></div>
@@ -26,8 +26,8 @@
 								<th width="16%">Ngày Sinh</th>
                                 <th width="14%">Phone</th>
 								<th width="16%">Email</th> 
-                              
-                                <th></th>                                 
+								<th>Địa chỉ</th>     
+								<th></th>                            
 							</tr>
 						</thead>
 						<tbody>
@@ -48,6 +48,11 @@
 								<td><?=$value-> birthday ?></td>  
 								<td><?=$value-> phoneNumber ?></td>      
                                 <td><?=$value-> email ?></td>
+								<td>
+									<a href="admin.php?controller=user&action=detail&id=<?=$value-> idCustomer?>">
+									<i class="fas fa-eye customer-icon"></i>
+									</a>
+								</td>
 								<td>
 									<a href="admin.php?controller=user&action=delete&id=<?=$value-> idCustomer?>"onClick="return confirm('Bạn có chắc chắn muốn xóa ?');">
 										<i class="fas fa-trash-alt customer-icon"></i>

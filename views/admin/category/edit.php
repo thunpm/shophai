@@ -29,6 +29,14 @@
                     <div class="form-group">       
                         <input style="margin-top: 20px;" type="submit" name="submit" class="btn btn-danger btn-md" value="CẬP NHẬT">
                     </div>
+					<div class="isw-grid">
+                       	<a href="admin.php?controller=category&action=list"  class="isw-grid__add">
+							<h2 class="isw-grid__text">
+								
+								Trở lại
+							</h2>
+                       </a>
+                    </div>
 				</div>
 			</div>
 		</div>                                

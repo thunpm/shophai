@@ -62,14 +62,14 @@
                         } else {
                             $message = "Có lỗi xảy ra khi upload file!";
                             $item->settenSP ("");
-                            $data = array('title' => 'Sửa sản phẩm', 'listtype'=>$listtype, 'message' => $message, 'item' => $item); 
+                            $data = array('title' => 'Sửa sản phẩm', 'listt'=>$listtype, 'message' => $message, 'item' => $item); 
                             $this->render('edit', $data);
                             return;
                         }
                         $hinhAnh = $_FILES["hinhanh"]["name"];
                     } else {
                         $message = "File không đúng định dạng!";
-                        $data = array('title' => 'Sửa sản phẩm', 'listtype'=>$listtype, 'message' => $message, 'item' => $item); 
+                        $data = array('title' => 'Sửa sản phẩm', 'listt'=>$listtype, 'message' => $message, 'item' => $item); 
                         $this->render('edit', $data);
                         return;
                     }
@@ -77,7 +77,7 @@
 
                 if($tenSP == "" || $MoTa == "" ||$Gia == "" || $SoLuongCo == "" ||$maTL == "") {
                     $message = "Giá trị nhập vào rỗng!";
-                    $data = array('title' => 'Sửa sản phẩm', 'listtype'=>$listtype, 'message' => $message, 'item' => $item); 
+                    $data = array('title' => 'Sửa sản phẩm', 'listt'=>$listtype, 'message' => $message, 'item' => $item); 
                     $this->render('edit', $data);
                     return;
                 }

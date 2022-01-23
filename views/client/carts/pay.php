@@ -154,7 +154,7 @@
                     <?php
                     if (! (isset($diaChi) && $diaChi != null)) {
                         echo '<li class="pay-generality__information-item">
-                            <a href="index.php?controller=user&action=addaddress">Thêm địa chỉ</a>
+                            <a href="index.php?controller=user&action=address_list">Thêm địa chỉ</a>
                             </li>';
                     } else {
                         echo '<li class="pay-generality__information-item">'.
@@ -210,7 +210,7 @@
                             Tạm tính:    
                         </li>
                         <li class="pay-generality__provisional-price">
-                            <?= $tongTien ?>
+                            <?=number_format($tongTien) ?> đ
                         </li>
                     </div>
                     <div class="pay-generality__provisional">
@@ -226,7 +226,7 @@
                             Thành tiền:    
                         </li>
                         <li class="pay-generality__provisional-price" style="color: #ED5323;font-weight: 500;">
-                            <?= $tongTien ?>
+                            <?= number_format($tongTien) ?> đ
                         </li>
                     </div>
                 </div>

@@ -98,3 +98,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     padding-top: 75px;
 }
 
+.form-group input.btn.btn-danger.btn-md {
+    margin-left: 14px;
+}
+

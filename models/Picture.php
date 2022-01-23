@@ -39,8 +39,8 @@
             }
             $last = substr($last, 2, 3) + 0;
             $last = $last + 1;
-            for ($i = 0; $i <= 3 - strlen($last); $i++) {
-                $last = $last;
+            for ($i = 0; $i < 3 - strlen($last); $i++) {
+                $last = '0'.$last;
             }
             $last = 'HA'.$last;
 

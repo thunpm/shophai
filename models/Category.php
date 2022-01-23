@@ -89,7 +89,7 @@
         	}
         	$last = substr($last, 2, 2) + 0;
         	$last = $last + 1;
-        	for($i = 0; $i <= 2 - strlen($last); $i++) {
+        	for($i = 0; $i < 2 - strlen($last); $i++) {
         		$last = '0'.$last;
         	}
         	$last = 'DM'.$last;

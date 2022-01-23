@@ -50,8 +50,8 @@
 								<select name="MaTL">
 									<option value="0">Chọn thể loại</option>
 									<?php
-										if(isset($listtype)) {
-											foreach($listtype as $theloai) {
+										if(isset($listt)) {
+											foreach($listt as $theloai) {
 									?>
 									<option <?php if(isset($item) && ($item->maTL == $theloai->maTL)) echo "selected";?> value="<?=$theloai->maTL?>"><?=$theloai->tenTL?></option>
 									<?php }}?>
@@ -61,6 +61,14 @@
 					</table>
                     <div class="form-group">       
                         <input style="margin-top: 20px;" type="submit" name="submit" class="btn btn-danger btn-md" value="CẬP NHẬT">
+                    </div>
+					<div class="isw-grid">
+                       	<a href="admin.php?controller=product&action=list"  class="isw-grid__add">
+							<h2 class="isw-grid__text">
+								
+								Trở lại
+							</h2>
+                       </a>
                     </div>
 				</div>
 			</div>

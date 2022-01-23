@@ -71,7 +71,7 @@
 				$so = '0'.$so;
 			}
 			$so = 'HD'.$so;
-            $sql = "INSERT HoaDon(MaHD, MaKH, NgayLap) VALUES ('".$so."', '".$user->idCustomer."', '".$today."')"; 
+            $sql = "INSERT HoaDon(MaHD, MaKH, NgayLap, TrangThai) VALUES ('".$so."', '".$user->idCustomer."', '".$today."', 'Đang chuẩn bị hàng')"; 
             $req = $db->query($sql);
 
 			if ($req == true) {

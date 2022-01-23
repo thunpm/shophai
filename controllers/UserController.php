@@ -123,6 +123,19 @@
             }
         }
 
+        public function cancel_order() {
+            if (isset($_SESSION['user'])) {
+                if(isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                }
+                
+                if (isset($_GET['id'])) {
+                    Invoice::updateOrder($_GET['id'], "Đã hủy");
+                    $this->order();
+                }
+            }
+        }
+
         public function info() {
             if(isset($_POST['submit'])&& ($_POST['submit'])) {
                 $MaKH = $_POST['MaKH'];
@@ -160,9 +173,51 @@
                 if(isset($_SESSION['user'])) {
                     $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
                 }
-                $user_add = Address::listAddress($_SESSION['user']->idCustomer);
-                $data = array('title' => 'Sổ địa chỉ của tôi',  'info' => 'address', 'listAddress' => $user_add);  
-                $this->render('address_list', $data);
+
+                $tinh = $_POST['tinh'];
+                $huyen = $_POST['huyen'];
+                $xa = $_POST['xa'];
+                $diaChi = $_POST['diaChi'];
+                $ghiChu = $_POST['ghiChu'];
+
+                Address::add($_SESSION['user']->idCustomer, $tinh, $huyen, $xa, $diaChi, $ghiChu);
+                $this->address_list();
+            } else {
+                header('Location: index.php?controller=page&action=home'); 
+            }
+            
+        }
+
+        public function update_address() {
+            if (isset($_SESSION['user'])) {
+                if(isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                }
+
+                $id = $_POST['id'];
+                $tinh = $_POST['tinh'];
+                $huyen = $_POST['huyen'];
+                $xa = $_POST['xa'];
+                $diaChi = $_POST['soNha'];
+                $ghiChu = $_POST['ghiChu'];
+
+                Address::update($id, $tinh, $huyen, $xa, $diaChi, $ghiChu);
+                $this->address_list();
+            } else {
+                header('Location: index.php?controller=page&action=home'); 
+            }
+            
+        }
+
+        public function delete_address() {
+            if (isset($_SESSION['user'])) {
+                if(isset($_SESSION['user'])) {
+                    $_SESSION["user"] = unserialize(serialize($_SESSION["user"]));
+                }
+
+                $id = $_GET['id'];
+                Address::delete($id);
+                $this->address_list();
             } else {
                 header('Location: index.php?controller=page&action=home'); 
             }

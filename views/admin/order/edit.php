@@ -57,8 +57,8 @@
             >
                 <h6 class="heading-title">Trạng thái đơn hàng</h6>
                 <div style="font-size: 14px;">
-                    <input class="radio" value="0" name="TrangThai" type="radio" <?php if ($order->trangThai == 0) { ?> checked <?php } ?>> Đặt hàng <br>
-                    <input class="radio" value="1" name="TrangThai" type="radio" <?php if ($order->trangThai == 1) { ?> checked <?php } ?>> Đã nhận hàng 
+                    <input class="radio" value="Đang chuẩn bị hàng" name="TrangThai" type="radio" <?php if ($order->trangThai == "Đang chuẩn bị hàng") { ?> checked <?php } ?>> Đặt hàng <br>
+                    <input class="radio" value="Đã nhận hàng" name="TrangThai" type="radio" <?php if ($order->trangThai == "Dã nhận hàng") { ?> checked <?php } ?>> Đã nhận hàng 
                 </div>
                 <button type="submit" class="btn btn-success mt-2" style="font-size: 13px;">Cập nhật</button>
             </form>
